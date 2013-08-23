@@ -228,8 +228,30 @@ public class ContactGList extends JPanel implements ActionListener,
         // Add Contact List
         addContactListToWorkspace();
 
-        ContactGGroup contactGGroup = new ContactGGroup("unfiledGroup");
-        this.addContactGroup(contactGGroup);
+        ContactGGroup contactGGroup1 = new ContactGGroup("Group 1");
+        ContactGGroup contactGGroup2 = new ContactGGroup("Group 2");
+        ContactGGroup contactGGroup3 = new ContactGGroup("Group 3");
+        ContactGGroup contactGGroup4 = new ContactGGroup("Group 4");
+        ContactGGroup contactGGroup41 = new ContactGGroup("Group 41");
+        ContactGGroup contactGGroup42 = new ContactGGroup("Group 42");
+        ContactGGroup contactGGroup43 = new ContactGGroup("Group 43");
+        ContactGGroup contactGGroup431 = new ContactGGroup("Group 431");
+        ContactGGroup contactGGroup432 = new ContactGGroup("Group 432");
+        ContactGGroup contactGGroup4321 = new ContactGGroup("Group 4321");
+        ContactGGroup contactGGroup4322 = new ContactGGroup("Group 4322");
+
+        this.addContactGroup(contactGGroup1);
+        this.addContactGroup(contactGGroup2);
+        this.addContactGroup(contactGGroup3);
+        this.addContactGroup(contactGGroup4);
+        contactGGroup4.addContactGroup(contactGGroup41);
+        contactGGroup4.addContactGroup(contactGGroup42);
+        contactGGroup4.addContactGroup(contactGGroup43);
+        contactGGroup43.addContactGroup(contactGGroup431);
+        contactGGroup43.addContactGroup(contactGGroup432);
+        contactGGroup432.addContactGroup(contactGGroup4321);
+        contactGGroup432.addContactGroup(contactGGroup4322);
+
 
 
         this.setVisible(true);
