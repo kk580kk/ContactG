@@ -17,8 +17,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
-import java.util.ArrayList;
-import java.util.Collection;
+import java.util.*;
 import java.util.List;
 
 /**
@@ -96,6 +95,70 @@ public class ContactGList extends JPanel implements ActionListener,
 
     }
 
+    /**
+     * Returns a ContactGGroup based on its name.
+     *
+     * @param groupName the name of the ContactGGroup.
+     * @return the ContactGGroup. If no ContactGGroup is found, null is returned.
+     */
+    public ContactGGroup getContactGGroup(String groupName) {
+        ContactGGroup cGroup = null;
+
+        for (ContactGGroup contactGGroup : groupList) {
+            if (contactGGroup.getGroupName().equals(groupName)) {
+                cGroup = contactGGroup;
+                break;
+            }
+            else {
+                cGroup = getSubContactGroup(contactGGroup, groupName);
+                if (cGroup != null) {
+                    break;
+                }
+            }
+        }
+
+        return cGroup;
+    }
+
+    /**
+     * Returns the nested ContactGGroup of a given ContactGGroup with associated name.
+     *
+     * @param group     the parent ContactGGroup.
+     * @param groupName the name of the nested group.
+     * @return the nested ContactGGroup. If not found, null will be returned.
+     */
+    private ContactGGroup getSubContactGroup(ContactGGroup group, String groupName) {
+        final Iterator<ContactGGroup> contactGGroups = group.getContactGGroups().iterator();
+        ContactGGroup grp = null;
+
+        while (contactGGroups.hasNext()) {
+            ContactGGroup contactGroup = contactGGroups.next();
+            if (contactGroup.getGroupName().equals(groupName)) {
+                grp = contactGroup;
+                break;
+            }
+            else if (contactGroup.getContactGGroups().size() > 0) {
+                grp = getSubContactGroup(contactGroup, groupName);
+                if (grp != null) {
+                    break;
+                }
+            }
+
+        }
+        return grp;
+    }
+
+    /**
+     * Sorts ContactGroups
+     */
+    public static final Comparator<ContactGGroup> GROUP_COMPARATOR = new Comparator<ContactGGroup>() {
+        public int compare(ContactGGroup group1, ContactGGroup group2) {
+
+
+            return group1.getGroupName().trim().toLowerCase().compareTo(group2.getGroupName().trim().toLowerCase());
+        }
+    };
+
     public JPanel getMainPanel() {
         return mainPanel;
     }
@@ -165,8 +228,8 @@ public class ContactGList extends JPanel implements ActionListener,
         // Add Contact List
         addContactListToWorkspace();
 
-        ContactGGroup contactGGroup1 = new ContactGGroup("unfiledGroup");
-        this.addContactGroup(contactGGroup1);
+        ContactGGroup contactGGroup = new ContactGGroup("unfiledGroup");
+        this.addContactGroup(contactGGroup);
 
 
         this.setVisible(true);
