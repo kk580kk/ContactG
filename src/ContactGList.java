@@ -1,3 +1,4 @@
+import org.jivesoftware.Spark;
 import org.jivesoftware.smack.ConnectionListener;
 import org.jivesoftware.smack.RosterListener;
 import org.jivesoftware.smack.packet.Presence;
@@ -6,7 +7,7 @@ import org.jivesoftware.spark.SparkManager;
 import org.jivesoftware.spark.Workspace;
 import org.jivesoftware.spark.component.VerticalFlowLayout;
 import org.jivesoftware.spark.plugin.Plugin;
-import org.jivesoftware.spark.ui.*;
+import org.jivesoftware.spark.ui.FileDropListener;
 import org.jivesoftware.spark.util.log.Log;
 import org.jivesoftware.sparkimpl.settings.local.LocalPreferences;
 import org.jivesoftware.sparkimpl.settings.local.SettingsManager;
@@ -17,6 +18,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.*;
 import java.util.List;
 
@@ -39,6 +42,7 @@ public class ContactGList extends JPanel implements ActionListener,
 
 
     private ContactGGroup unfiledGroup;
+    private File propertiesFile;
 
 
     private LocalPreferences localPreferences;
@@ -57,7 +61,7 @@ public class ContactGList extends JPanel implements ActionListener,
         setLayout(new BorderLayout());
 
         mainPanel.setLayout(new VerticalFlowLayout(VerticalFlowLayout.TOP, 0, 0, true, false));
-        mainPanel.setBackground((Color)UIManager.get("ContactGItem.background"));
+        mainPanel.setBackground((Color) UIManager.get("ContactGItem.background"));
 
         contactListScrollPane = new JScrollPane(mainPanel);
         contactListScrollPane.setAutoscrolls(true);
@@ -67,7 +71,16 @@ public class ContactGList extends JPanel implements ActionListener,
         contactListScrollPane.getVerticalScrollBar().setUnitIncrement(20);
 
         add(contactListScrollPane, BorderLayout.CENTER);
-
+        // Load Properties file
+        props = new Properties();
+        // Save to properties file.
+        propertiesFile = new File(Spark.getSparkUserHome() + "/contactggroups.properties");
+        try {
+            props.load(new FileInputStream(propertiesFile));
+        }
+        catch (IOException e) {
+            // File does not exist.
+        }
         this.addContactGGroup(unfiledGroup);
         System.out.println("unfiledGroup Added");
 
@@ -81,7 +94,7 @@ public class ContactGList extends JPanel implements ActionListener,
      */
     private void addContactGGroup(ContactGGroup group) {
         groupList.add(group);
-
+        //分组排序功能，尚未完成，2013年8月27日14:27:08
 //        Collections.sort(groupList, GROUP_COMPARATOR);
         System.out.println("addContactGGroup");
         try {
@@ -91,10 +104,17 @@ public class ContactGList extends JPanel implements ActionListener,
             Log.error(e);
             System.out.println("addContactGGroup Error");
         }
-
-
+        group.addContactGGroupListener(this);
+        fireContactGGroupAdded(group);
+        // Check state
+        String prop = props.getProperty(group.getGroupName());
+        if (prop != null) {
+            boolean isCollapsed = Boolean.valueOf(prop);
+            group.setCollapsed(isCollapsed);
+        }
     }
 
+    private Properties props;
     /**
      * Returns a ContactGGroup based on its name.
      *
@@ -108,8 +128,7 @@ public class ContactGList extends JPanel implements ActionListener,
             if (contactGGroup.getGroupName().equals(groupName)) {
                 cGroup = contactGGroup;
                 break;
-            }
-            else {
+            } else {
                 cGroup = getSubContactGGroup(contactGGroup, groupName);
                 if (cGroup != null) {
                     break;
@@ -136,8 +155,7 @@ public class ContactGList extends JPanel implements ActionListener,
             if (contactGGroup.getGroupName().equals(groupName)) {
                 grp = contactGGroup;
                 break;
-            }
-            else if (contactGGroup.getContactGGroups().size() > 0) {
+            } else if (contactGGroup.getContactGGroups().size() > 0) {
                 grp = getSubContactGGroup(contactGGroup, groupName);
                 if (grp != null) {
                     break;
@@ -186,7 +204,6 @@ public class ContactGList extends JPanel implements ActionListener,
     public void reconnectionFailed(Exception e) {
         //To change body of implemented methods use File | Settings | File Templates.
     }
-
 
 
     public void showPopup(MouseEvent mouseEvent, ContactGItem contactGItem) {
@@ -238,14 +255,14 @@ public class ContactGList extends JPanel implements ActionListener,
         contactGGroup432.addContactGGroup(contactGGroup4321);
         contactGGroup432.addContactGGroup(contactGGroup4322);
 
-        ContactGItem contactGItem = new ContactGItem("a","a","a");
-        ContactGItem contactGItem1 = new ContactGItem("b","b","b");
-        ContactGItem contactGItem2 = new ContactGItem("c","c","c");
-        ContactGItem contactGItem3 = new ContactGItem("d","d","d");
-        ContactGItem contactGItem4 = new ContactGItem("e","e","e");
-        ContactGItem contactGItem5 = new ContactGItem("f","f","f");
-        ContactGItem contactGItem6 = new ContactGItem("g","g","g");
-        ContactGItem contactGItem7 = new ContactGItem("h","h","h");
+        ContactGItem contactGItem = new ContactGItem("a", "a", "a");
+        ContactGItem contactGItem1 = new ContactGItem("b", "b", "b");
+        ContactGItem contactGItem2 = new ContactGItem("c", "c", "c");
+        ContactGItem contactGItem3 = new ContactGItem("d", "d", "d");
+        ContactGItem contactGItem4 = new ContactGItem("e", "e", "e");
+        ContactGItem contactGItem5 = new ContactGItem("f", "f", "f");
+        ContactGItem contactGItem6 = new ContactGItem("g", "g", "g");
+        ContactGItem contactGItem7 = new ContactGItem("h", "h", "h");
 
         contactGGroup1.addContactGItem(contactGItem);
         contactGGroup2.addContactGItem(contactGItem1);
@@ -255,8 +272,6 @@ public class ContactGList extends JPanel implements ActionListener,
         contactGGroup42.addContactGItem(contactGItem5);
         contactGGroup43.addContactGItem(contactGItem6);
         contactGGroup431.addContactGItem(contactGItem7);
-
-
 
 
         this.setVisible(true);
@@ -310,7 +325,7 @@ public class ContactGList extends JPanel implements ActionListener,
 //        boolean handled = chatManager.fireContactItemDoubleClicked(item);
 
 //        if (!handled) {
-            chatManager.activateChat(item.getJID(), item.getDisplayName());
+        chatManager.activateChat(item.getJID(), item.getDisplayName());
 //        }
 
         clearSelectionList(item);
@@ -343,7 +358,9 @@ public class ContactGList extends JPanel implements ActionListener,
         Collections.sort(gList, GROUP_COMPARATOR);
         return gList;
     }
+
     private final List<FileDropListener> dndListeners = new ArrayList<FileDropListener>();
+
     public void addFileDropListener(FileDropListener listener) {
         dndListeners.add(listener);
     }
@@ -371,6 +388,7 @@ public class ContactGList extends JPanel implements ActionListener,
     */
 
     private final List<ContactGListListener> contactListListeners = new ArrayList<ContactGListListener>();
+
     public void addContactGListListener(ContactGListListener listener) {
         contactListListeners.add(listener);
     }
