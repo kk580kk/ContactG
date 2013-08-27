@@ -303,12 +303,14 @@ public class ContactGList extends JPanel implements ActionListener,
     public void contactGItemDoubleClicked(ContactGItem item) {
         activeItem = item;
 
+        System.out.println("Start contactGItemDoubleClicked");
+
         ChatManager chatManager = SparkManager.getChatManager();
         //chatManager 里面没有好用的方法，尚未找到解决办法，2013年8月27日10:52:21
 //        boolean handled = chatManager.fireContactItemDoubleClicked(item);
 
 //        if (!handled) {
-//            chatManager.activateChat(item.getJID(), item.getDisplayName());
+            chatManager.activateChat(item.getJID(), item.getDisplayName());
 //        }
 
         clearSelectionList(item);
