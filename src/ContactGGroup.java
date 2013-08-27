@@ -2,7 +2,8 @@ import org.jivesoftware.resource.Res;
 import org.jivesoftware.spark.component.VerticalFlowLayout;
 import org.jivesoftware.spark.component.panes.CollapsiblePane;
 import org.jivesoftware.spark.component.renderer.JPanelRenderer;
-import org.jivesoftware.spark.ui.ContactGroupListener;
+import org.jivesoftware.spark.util.GraphicUtils;
+import org.jivesoftware.spark.util.log.Log;
 
 import javax.swing.*;
 import java.awt.*;
@@ -19,12 +20,12 @@ import java.util.List;
  * Creator:Huang Jie
  * To change this template use File | Settings | File Templates.
  */
-public class ContactGGroup extends CollapsiblePane implements MouseListener{
+public class ContactGGroup extends CollapsiblePane implements MouseListener {
     private static final long serialVersionUID = 1L;
 
     private List<ContactGItem> contactGItems = new ArrayList<ContactGItem>();
     private List<ContactGGroup> contactGGroups = new ArrayList<ContactGGroup>();
-    private List<ContactGroupListener> listeners = new ArrayList<ContactGroupListener>();
+    private List<ContactGGroupListener> listeners = new ArrayList<ContactGGroupListener>();
     private List<ContactGItem> offlineGContacts = new ArrayList<ContactGItem>();
 
     // Used to display no contacts in list.
@@ -56,10 +57,10 @@ public class ContactGGroup extends CollapsiblePane implements MouseListener{
 //        contactGItemList.setTransferHandler(new ContactGroupTransferHandler());
 
 
-
         this.setContentPane(listPanel);
 
     }
+
     /**
      * Returns the "pretty" title of the ContactGGroup.
      *
@@ -92,8 +93,7 @@ public class ContactGGroup extends CollapsiblePane implements MouseListener{
     /**
      * Adds a sub group to this Contact group.
      *
-     * @param contactGGroup
-     *            that should be the new subgroup
+     * @param contactGGroup that should be the new subgroup
      */
     public void addContactGroup(ContactGGroup contactGGroup) {
         final JPanel panel = new JPanel(new GridBagLayout());
@@ -126,6 +126,7 @@ public class ContactGGroup extends CollapsiblePane implements MouseListener{
         }
         contactGGroups.remove(contactGGroup);
     }
+
     public void setPanelBackground(Color color) {
         Component[] comps = listPanel.getComponents();
         for (Component comp : comps) {
@@ -136,6 +137,7 @@ public class ContactGGroup extends CollapsiblePane implements MouseListener{
         }
 
     }
+
     /**
      * Returns a ContactGroup based on it's name.
      *
@@ -160,7 +162,6 @@ public class ContactGGroup extends CollapsiblePane implements MouseListener{
     public void addContactGItem(ContactGItem item) {
 
 
-
         item.setGroupName(getGroupName());
         contactGItems.add(item);
 
@@ -179,7 +180,7 @@ public class ContactGGroup extends CollapsiblePane implements MouseListener{
 
         int[] intList = new int[objs.length];
         for (int i = 0; i < objs.length; i++) {
-            ContactGItem contact = (ContactGItem)objs[i];
+            ContactGItem contact = (ContactGItem) objs[i];
             intList[i] = model.indexOf(contact);
         }
 
@@ -187,7 +188,7 @@ public class ContactGGroup extends CollapsiblePane implements MouseListener{
             contactGItemList.setSelectedIndices(intList);
         }
 
-//        fireContactGItemAdded(item);
+        fireContactGItemAdded(item);
     }
 
     /**
@@ -204,8 +205,9 @@ public class ContactGGroup extends CollapsiblePane implements MouseListener{
         model.removeElement(item);
         updateTitle();
 
-        //fireContactGItemRemoved(item);
+        fireContactGItemRemoved(item);
     }
+
     private void updateTitle() {
         int count = 0;
         List<ContactGItem> list = new ArrayList<ContactGItem>(getContactGItems());
@@ -239,18 +241,7 @@ public class ContactGGroup extends CollapsiblePane implements MouseListener{
         }
     };
 
-//事件监听部分，尚未完成
-//    private void fireContactGItemAdded(ContactGItem item) {
-//        for (ContactGGroupListener contactGroupListener : new ArrayList<ContactGGroupListener>(listeners)) {
-//            contactGroupListener.contactItemAdded(item);
-//        }
-//    }
-//
-//    private void fireContactGItemRemoved(ContactGItem item) {
-//        for (ContactGGroupListener contactGroupListener : new ArrayList<ContactGGroupListener>(listeners)) {
-//            contactGroupListener.contactItemRemoved(item);
-//        }
-//    }
+
 
     /**
      * Returns a <code>ContactGItem</code> by the users bare bareJID.
@@ -283,22 +274,136 @@ public class ContactGGroup extends CollapsiblePane implements MouseListener{
     }
 
     public void mouseClicked(MouseEvent e) {
-        //To change body of implemented methods use File | Settings | File Templates.
+
+        Object o = contactGItemList.getSelectedValue();
+        if (!(o instanceof ContactGItem)) {
+            return;
+        }
+
+        // Iterator through rest
+        ContactGItem item = (ContactGItem) o;
+
+        if (e.getClickCount() == 2) {
+            //双击事件，测试版本
+            fireContactGItemDoubleClicked(item);
+        } else if (e.getClickCount() == 1) {
+
+            //单击事件，测试版本
+            fireContactGItemClicked(item);
+        }
     }
 
     public void mousePressed(MouseEvent e) {
-        //To change body of implemented methods use File | Settings | File Templates.
+        checkPopup(e);
     }
 
     public void mouseReleased(MouseEvent e) {
-        //To change body of implemented methods use File | Settings | File Templates.
+        checkPopup(e);
     }
 
     public void mouseEntered(MouseEvent e) {
-        //To change body of implemented methods use File | Settings | File Templates.
+        int loc = contactGItemList.locationToIndex(e.getPoint());
+
+        Object o = model.getElementAt(loc);
+        if (!(o instanceof ContactGItem)) {
+            return;
+        }
+
+        contactGItemList.setCursor(GraphicUtils.HAND_CURSOR);
     }
 
     public void mouseExited(MouseEvent e) {
-        //To change body of implemented methods use File | Settings | File Templates.
+        Object o;
+        try {
+            int loc = contactGItemList.locationToIndex(e.getPoint());
+            if (loc == -1) {
+                return;
+            }
+
+            o = model.getElementAt(loc);
+            if (!(o instanceof ContactGItem)) {
+//                UIComponentRegistry.getContactInfoWindow().dispose();
+                return;
+            }
+        } catch (Exception e1) {
+            Log.error(e1);
+            return;
+        }
+
+        contactGItemList.setCursor(GraphicUtils.DEFAULT_CURSOR);
+    }
+
+    private void checkPopup(MouseEvent e) {
+        if (e.isPopupTrigger()) {
+            // Otherwise, handle single selection
+            int index = contactGItemList.locationToIndex(e.getPoint());
+            if (index != -1) {
+                int[] indexes = contactGItemList.getSelectedIndices();
+                boolean selected = false;
+                for (int o : indexes) {
+                    if (index == o) {
+                        selected = true;
+                    }
+                }
+
+                if (!selected) {
+                    contactGItemList.setSelectedIndex(index);
+//                    fireContactGItemClicked((ContactGItem)contactGItemList.getSelectedValue());
+                }
+            }
+
+
+//            final Collection<ContactGItem> selectedItems = SparkManager.getChatManager().getSelectedContactGItems();
+//            if (selectedItems.size() > 1) {
+//                firePopupEvent(e, selectedItems);
+//            }
+//            else if (selectedItems.size() == 1) {
+//                final ContactGItem contactGItem = selectedItems.iterator().next();
+//                firePopupEvent(e, contactGItem);
+//            }
+        }
+    }
+
+    private void fireContactGItemClicked(ContactGItem item) {
+        for (ContactGGroupListener contactGroupListener : new ArrayList<ContactGGroupListener>(listeners)) {
+            contactGroupListener.contactGItemClicked(item);
+        }
+    }
+
+    private void fireContactGItemDoubleClicked(ContactGItem item) {
+        for (ContactGGroupListener contactGroupListener : new ArrayList<ContactGGroupListener>(listeners)) {
+            contactGroupListener.contactGItemDoubleClicked(item);
+        }
+    }
+
+
+    private void firePopupEvent(MouseEvent e, ContactGItem item) {
+        for (ContactGGroupListener contactGroupListener : new ArrayList<ContactGGroupListener>(listeners)) {
+            contactGroupListener.showPopup(e, item);
+        }
+    }
+
+    private void firePopupEvent(MouseEvent e, Collection<ContactGItem> items) {
+        for (ContactGGroupListener contactGroupListener : new ArrayList<ContactGGroupListener>(listeners)) {
+            contactGroupListener.showPopup(e, items);
+        }
+    }
+
+    private void fireContactGroupPopupEvent(MouseEvent e) {
+        for (ContactGGroupListener contactGroupListener : new ArrayList<ContactGGroupListener>(listeners)) {
+            contactGroupListener.contactGroupPopup(e, this);
+        }
+    }
+
+    private void fireContactGItemAdded(ContactGItem item) {
+        for (ContactGGroupListener contactGroupListener : new ArrayList<ContactGGroupListener>(listeners)) {
+            contactGroupListener.contactGItemAdded(item);
+        }
+    }
+
+    private void fireContactGItemRemoved(ContactGItem item) {
+        for (ContactGGroupListener contactGroupListener : new ArrayList<ContactGGroupListener>(listeners)) {
+            contactGroupListener.contactGItemRemoved(item);
+        }
     }
 }
