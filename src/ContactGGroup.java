@@ -2,6 +2,7 @@ import org.jivesoftware.resource.Res;
 import org.jivesoftware.spark.component.VerticalFlowLayout;
 import org.jivesoftware.spark.component.panes.CollapsiblePane;
 import org.jivesoftware.spark.component.renderer.JPanelRenderer;
+import org.jivesoftware.spark.ui.ContactGroup;
 import org.jivesoftware.spark.util.GraphicUtils;
 import org.jivesoftware.spark.util.log.Log;
 
@@ -32,10 +33,10 @@ public class ContactGGroup extends CollapsiblePane implements MouseListener {
 
     private String groupName;
     private DefaultListModel model;
-    private JList contactGItemList;
     private JPanel listPanel;
 
     public ContactGGroup(String groupName) {
+//        super(groupName);
         // Initialize Model and UI
         model = new DefaultListModel();
         contactGItemList = new JList(model);
@@ -95,7 +96,7 @@ public class ContactGGroup extends CollapsiblePane implements MouseListener {
      *
      * @param contactGGroup that should be the new subgroup
      */
-    public void addContactGroup(ContactGGroup contactGGroup) {
+    public void addContactGGroup(ContactGGroup contactGGroup) {
         final JPanel panel = new JPanel(new GridBagLayout());
         panel.add(contactGGroup, new GridBagConstraints(0, 0, 1, 1, 1.0, 1.0, GridBagConstraints.CENTER, GridBagConstraints.BOTH, new Insets(2, 15, 0, 0), 0, 0));
         panel.setBackground(Color.white);
@@ -112,7 +113,7 @@ public class ContactGGroup extends CollapsiblePane implements MouseListener {
      *
      * @param contactGGroup the contact group to remove.
      */
-    public void removeContactGroup(ContactGGroup contactGGroup) {
+    public void removeContactGGroup(ContactGGroup contactGGroup) {
         Component[] comps = listPanel.getComponents();
         for (Component comp : comps) {
             if (comp instanceof JPanel) {
@@ -199,7 +200,7 @@ public class ContactGGroup extends CollapsiblePane implements MouseListener {
     public void removeContactGItem(ContactGItem item) {
         contactGItems.remove(item);
         if (contactGItems.isEmpty()) {
-            removeContactGroup(this);
+            removeContactGGroup(this);
         }
 
         model.removeElement(item);
@@ -391,7 +392,7 @@ public class ContactGGroup extends CollapsiblePane implements MouseListener {
 
     private void fireContactGroupPopupEvent(MouseEvent e) {
         for (ContactGGroupListener contactGroupListener : new ArrayList<ContactGGroupListener>(listeners)) {
-            contactGroupListener.contactGroupPopup(e, this);
+            contactGroupListener.contactGGroupPopup(e, this);
         }
     }
 
@@ -405,5 +406,9 @@ public class ContactGGroup extends CollapsiblePane implements MouseListener {
         for (ContactGGroupListener contactGroupListener : new ArrayList<ContactGGroupListener>(listeners)) {
             contactGroupListener.contactGItemRemoved(item);
         }
+    }
+    private JList contactGItemList;
+    public void clearSelection() {
+        contactGItemList.clearSelection();
     }
 }
