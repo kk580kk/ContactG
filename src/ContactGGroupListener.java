@@ -84,5 +84,5 @@ public interface ContactGGroupListener {
      * @param e     the MouseEvent that triggered the event.
      * @param group the ContactGGroup.
      */
-    public void contactGroupPopup(MouseEvent e, ContactGGroup group);
+    public void contactGGroupPopup(MouseEvent e, ContactGGroup group);
 }

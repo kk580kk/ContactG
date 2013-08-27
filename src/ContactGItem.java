@@ -9,6 +9,7 @@ import org.jivesoftware.smack.util.StringUtils;
 import org.jivesoftware.spark.ChatManager;
 import org.jivesoftware.spark.PresenceManager;
 import org.jivesoftware.spark.SparkManager;
+import org.jivesoftware.spark.ui.ContactItem;
 import org.jivesoftware.spark.util.GraphicUtils;
 import org.jivesoftware.spark.util.ModelUtil;
 import org.jivesoftware.spark.util.log.Log;
@@ -73,6 +74,7 @@ public class ContactGItem  extends JPanel {
      * @param fullyQualifiedJID the fully-qualified jid of the contact (ex. derek@jivesoftware.com)
      */
     public ContactGItem(String alias, String nickname, String fullyQualifiedJID, boolean initUi) {
+//        super(alias, nickname, fullyQualifiedJID, initUi);
         setLayout(new GridBagLayout());
 
         // Set Default Font
@@ -124,6 +126,7 @@ public class ContactGItem  extends JPanel {
             setDisplayName();
         }
     }
+
 
     /**
      * Returns the name that should be displayed to represent the the contact.
