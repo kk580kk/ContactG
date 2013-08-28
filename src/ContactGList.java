@@ -1,14 +1,22 @@
-import org.jivesoftware.Spark;
-import org.jivesoftware.smack.ConnectionListener;
-import org.jivesoftware.smack.RosterListener;
+import org.jivesoftware.resource.Res;
+import org.jivesoftware.resource.SparkRes;
+import org.jivesoftware.smack.*;
+import org.jivesoftware.smack.packet.Message;
 import org.jivesoftware.smack.packet.Presence;
+import org.jivesoftware.smack.packet.RosterPacket;
+import org.jivesoftware.smackx.LastActivityManager;
+import org.jivesoftware.smackx.packet.LastActivity;
 import org.jivesoftware.spark.ChatManager;
 import org.jivesoftware.spark.SparkManager;
 import org.jivesoftware.spark.Workspace;
+import org.jivesoftware.spark.component.InputDialog;
 import org.jivesoftware.spark.component.VerticalFlowLayout;
+import org.jivesoftware.spark.plugin.ContextMenuListener;
 import org.jivesoftware.spark.plugin.Plugin;
 import org.jivesoftware.spark.ui.FileDropListener;
+import org.jivesoftware.spark.util.ModelUtil;
 import org.jivesoftware.spark.util.log.Log;
+import org.jivesoftware.sparkimpl.profile.VCardManager;
 import org.jivesoftware.sparkimpl.settings.local.LocalPreferences;
 import org.jivesoftware.sparkimpl.settings.local.SettingsManager;
 
@@ -16,10 +24,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
 import java.util.*;
 import java.util.List;
 
@@ -41,6 +48,10 @@ public class ContactGList extends JPanel implements ActionListener,
     private final List<ContactGGroup> groupList = new ArrayList<ContactGGroup>();
 
 
+    // Create Menus
+    private JMenuItem addContactMenu;
+    private JMenuItem addContactGroupMenu;
+
     private ContactGGroup unfiledGroup;
     private File propertiesFile;
 
@@ -58,6 +69,21 @@ public class ContactGList extends JPanel implements ActionListener,
         unfiledGroup = new ContactGGroup("unfiledGroup");
         System.out.println("unfiledGroup Created");
 
+        JToolBar toolbar = new JToolBar();
+        toolbar.setFloatable(false);
+        addContactMenu = new JMenuItem(Res.getString("menuitem.add.contact"), SparkRes.getImageIcon(SparkRes.USER1_ADD_16x16));
+        addContactGroupMenu = new JMenuItem(Res.getString("menuitem.add.contact.group"), SparkRes.getImageIcon(SparkRes.SMALL_ADD_IMAGE));
+
+        removeContactFromGroupMenu = new JMenuItem(Res.getString("menuitem.remove.from.group"), SparkRes.getImageIcon(SparkRes.SMALL_DELETE));
+        chatMenu = new JMenuItem(Res.getString("menuitem.start.a.chat"), SparkRes.getImageIcon(SparkRes.SMALL_MESSAGE_IMAGE));
+        renameMenu = new JMenuItem(Res.getString("menuitem.rename"), SparkRes.getImageIcon(SparkRes.DESKTOP_IMAGE));
+
+        addContactMenu.addActionListener(this);
+        removeContactFromGroupMenu.addActionListener(this);
+        chatMenu.addActionListener(this);
+        renameMenu.addActionListener(this);
+
+
         setLayout(new BorderLayout());
 
         mainPanel.setLayout(new VerticalFlowLayout(VerticalFlowLayout.TOP, 0, 0, true, false));
@@ -71,20 +97,29 @@ public class ContactGList extends JPanel implements ActionListener,
         contactListScrollPane.getVerticalScrollBar().setUnitIncrement(20);
 
         add(contactListScrollPane, BorderLayout.CENTER);
+
+        //属性文件部分，不确保好使，2013年8月27日14:33:22
         // Load Properties file
-        props = new Properties();
-        // Save to properties file.
-        propertiesFile = new File(Spark.getSparkUserHome() + "/contactggroups.properties");
-        try {
-            props.load(new FileInputStream(propertiesFile));
-        }
-        catch (IOException e) {
-            // File does not exist.
-        }
+//        props = new Properties();
+//        // Save to properties file.
+//        propertiesFile = new File(Spark.getSparkUserHome() + "/contactggroups.properties");
+//        try {
+//            props.load(new FileInputStream(propertiesFile));
+//        }
+//        catch (IOException e) {
+//            e.printStackTrace();
+//            // File does not exist.
+//        }
         this.addContactGGroup(unfiledGroup);
         System.out.println("unfiledGroup Added");
 
 
+    }
+
+    private void addContactGGroupToGroup(ContactGGroup child, ContactGGroup father) {
+        father.addContactGGroup(child);
+        child.addContactGGroupListener(this);
+        fireContactGGroupAdded(child);
     }
 
     /**
@@ -107,14 +142,15 @@ public class ContactGList extends JPanel implements ActionListener,
         group.addContactGGroupListener(this);
         fireContactGGroupAdded(group);
         // Check state
-        String prop = props.getProperty(group.getGroupName());
-        if (prop != null) {
-            boolean isCollapsed = Boolean.valueOf(prop);
-            group.setCollapsed(isCollapsed);
-        }
+//        String prop = props.getProperty(group.getGroupName());
+//        if (prop != null) {
+//            boolean isCollapsed = Boolean.valueOf(prop);
+//            group.setCollapsed(isCollapsed);
+//        }
     }
 
     private Properties props;
+
     /**
      * Returns a ContactGGroup based on its name.
      *
@@ -147,6 +183,9 @@ public class ContactGList extends JPanel implements ActionListener,
      * @return the nested ContactGGroup. If not found, null will be returned.
      */
     private ContactGGroup getSubContactGGroup(ContactGGroup group, String groupName) {
+        //测试寻找字类是否好使，2013年8月28日14:49:42
+        System.out.println("getSubContactGGroup " + groupName);
+
         final Iterator<ContactGGroup> contactGGroups = group.getContactGGroups().iterator();
         ContactGGroup grp = null;
 
@@ -205,14 +244,289 @@ public class ContactGList extends JPanel implements ActionListener,
         //To change body of implemented methods use File | Settings | File Templates.
     }
 
-
-    public void showPopup(MouseEvent mouseEvent, ContactGItem contactGItem) {
-        //To change body of implemented methods use File | Settings | File Templates.
+    //特殊分组，暂且去除,2013年8月28日13:54:22
+//    private ContactGGroup getUnfiledGroup() {
+//        if (unfiledGroup == null) {
+//            // Add Unfiled Group
+//            if(EventQueue.isDispatchThread()) {
+//                unfiledGroup = UIComponentRegistry.createContactGGroup(Res.getString("unfiled"));
+//                addContactGGroup(unfiledGroup);
+//            }
+//            else {
+//                try {
+//                    EventQueue.invokeAndWait(new Runnable(){
+//                        public void run() {
+//                            unfiledGroup = UIComponentRegistry.createContactGGroup(Res.getString("unfiled"));
+//                            addContactGGroup(unfiledGroup);
+//                        }
+//                    });
+//                }catch(Exception ex) {
+//                    ex.printStackTrace();
+//                }
+//            }
+//        }
+//        return unfiledGroup;
+//    }
+    private void removeContactFromRoster(ContactGItem item) {
+        Roster roster = SparkManager.getConnection().getRoster();
+        RosterEntry entry = roster.getEntry(item.getJID());
+        if (entry != null) {
+            try {
+                roster.removeEntry(entry);
+            } catch (XMPPException e) {
+                Log.warning("Unable to remove roster entry.", e);
+            }
+        }
     }
 
-    public void showPopup(MouseEvent mouseEvent, Collection collection) {
-        //To change body of implemented methods use File | Settings | File Templates.
+    public JComponent getGUI() {
+        return this;
     }
+
+    private JMenuItem chatMenu;
+    private JMenuItem removeContactFromGroupMenu;
+    private JMenuItem renameMenu;
+
+    /**
+     * Shows popup for right-clicking of ContactGItem.
+     *
+     * @param e         the MouseEvent
+     * @param item      the ContactGItem
+     * @param component the owning component
+     */
+    public void showPopup(Component component, MouseEvent e, final ContactGItem item) {
+        if (item.getJID() == null) {
+            return;
+        }
+
+        activeItem = item;
+
+        final JPopupMenu popup = new JPopupMenu();
+
+        // Add Start Chat Menu
+        popup.add(chatMenu);
+
+        // Add Send File Action
+        Action sendAction = new AbstractAction() {
+            private static final long serialVersionUID = -7519717310558205566L;
+
+            public void actionPerformed(ActionEvent actionEvent) {
+                SparkManager.getTransferManager().sendFileTo(item.toContactItem());
+            }
+        };
+
+        sendAction.putValue(Action.SMALL_ICON, SparkRes.getImageIcon(SparkRes.DOCUMENT_16x16));
+        sendAction.putValue(Action.NAME, Res.getString("menuitem.send.a.file"));
+
+        if (item.getPresence() != null) {
+            popup.add(sendAction);
+        }
+
+        popup.addSeparator();
+
+
+        String groupName = item.getGroupName();
+        ContactGGroup contactGGroup = getContactGGroup(groupName);
+
+        // Only show "Remove Contact From Group" if the user belongs to more than one group.
+        if (!contactGGroup.isSharedGroup()) {
+            Roster roster = SparkManager.getConnection().getRoster();
+            RosterEntry entry = roster.getEntry(item.getJID());
+            if (entry != null) {
+                int groupCount = entry.getGroups().size();
+
+                //todo: It should be possible to remove a user from the only group they're in
+                // which would put them into the unfiled group.
+                if (groupCount > 1) {
+                    popup.add(removeContactFromGroupMenu);
+                }
+
+            }
+        }
+
+        // Define remove entry action
+        Action removeAction = new AbstractAction() {
+            private static final long serialVersionUID = -2565914214685979320L;
+
+            public void actionPerformed(ActionEvent e) {
+                removeContactFromRoster(item);
+            }
+        };
+
+        removeAction.putValue(Action.NAME, Res.getString("menuitem.remove.from.roster"));
+        removeAction.putValue(Action.SMALL_ICON, SparkRes.getImageIcon(SparkRes.SMALL_CIRCLE_DELETE));
+
+        // Check if user is in shared group.
+        boolean isInSharedGroup = false;
+        for (ContactGGroup cGroup : new ArrayList<ContactGGroup>(getContactGGroups())) {
+            if (cGroup.isSharedGroup()) {
+                ContactGItem it = cGroup.getContactGItemByJID(item.getJID());
+                if (it != null) {
+                    isInSharedGroup = true;
+                }
+            }
+        }
+
+
+        if (!contactGGroup.isSharedGroup() && !isInSharedGroup) {
+            popup.add(removeAction);
+        }
+
+        popup.add(renameMenu);
+
+
+        Action viewProfile = new AbstractAction() {
+            private static final long serialVersionUID = -2562731455090634805L;
+
+            public void actionPerformed(ActionEvent e) {
+                VCardManager vcardSupport = SparkManager.getVCardManager();
+                String jid = item.getJID();
+                vcardSupport.viewProfile(jid, SparkManager.getWorkspace());
+            }
+        };
+        viewProfile.putValue(Action.SMALL_ICON, SparkRes.getImageIcon(SparkRes.PROFILE_IMAGE_16x16));
+        viewProfile.putValue(Action.NAME, Res.getString("menuitem.view.profile"));
+
+        popup.add(viewProfile);
+
+
+        popup.addSeparator();
+
+        Action lastActivityAction = new AbstractAction() {
+            private static final long serialVersionUID = -4884230635430933060L;
+
+            public void actionPerformed(ActionEvent actionEvent) {
+                try {
+                    String client = "";
+                    if (item.getPresence().getType() != Presence.Type.unavailable) {
+                        client = item.getPresence().getFrom();
+                        if ((client != null) && (client.lastIndexOf("/") != -1)) {
+                            client = client.substring(client.lastIndexOf("/"));
+                        } else client = "/";
+                    }
+
+                    LastActivity activity = LastActivityManager.getLastActivity(SparkManager.getConnection(), item.getJID() + client);
+                    long idleTime = (activity.getIdleTime() * 1000);
+                    String time = ModelUtil.getTimeFromLong(idleTime);
+                    JOptionPane.showMessageDialog(getGUI(), Res.getString("message.idle.for", time), Res.getString("title.last.activity"), JOptionPane.INFORMATION_MESSAGE);
+                } catch (Exception e1) {
+                    JOptionPane.showMessageDialog(getGUI(), Res.getString("message.unable.to.retrieve.last.activity", item.getJID()), Res.getString("title.error"), JOptionPane.ERROR_MESSAGE);
+                }
+
+            }
+        };
+
+        lastActivityAction.putValue(Action.NAME, Res.getString("menuitem.view.last.activity"));
+        lastActivityAction.putValue(Action.SMALL_ICON, SparkRes.getImageIcon(SparkRes.SMALL_USER1_STOPWATCH));
+
+        if (item.getPresence().isAway() || (item.getPresence().getType() == Presence.Type.unavailable) || (item.getPresence().getType() == null)) {
+            popup.add(lastActivityAction);
+        }
+
+        Action subscribeAction = new AbstractAction() {
+            private static final long serialVersionUID = -7754905015338902300L;
+
+            public void actionPerformed(ActionEvent e) {
+                String jid = item.getJID();
+                Presence response = new Presence(Presence.Type.subscribe);
+                response.setTo(jid);
+
+                SparkManager.getConnection().sendPacket(response);
+            }
+        };
+
+        subscribeAction.putValue(Action.SMALL_ICON, SparkRes.getImageIcon(SparkRes.SMALL_USER1_INFORMATION));
+        subscribeAction.putValue(Action.NAME, Res.getString("menuitem.subscribe.to"));
+
+        Roster roster = SparkManager.getConnection().getRoster();
+        RosterEntry entry = roster.getEntry(item.getJID());
+        if (entry != null && entry.getType() == RosterPacket.ItemType.from) {
+            popup.add(subscribeAction);
+        } else if (entry != null && entry.getType() != RosterPacket.ItemType.both && entry.getStatus() == RosterPacket.ItemStatus.SUBSCRIPTION_PENDING) {
+            popup.add(subscribeAction);
+        }
+
+        // Fire Context Menu Listener
+        fireContextMenuListenerPopup(popup, item);
+
+        ContactGGroup group = getContactGGroup(item.getGroupName());
+        if (component == null) {
+            popup.show(group.getList(), e.getX(), e.getY());
+        } else {
+            popup.show(component, e.getX(), e.getY());
+            popup.requestFocus();
+        }
+    }
+
+    public void showPopup(MouseEvent e, final Collection<ContactGItem> items) {
+        ContactGGroup group = null;
+        for (ContactGItem item : items) {
+            group = getContactGGroup(item.getGroupName());
+            break;
+        }
+
+
+        final JPopupMenu popup = new JPopupMenu();
+        final JMenuItem sendMessagesMenu = new JMenuItem(Res.getString("menuitem.send.a.message"), SparkRes.getImageIcon(SparkRes.SMALL_MESSAGE_IMAGE));
+
+
+        fireContextMenuListenerPopup(popup, items);
+
+        popup.add(sendMessagesMenu);
+
+        sendMessagesMenu.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                sendMessages(items);
+            }
+        });
+
+        try {
+            popup.show(group.getList(), e.getX(), e.getY());
+        } catch (NullPointerException ee) {
+            // Nothing we can do here
+        }
+    }
+
+    private void sendMessages(Collection<ContactGItem> items) {
+        StringBuffer buf = new StringBuffer();
+        InputDialog dialog = new InputDialog();
+        final String messageText = dialog.getInput(Res.getString("title.broadcast.message"), Res.getString("message.enter.broadcast.message"), SparkRes.getImageIcon(SparkRes.BLANK_IMAGE), SparkManager.getMainWindow());
+        if (ModelUtil.hasLength(messageText)) {
+
+            final Map<String, Message> broadcastMessages = new HashMap<String, Message>();
+            for (ContactGItem item : items) {
+                final Message message = new Message();
+                message.setTo(item.getJID());
+                message.setProperty("broadcast", true);
+                message.setBody(messageText);
+                if (!broadcastMessages.containsKey(item.getJID())) {
+                    buf.append(item.getDisplayName()).append("\n");
+                    broadcastMessages.put(item.getJID(), message);
+                }
+            }
+
+            for (Message message : broadcastMessages.values()) {
+                SparkManager.getConnection().sendPacket(message);
+            }
+
+            JOptionPane.showMessageDialog(SparkManager.getMainWindow(), Res.getString("message.broadcasted.to", buf.toString()), Res.getString("title.notification"), JOptionPane.INFORMATION_MESSAGE);
+        }
+
+
+    }
+
+    private final List<ContextMenuListener> contextListeners = new ArrayList<ContextMenuListener>();
+
+    public void fireContextMenuListenerPopup(JPopupMenu popup, Object object) {
+        for (ContextMenuListener listener : new ArrayList<ContextMenuListener>(contextListeners)) {
+            listener.poppingUp(object, popup);
+        }
+    }
+
+    public void showPopup(MouseEvent e, final ContactGItem item) {
+        showPopup(null, e, item);
+    }
+
 
     public void contactGGroupPopup(MouseEvent mouseEvent, ContactGGroup contactGGroup) {
         //To change body of implemented methods use File | Settings | File Templates.
@@ -247,13 +561,23 @@ public class ContactGList extends JPanel implements ActionListener,
         this.addContactGGroup(contactGGroup2);
         this.addContactGGroup(contactGGroup3);
         this.addContactGGroup(contactGGroup4);
-        contactGGroup4.addContactGGroup(contactGGroup41);
-        contactGGroup4.addContactGGroup(contactGGroup42);
-        contactGGroup4.addContactGGroup(contactGGroup43);
-        contactGGroup43.addContactGGroup(contactGGroup431);
-        contactGGroup43.addContactGGroup(contactGGroup432);
-        contactGGroup432.addContactGGroup(contactGGroup4321);
-        contactGGroup432.addContactGGroup(contactGGroup4322);
+        this.addContactGGroupToGroup(contactGGroup41, contactGGroup4);
+        this.addContactGGroupToGroup(contactGGroup42, contactGGroup4);
+        this.addContactGGroupToGroup(contactGGroup43, contactGGroup4);
+        this.addContactGGroupToGroup(contactGGroup431, contactGGroup43);
+        this.addContactGGroupToGroup(contactGGroup432, contactGGroup43);
+        this.addContactGGroupToGroup(contactGGroup4321, contactGGroup432);
+        this.addContactGGroupToGroup(contactGGroup4322, contactGGroup432);
+
+        //尝试新方法，添加子分组，同时添加事件。
+        //测试好使，2013年8月27日15:43:05，不要使用addContactGGroup添加子分组，用addContactGGroupToGroup
+//        contactGGroup4.addContactGGroup(contactGGroup41);
+//        contactGGroup4.addContactGGroup(contactGGroup42);
+//        contactGGroup4.addContactGGroup(contactGGroup43);
+//        contactGGroup43.addContactGGroup(contactGGroup431);
+//        contactGGroup43.addContactGGroup(contactGGroup432);
+//        contactGGroup432.addContactGGroup(contactGGroup4321);
+//        contactGGroup432.addContactGGroup(contactGGroup4322);
 
         ContactGItem contactGItem = new ContactGItem("a", "a", "a");
         ContactGItem contactGItem1 = new ContactGItem("b", "b", "b");
@@ -322,7 +646,7 @@ public class ContactGList extends JPanel implements ActionListener,
 
         ChatManager chatManager = SparkManager.getChatManager();
         //chatManager 里面没有好用的方法，尚未找到解决办法，2013年8月27日10:52:21
-//        boolean handled = chatManager.fireContactItemDoubleClicked(item);
+//        boolean handled = chatManager.fireContactGItemDoubleClicked(item);
 
 //        if (!handled) {
         chatManager.activateChat(item.getJID(), item.getDisplayName());
@@ -333,8 +657,18 @@ public class ContactGList extends JPanel implements ActionListener,
         fireContactGItemDoubleClicked(item);
     }
 
+    public static KeyEvent activeKeyEvent;
+
     public void contactGItemClicked(ContactGItem item) {
-        //To change body of implemented methods use File | Settings | File Templates.
+        activeItem = item;
+
+        if (activeKeyEvent == null || ((activeKeyEvent.getModifiers() & KeyEvent.CTRL_MASK) == 0)) {
+            clearSelectionList(item);
+        }
+
+
+        fireContactGItemClicked(item);
+        activeKeyEvent = null;
     }
 
     private void clearSelectionList(ContactGItem selectedItem) {
@@ -347,7 +681,7 @@ public class ContactGList extends JPanel implements ActionListener,
         final ContactGGroup owner = getContactGGroup(selectedItem.getGroupName());
         for (ContactGGroup contactGGroup : new ArrayList<ContactGGroup>(groupList)) {
             if (owner != contactGGroup) {
-                contactGGroup.clearSelection();
+                contactGGroup.clearSelection(selectedItem);
             }
         }
     }
@@ -431,5 +765,16 @@ public class ContactGList extends JPanel implements ActionListener,
         for (ContactGListListener contactListListener : new ArrayList<ContactGListListener>(contactListListeners)) {
             contactListListener.contactGItemDoubleClicked(contactGItem);
         }
+    }
+
+    public Collection<ContactGItem> getSelectedUsers() {
+        final List<ContactGItem> list = new ArrayList<ContactGItem>();
+
+        for (ContactGGroup group : getContactGGroups()) {
+            for (ContactGItem item : group.getSelectedContacts()) {
+                list.add(item);
+            }
+        }
+        return list;
     }
 }
