@@ -796,14 +796,14 @@ public class ContactGList extends JPanel implements ActionListener,
 //        contactGGroup432.addContactGGroup(contactGGroup4321);
 //        contactGGroup432.addContactGGroup(contactGGroup4322);
 
-        ContactGItem contactGItem = new ContactGItem("a", "a", "a");
-        ContactGItem contactGItem1 = new ContactGItem("b", "b", "b");
-        ContactGItem contactGItem2 = new ContactGItem("c", "c", "c");
-        ContactGItem contactGItem3 = new ContactGItem("d", "d", "d");
-        ContactGItem contactGItem4 = new ContactGItem("e", "e", "e");
-        ContactGItem contactGItem5 = new ContactGItem("f", "f", "f");
-        ContactGItem contactGItem6 = new ContactGItem("g", "g", "g");
-        ContactGItem contactGItem7 = new ContactGItem("h", "h", "h");
+        ContactGItem contactGItem = new ContactGItem("a", "a", "a@berserker");
+        ContactGItem contactGItem1 = new ContactGItem("b", "b", "b@berserker");
+        ContactGItem contactGItem2 = new ContactGItem("c", "c", "c@berserker");
+        ContactGItem contactGItem3 = new ContactGItem("d", "d", "d@berserker");
+        ContactGItem contactGItem4 = new ContactGItem("e", "e", "e@berserker");
+        ContactGItem contactGItem5 = new ContactGItem("f", "f", "f@berserker");
+        ContactGItem contactGItem6 = new ContactGItem("g", "g", "g@berserker");
+        ContactGItem contactGItem7 = new ContactGItem("h", "h", "h@berserker");
 
         contactGGroup1.addContactGItem(contactGItem);
         contactGGroup2.addContactGItem(contactGItem1);
