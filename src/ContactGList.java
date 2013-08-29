@@ -1,3 +1,4 @@
+import org.jivesoftware.resource.Default;
 import org.jivesoftware.resource.Res;
 import org.jivesoftware.resource.SparkRes;
 import org.jivesoftware.smack.*;
@@ -10,10 +11,12 @@ import org.jivesoftware.spark.ChatManager;
 import org.jivesoftware.spark.SparkManager;
 import org.jivesoftware.spark.Workspace;
 import org.jivesoftware.spark.component.InputDialog;
+import org.jivesoftware.spark.component.RolloverButton;
 import org.jivesoftware.spark.component.VerticalFlowLayout;
 import org.jivesoftware.spark.plugin.ContextMenuListener;
 import org.jivesoftware.spark.plugin.Plugin;
 import org.jivesoftware.spark.ui.FileDropListener;
+import org.jivesoftware.spark.ui.RosterDialog;
 import org.jivesoftware.spark.util.ModelUtil;
 import org.jivesoftware.spark.util.log.Log;
 import org.jivesoftware.sparkimpl.profile.VCardManager;
@@ -50,7 +53,7 @@ public class ContactGList extends JPanel implements ActionListener,
 
     // Create Menus
     private JMenuItem addContactMenu;
-    private JMenuItem addContactGroupMenu;
+    private JMenuItem addContactGGroupMenu;
 
     private ContactGGroup unfiledGroup;
     private File propertiesFile;
@@ -72,16 +75,20 @@ public class ContactGList extends JPanel implements ActionListener,
         JToolBar toolbar = new JToolBar();
         toolbar.setFloatable(false);
         addContactMenu = new JMenuItem(Res.getString("menuitem.add.contact"), SparkRes.getImageIcon(SparkRes.USER1_ADD_16x16));
-        addContactGroupMenu = new JMenuItem(Res.getString("menuitem.add.contact.group"), SparkRes.getImageIcon(SparkRes.SMALL_ADD_IMAGE));
+        addContactGGroupMenu = new JMenuItem(Res.getString("menuitem.add.contact.group"), SparkRes.getImageIcon(SparkRes.SMALL_ADD_IMAGE));
 
-        removeContactFromGroupMenu = new JMenuItem(Res.getString("menuitem.remove.from.group"), SparkRes.getImageIcon(SparkRes.SMALL_DELETE));
+        addingGroupButton = new RolloverButton(SparkRes.getImageIcon(SparkRes.ADD_CONTACT_IMAGE));
         chatMenu = new JMenuItem(Res.getString("menuitem.start.a.chat"), SparkRes.getImageIcon(SparkRes.SMALL_MESSAGE_IMAGE));
-        renameMenu = new JMenuItem(Res.getString("menuitem.rename"), SparkRes.getImageIcon(SparkRes.DESKTOP_IMAGE));
+        toolbar.add(addingGroupButton);
+        addingGroupButton.addActionListener(this);
 
         addContactMenu.addActionListener(this);
-        removeContactFromGroupMenu.addActionListener(this);
         chatMenu.addActionListener(this);
-        renameMenu.addActionListener(this);
+        //remove和rename功能设定，去除于2013年8月29日10:21:46
+//        removeContactFromGroupMenu = new JMenuItem(Res.getString("menuitem.remove.from.group"), SparkRes.getImageIcon(SparkRes.SMALL_DELETE));
+//        renameMenu = new JMenuItem(Res.getString("menuitem.rename"), SparkRes.getImageIcon(SparkRes.DESKTOP_IMAGE));
+//        removeContactFromGroupMenu.addActionListener(this);
+//        renameMenu.addActionListener(this);
 
 
         setLayout(new BorderLayout());
@@ -98,7 +105,7 @@ public class ContactGList extends JPanel implements ActionListener,
 
         add(contactListScrollPane, BorderLayout.CENTER);
 
-        //属性文件部分，不确保好使，2013年8月27日14:33:22
+        //todo:属性文件部分，不确保好使，2013年8月27日14:33:22
         // Load Properties file
 //        props = new Properties();
 //        // Save to properties file.
@@ -220,8 +227,66 @@ public class ContactGList extends JPanel implements ActionListener,
         return mainPanel;
     }
 
+    private final RolloverButton addingGroupButton;
+
     public void actionPerformed(ActionEvent e) {
-        //To change body of implemented methods use File | Settings | File Templates.
+        if (e.getSource() == addingGroupButton) {
+            new RosterDialog().showRosterDialog();
+        } else if (e.getSource() == chatMenu) {
+            if (activeItem != null) {
+                SparkManager.getChatManager().activateChat(activeItem.getJID(), activeItem.getDisplayName());
+            }
+        } else if (e.getSource() == addContactMenu) {
+            RosterDialog rosterDialog = new RosterDialog();
+            if (activeGroup != null) {
+                rosterDialog.setDefaultGroup(activeGroup.toContactGroup());
+            }
+            rosterDialog.showRosterDialog();
+        }
+        //删除Contact对象，去除此功能。2013年8月29日9:49:07
+//    else if (e.getSource() == removeContactFromGroupMenu) {
+//        if (activeItem != null) {
+//            removeContactFromGroup(activeItem);
+//        }
+//    }
+        //去除rename功能设定，2013年8月29日10:21:09
+
+//        else if (e.getSource() == renameMenu) {
+//            if (activeItem == null) {
+//                return;
+//            }
+//
+//            String oldAlias = activeItem.getAlias();
+//            String newAlias = JOptionPane.showInputDialog(this, Res.getString("label.rename.to") + ":", oldAlias);
+//
+//            // if user pressed 'cancel', output will be null.
+//            // if user removed alias, output will be an empty String.
+//            if (newAlias != null) {
+//                if (!ModelUtil.hasLength(newAlias)) {
+//                    newAlias = null; // allows you to remove an alias.
+//                }
+//
+//                String address = activeItem.getJID();
+//                ContactGGroup contactGGroup = getContactGGroup(activeItem.getGroupName());
+//                ContactGItem contactGItem = contactGGroup.getContactGItemByDisplayName(activeItem.getDisplayName());
+//                contactGItem.setAlias(newAlias);
+//
+//                final Roster roster = SparkManager.getConnection().getRoster();
+//                RosterEntry entry = roster.getEntry(address);
+//                entry.setName(newAlias);
+//
+//
+//                final Iterator<ContactGGroup> contactGGroups = groupList.iterator();
+//                String user = StringUtils.parseBareAddress(address);
+//                while (contactGGroups.hasNext()) {
+//                    ContactGGroup cg = contactGGroups.next();
+//                    ContactGItem ci = cg.getContactGItemByJID(user);
+//                    if (ci != null) {
+//                        ci.setAlias(newAlias);
+//                    }
+//                }
+//            }
+//        }
     }
 
     public void connectionClosed() {
@@ -284,8 +349,8 @@ public class ContactGList extends JPanel implements ActionListener,
     }
 
     private JMenuItem chatMenu;
-    private JMenuItem removeContactFromGroupMenu;
-    private JMenuItem renameMenu;
+//    private JMenuItem removeContactFromGroupMenu;
+//    private JMenuItem renameMenu;
 
     /**
      * Shows popup for right-clicking of ContactGItem.
@@ -327,52 +392,54 @@ public class ContactGList extends JPanel implements ActionListener,
 
         String groupName = item.getGroupName();
         ContactGGroup contactGGroup = getContactGGroup(groupName);
+//去除removeContact，2013年8月29日10:19:47
+//        // Only show "Remove Contact From Group" if the user belongs to more than one group.
+//        if (!contactGGroup.isSharedGroup()) {
+//            Roster roster = SparkManager.getConnection().getRoster();
+//            RosterEntry entry = roster.getEntry(item.getJID());
+//            if (entry != null) {
+//                int groupCount = entry.getGroups().size();
+//
+//                //It should be possible to remove a user from the only group they're in
+//
+//                //which would put them into the unfiled group.
+//
+//                if (groupCount > 1) {
+//                    popup.add(removeContactFromGroupMenu);
+//                }
+//
+//            }
+//        }
 
-        // Only show "Remove Contact From Group" if the user belongs to more than one group.
-        if (!contactGGroup.isSharedGroup()) {
-            Roster roster = SparkManager.getConnection().getRoster();
-            RosterEntry entry = roster.getEntry(item.getJID());
-            if (entry != null) {
-                int groupCount = entry.getGroups().size();
+//        // Define remove entry action
+//        Action removeAction = new AbstractAction() {
+//            private static final long serialVersionUID = -2565914214685979320L;
+//
+//            public void actionPerformed(ActionEvent e) {
+//                removeContactFromRoster(item);
+//            }
+//        };
+//
+//        removeAction.putValue(Action.NAME, Res.getString("menuitem.remove.from.roster"));
+//        removeAction.putValue(Action.SMALL_ICON, SparkRes.getImageIcon(SparkRes.SMALL_CIRCLE_DELETE));
+//
+//        // Check if user is in shared group.
+//        boolean isInSharedGroup = false;
+//        for (ContactGGroup cGroup : new ArrayList<ContactGGroup>(getContactGGroups())) {
+//            if (cGroup.isSharedGroup()) {
+//                ContactGItem it = cGroup.getContactGItemByJID(item.getJID());
+//                if (it != null) {
+//                    isInSharedGroup = true;
+//                }
+//            }
+//        }
+//
+//
+//        if (!contactGGroup.isSharedGroup() && !isInSharedGroup) {
+//            popup.add(removeAction);
+//        }
 
-                //todo: It should be possible to remove a user from the only group they're in
-                // which would put them into the unfiled group.
-                if (groupCount > 1) {
-                    popup.add(removeContactFromGroupMenu);
-                }
-
-            }
-        }
-
-        // Define remove entry action
-        Action removeAction = new AbstractAction() {
-            private static final long serialVersionUID = -2565914214685979320L;
-
-            public void actionPerformed(ActionEvent e) {
-                removeContactFromRoster(item);
-            }
-        };
-
-        removeAction.putValue(Action.NAME, Res.getString("menuitem.remove.from.roster"));
-        removeAction.putValue(Action.SMALL_ICON, SparkRes.getImageIcon(SparkRes.SMALL_CIRCLE_DELETE));
-
-        // Check if user is in shared group.
-        boolean isInSharedGroup = false;
-        for (ContactGGroup cGroup : new ArrayList<ContactGGroup>(getContactGGroups())) {
-            if (cGroup.isSharedGroup()) {
-                ContactGItem it = cGroup.getContactGItemByJID(item.getJID());
-                if (it != null) {
-                    isInSharedGroup = true;
-                }
-            }
-        }
-
-
-        if (!contactGGroup.isSharedGroup() && !isInSharedGroup) {
-            popup.add(removeAction);
-        }
-
-        popup.add(renameMenu);
+//        popup.add(renameMenu);
 
 
         Action viewProfile = new AbstractAction() {
@@ -528,8 +595,158 @@ public class ContactGList extends JPanel implements ActionListener,
     }
 
 
-    public void contactGGroupPopup(MouseEvent mouseEvent, ContactGGroup contactGGroup) {
-        //To change body of implemented methods use File | Settings | File Templates.
+    public void contactGGroupPopup(MouseEvent e, ContactGGroup group) {
+        //本程序没有offlineGroup    ，故而删除
+//        // Do nothing with offline group
+//        if (group == offlineGroup || group == getUnfiledGroup()) {
+//            return;
+//        }
+
+
+        final JPopupMenu popup = new JPopupMenu();
+        if (!Default.getBoolean(Default.ADD_CONTACT_DISABLED)) {
+            popup.add(addContactMenu);
+        }
+
+        if (!Default.getBoolean("ADD_CONTACT_GROUP_DISABLED")) {
+            popup.add(addContactGGroupMenu);
+        }
+        popup.addSeparator();
+
+        fireContextMenuListenerPopup(popup, group);
+
+        JMenuItem delete = new JMenuItem(Res.getString("menuitem.delete"));
+        JMenuItem rename = new JMenuItem(Res.getString("menuitem.rename"));
+        JMenuItem expand = new JMenuItem(Res.getString("menuitem.expand.all.groups"));
+        JMenuItem collapse = new JMenuItem(Res.getString("menuitem.collapse.all.groups"));
+
+        if (!group.isSharedGroup()) {
+            popup.addSeparator();
+            popup.add(delete);
+            popup.add(rename);
+        }
+
+        popup.addSeparator();
+        popup.add(expand);
+        popup.add(collapse);
+        //下面代码是用来delete和rename的，不需要，故而删除。2013年8月29日10:06:14
+//        delete.addActionListener(new ActionListener() {
+//            public void actionPerformed(ActionEvent e) {
+//                int ok = JOptionPane.showConfirmDialog(group, Res.getString("message.delete.confirmation", group.getGroupName()), Res.getString("title.confirmation"), JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+//                if (ok == JOptionPane.YES_OPTION) {
+//                    String groupName = group.getGroupName();
+//                    Roster roster = SparkManager.getConnection().getRoster();
+//
+//                    RosterGroup rosterGroup = roster.getGroup(groupName);
+//                    if (rosterGroup != null) {
+//                        for (RosterEntry entry : rosterGroup.getEntries()) {
+//                            try {
+//                                rosterGroup.removeEntry(entry);
+//                            }
+//                            catch (XMPPException e1) {
+//                                Log.error("Error removing entry", e1);
+//                            }
+//                        }
+//                    }
+//
+//                    // Remove from UI
+//                    removeContactGGroup(group);
+//                    invalidate();
+//                    repaint();
+//                }
+//
+//            }
+//        });
+//
+//
+//        rename.addActionListener(new ActionListener() {
+//            public void actionPerformed(ActionEvent e) {
+//                String newName = JOptionPane.showInputDialog(group, Res.getString("label.rename.to") + ":", Res.getString("title.rename.roster.group"), JOptionPane.QUESTION_MESSAGE);
+//                if (!ModelUtil.hasLength(newName)) {
+//                    return;
+//                }
+//                String groupName = group.getGroupName();
+//                Roster roster = SparkManager.getConnection().getRoster();
+//
+//                RosterGroup rosterGroup = roster.getGroup(groupName);
+//                //Do not remove ContactGGroup if the name entered was the same
+//                if (rosterGroup != null && !groupName.equals(newName)) {
+//                    removeContactGGroup(group);
+//                    rosterGroup.setName(newName);
+//                    addContactGGroup(newName);
+//                    toggleGroupVisibility(newName, true);
+//                    getContactGGroup(newName).setCollapsed( group.isCollapsed());
+//                }
+//
+//            }
+//        });
+        expand.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                Collection<ContactGGroup> groups = getContactGGroups();
+                for (ContactGGroup group : groups) {
+                    group.setCollapsed(false);
+                }
+            }
+        });
+
+        collapse.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                Collection<ContactGGroup> groups = getContactGGroups();
+                for (ContactGGroup group : groups) {
+                    group.setCollapsed(true);
+                }
+            }
+        });
+
+        // popup.add(inviteFirstAcceptor);
+        popup.show(group, e.getX(), e.getY());
+
+        activeGroup = group;
+    }
+
+    /**
+     * For traversing of a nested group. Allows users to find the owning parent of a given contact group.
+     *
+     * @param groupName the name of the nested contact group.
+     * @return the parent ContactGGroup. If no parent, null will be returned.
+     */
+    public ContactGGroup getParentGroup(String groupName) {
+        // Check if there is even a parent group
+        if (!groupName.contains("::")) {
+            return null;
+        }
+
+        final ContactGGroup group = getContactGGroup(groupName);
+        if (group == null) {
+            return null;
+        }
+
+        // Otherwise, find parent
+        int index = groupName.lastIndexOf("::");
+        String parentGroupName = groupName.substring(0, index);
+        return getContactGGroup(parentGroupName);
+    }
+
+    /**
+     * Removes a ContactGGroup from the group model and ContactList.
+     *
+     * @param contactGGroup the ContactGGroup to remove.
+     */
+    private void removeContactGGroup(ContactGGroup contactGGroup) {
+        contactGGroup.removeContactGGroupListener(this);
+        groupList.remove(contactGGroup);
+        mainPanel.remove(contactGGroup);
+
+        ContactGGroup parent = getParentGroup(contactGGroup.getGroupName());
+        if (parent != null) {
+            parent.removeContactGGroup(contactGGroup);
+        }
+
+        contactListScrollPane.validate();
+        mainPanel.invalidate();
+        mainPanel.repaint();
+
+        fireContactGGroupRemoved(contactGGroup);
     }
 
     private void addContactGListToWorkspace() {
@@ -637,7 +854,11 @@ public class ContactGList extends JPanel implements ActionListener,
     }
 
     private ContactGItem activeItem;
+    private ContactGGroup activeGroup;
 
+    public ContactGGroup getActiveGroup() {
+        return activeGroup;
+    }
 
     public void contactGItemDoubleClicked(ContactGItem item) {
         activeItem = item;
@@ -645,7 +866,7 @@ public class ContactGList extends JPanel implements ActionListener,
         System.out.println("Start contactGItemDoubleClicked");
 
         ChatManager chatManager = SparkManager.getChatManager();
-        //chatManager 里面没有好用的方法，尚未找到解决办法，2013年8月27日10:52:21
+        //todo:chatManager 里面没有好用的方法，尚未找到解决办法，2013年8月27日10:52:21
 //        boolean handled = chatManager.fireContactGItemDoubleClicked(item);
 
 //        if (!handled) {
