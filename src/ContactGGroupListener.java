@@ -18,10 +18,10 @@
  * limitations under the License.
  */
 
+import org.jivesoftware.spark.plugin.ContextMenuListener;
+
 import java.awt.event.MouseEvent;
 import java.util.Collection;
-
-import org.jivesoftware.spark.plugin.ContextMenuListener;
 
 /**
  * The ContactGGroupListener interface is one of the interfaces extension writers use to add functionality to Spark.

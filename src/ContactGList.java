@@ -1,3 +1,9 @@
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import org.apache.commons.httpclient.HttpClient;
+import org.apache.commons.httpclient.HttpMethod;
+import org.apache.commons.httpclient.StatusLine;
+import org.apache.commons.httpclient.methods.GetMethod;
 import org.jivesoftware.resource.Default;
 import org.jivesoftware.resource.Res;
 import org.jivesoftware.resource.SparkRes;
@@ -30,6 +36,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.io.File;
+import java.io.IOException;
 import java.util.*;
 import java.util.List;
 
@@ -48,7 +55,7 @@ public class ContactGList extends JPanel implements ActionListener,
     private JPanel mainPanel = new JPanel();
     private JScrollPane contactListScrollPane;
 
-    private final List<ContactGGroup> groupList = new ArrayList<ContactGGroup>();
+    private List<ContactGGroup> groupList = new ArrayList<ContactGGroup>();
 
 
     // Create Menus
@@ -117,8 +124,9 @@ public class ContactGList extends JPanel implements ActionListener,
 //            e.printStackTrace();
 //            // File does not exist.
 //        }
-        this.addContactGGroup(unfiledGroup);
-        System.out.println("unfiledGroup Added");
+        //unfiledGroup测试分组,2013年9月2日10:04:35
+//        this.addContactGGroup(unfiledGroup);
+//        System.out.println("unfiledGroup Added");
 
 
     }
@@ -127,6 +135,69 @@ public class ContactGList extends JPanel implements ActionListener,
         father.addContactGGroup(child);
         child.addContactGGroupListener(this);
         fireContactGGroupAdded(child);
+    }
+
+    //从groupList中增加group分组，2013年9月2日10:12:59
+    private void addContactGGroupFromList(List<ContactGGroup> groupList) {
+//        for (int i = 0; i < groupList.size(); i++) {
+//            ContactGGroup contactGGroup = groupList.get(i);
+////            System.out.println(contactGGroup.toString());
+//            //如果是根分组就直接添加在根目录下面，判断是是否存在重名
+//            if ("root".equals(contactGGroup.getParentGroup())) {
+//                if (null == getContactGGroup(contactGGroup.getGroupName())) {
+//                    this.addContactGGroup(contactGGroup);
+//                }
+//            } else {
+//                //如果不是跟分组，就查找的父亲分组，然后添加。不存在父亲分组，则创建父亲分组,在跟分组下面
+//                if (null != contactGGroup.getParentGroup()) {
+//                    this.addContactGGroupToGroup(contactGGroup, getContactGGroup(contactGGroup.getParentGroup()));
+//                } else {
+//                    this.addContactGGroup(new ContactGGroup(contactGGroup.getParentGroup()));
+//                }
+//            }
+        //以上思路不好，重新编写，2013年9月2日10:16:07
+        List<ContactGGroup> contactGGroups = new ArrayList<ContactGGroup>(groupList);
+        for (int i = 0; i < contactGGroups.size(); i++) {
+            ContactGGroup contactGGroup = contactGGroups.get(i);
+//            System.out.println(contactGGroup.toString());
+            //如果是根分组就直接添加在根目录下面，判断是是否存在重名
+            if (null == contactGGroup.getParentGroup() || "root".equals(contactGGroup.getParentGroup())) {
+                if (null == getContactGGroup(contactGGroup.getGroupName())) {
+                    this.addContactGGroup(contactGGroup);
+                }
+                contactGGroups.remove(contactGGroup);
+            }
+        }
+        //不停递归，取得子分组，然后删除掉，直到所有分组全部取出，2013年9月2日10:22:01
+        //用来确保所有分组正确取出，无论分组在grouplist中排序如何。
+        //已处理2013年9月2日10:40:54：如何判断一个分组一定有父亲分组，否则这个循环不会跳出，BUG。
+        while (contactGGroups.size() > 0) {
+            ContactGGroup noParent = null;
+            for (int i = 0; i < contactGGroups.size(); i++) {
+                ContactGGroup contactGGroup = contactGGroups.get(i);
+                //查找的父亲分组，然后添加。
+                if (null != contactGGroup.getParentGroup() && null != getContactGGroup(contactGGroup.getParentGroup())) {
+                    this.addContactGGroupToGroup(contactGGroup, getContactGGroup(contactGGroup.getParentGroup()));
+                    contactGGroups.remove(contactGGroup);
+                } else {
+                    noParent = contactGGroup;
+                }
+            }
+
+            //做个处理，如果某一个分组的父分组确实不存在与已有分组和grouplist中。删除掉，防止无限循环。2013年9月2日10:29:16
+            if (null != noParent && null != getContactGGroup(noParent.getParentGroup())) {
+                for (int i = 0; i < contactGGroups.size(); i++) {
+                    ContactGGroup contactGGroup = contactGGroups.get(i);
+                    if (contactGGroup.getGroupName().equals(noParent.getParentGroup())) {
+                        break;
+                    } else if (i == contactGGroups.size()) {
+                        contactGGroups.remove(noParent);
+                        break;
+                    }
+                }
+            }
+        }
+
     }
 
     /**
@@ -761,30 +832,39 @@ public class ContactGList extends JPanel implements ActionListener,
         System.out.println("Welcome To Spark");
         // Add Contact List
         addContactGListToWorkspace();
+        //锁定网址的条件下测试是否可以把分组读取出来。2013年9月2日10:47:58
+        try {
+            groupList = getGroupListFromJson("http://localhost:8080/contactsweb/getcontactsggroup.jsp");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        System.out.println("groupList" + groupList.toString());
+        addContactGGroupFromList(groupList);
 
-        ContactGGroup contactGGroup1 = new ContactGGroup("Group 1");
-        ContactGGroup contactGGroup2 = new ContactGGroup("Group 2");
-        ContactGGroup contactGGroup3 = new ContactGGroup("Group 3");
-        ContactGGroup contactGGroup4 = new ContactGGroup("Group 4");
-        ContactGGroup contactGGroup41 = new ContactGGroup("Group 41");
-        ContactGGroup contactGGroup42 = new ContactGGroup("Group 42");
-        ContactGGroup contactGGroup43 = new ContactGGroup("Group 43");
-        ContactGGroup contactGGroup431 = new ContactGGroup("Group 431");
-        ContactGGroup contactGGroup432 = new ContactGGroup("Group 432");
-        ContactGGroup contactGGroup4321 = new ContactGGroup("Group 4321");
-        ContactGGroup contactGGroup4322 = new ContactGGroup("Group 4322");
 
-        this.addContactGGroup(contactGGroup1);
-        this.addContactGGroup(contactGGroup2);
-        this.addContactGGroup(contactGGroup3);
-        this.addContactGGroup(contactGGroup4);
-        this.addContactGGroupToGroup(contactGGroup41, contactGGroup4);
-        this.addContactGGroupToGroup(contactGGroup42, contactGGroup4);
-        this.addContactGGroupToGroup(contactGGroup43, contactGGroup4);
-        this.addContactGGroupToGroup(contactGGroup431, contactGGroup43);
-        this.addContactGGroupToGroup(contactGGroup432, contactGGroup43);
-        this.addContactGGroupToGroup(contactGGroup4321, contactGGroup432);
-        this.addContactGGroupToGroup(contactGGroup4322, contactGGroup432);
+        //测试分组，2013年9月2日10:02:52
+//        ContactGGroup contactGGroup1 = new ContactGGroup("Group 1");
+//        ContactGGroup contactGGroup2 = new ContactGGroup("Group 2");
+//        ContactGGroup contactGGroup3 = new ContactGGroup("Group 3");
+//        ContactGGroup contactGGroup4 = new ContactGGroup("Group 4");
+//        ContactGGroup contactGGroup41 = new ContactGGroup("Group 41");
+//        ContactGGroup contactGGroup42 = new ContactGGroup("Group 42");
+//        ContactGGroup contactGGroup43 = new ContactGGroup("Group 43");
+//        ContactGGroup contactGGroup431 = new ContactGGroup("Group 431");
+//        ContactGGroup contactGGroup432 = new ContactGGroup("Group 432");
+//        ContactGGroup contactGGroup4321 = new ContactGGroup("Group 4321");
+//        ContactGGroup contactGGroup4322 = new ContactGGroup("Group 4322");    //
+//        this.addContactGGroup(contactGGroup1);
+//        this.addContactGGroup(contactGGroup2);
+//        this.addContactGGroup(contactGGroup3);
+//        this.addContactGGroup(contactGGroup4);
+//        this.addContactGGroupToGroup(contactGGroup41, contactGGroup4);
+//        this.addContactGGroupToGroup(contactGGroup42, contactGGroup4);
+//        this.addContactGGroupToGroup(contactGGroup43, contactGGroup4);
+//        this.addContactGGroupToGroup(contactGGroup431, contactGGroup43);
+//        this.addContactGGroupToGroup(contactGGroup432, contactGGroup43);
+//        this.addContactGGroupToGroup(contactGGroup4321, contactGGroup432);
+//        this.addContactGGroupToGroup(contactGGroup4322, contactGGroup432);
 
         //尝试新方法，添加子分组，同时添加事件。
         //测试好使，2013年8月27日15:43:05，不要使用addContactGGroup添加子分组，用addContactGGroupToGroup
@@ -796,23 +876,23 @@ public class ContactGList extends JPanel implements ActionListener,
 //        contactGGroup432.addContactGGroup(contactGGroup4321);
 //        contactGGroup432.addContactGGroup(contactGGroup4322);
 
-        ContactGItem contactGItem = new ContactGItem("a", "a", "a@berserker");
-        ContactGItem contactGItem1 = new ContactGItem("b", "b", "b@berserker");
-        ContactGItem contactGItem2 = new ContactGItem("c", "c", "c@berserker");
-        ContactGItem contactGItem3 = new ContactGItem("d", "d", "d@berserker");
-        ContactGItem contactGItem4 = new ContactGItem("e", "e", "e@berserker");
-        ContactGItem contactGItem5 = new ContactGItem("f", "f", "f@berserker");
-        ContactGItem contactGItem6 = new ContactGItem("g", "g", "g@berserker");
-        ContactGItem contactGItem7 = new ContactGItem("h", "h", "h@berserker");
-
-        contactGGroup1.addContactGItem(contactGItem);
-        contactGGroup2.addContactGItem(contactGItem1);
-        contactGGroup3.addContactGItem(contactGItem2);
-        contactGGroup4.addContactGItem(contactGItem3);
-        contactGGroup41.addContactGItem(contactGItem4);
-        contactGGroup42.addContactGItem(contactGItem5);
-        contactGGroup43.addContactGItem(contactGItem6);
-        contactGGroup431.addContactGItem(contactGItem7);
+        //测试item，2013年9月2日10:02:37
+//        ContactGItem contactGItem = new ContactGItem("a", "a", "a@berserker");
+//        ContactGItem contactGItem1 = new ContactGItem("b", "b", "b@berserker");
+//        ContactGItem contactGItem2 = new ContactGItem("c", "c", "c@berserker");
+//        ContactGItem contactGItem3 = new ContactGItem("d", "d", "d@berserker");
+//        ContactGItem contactGItem4 = new ContactGItem("e", "e", "e@berserker");
+//        ContactGItem contactGItem5 = new ContactGItem("f", "f", "f@berserker");
+//        ContactGItem contactGItem6 = new ContactGItem("g", "g", "g@berserker");
+//        ContactGItem contactGItem7 = new ContactGItem("h", "h", "h@berserker");      //
+//        contactGGroup1.addContactGItem(contactGItem);
+//        contactGGroup2.addContactGItem(contactGItem1);
+//        contactGGroup3.addContactGItem(contactGItem2);
+//        contactGGroup4.addContactGItem(contactGItem3);
+//        contactGGroup41.addContactGItem(contactGItem4);
+//        contactGGroup42.addContactGItem(contactGItem5);
+//        contactGGroup43.addContactGItem(contactGItem6);
+//        contactGGroup431.addContactGItem(contactGItem7);
 
 
         this.setVisible(true);
@@ -822,6 +902,58 @@ public class ContactGList extends JPanel implements ActionListener,
             }
         });
 
+    }
+
+    // 最简单的HTTP客户端,用来演示通过GET或者POST方式访问某个页面
+    public List<ContactGGroup> getGroupListFromJson(String url) throws IOException {
+
+        HttpClient client = new HttpClient();
+
+        //设置代理服务器地址和端口
+        //client.getHostConfiguration().setProxy("proxy_host_addr",proxy_port);
+
+        //使用GET方法，如果服务器需要通过HTTPS连接，那只需要将下面URL中的http换成https
+        HttpMethod method = new GetMethod(url);
+
+        //使用POST方法
+        //HttpMethod method = new PostMethod(url);
+
+        client.executeMethod(method);
+
+        //打印服务器返回的状态
+        StatusLine states = method.getStatusLine();
+        System.out.println(states);
+
+
+        //打印返回的信息
+        String responseBodyAsString = method.getResponseBodyAsString();
+        System.out.println(responseBodyAsString);
+
+        //释放连接
+        method.releaseConnection();
+
+        //测试gson用，2013年9月2日13:00:45
+        List<ContactGGroup> contactGGroupsTest = new ArrayList<ContactGGroup>();
+        contactGGroupsTest.add(new ContactGGroup("a", "root"));
+        contactGGroupsTest.add(new ContactGGroup("b", "a"));
+        responseBodyAsString = new Gson().toJson(contactGGroupsTest, new TypeToken<List<ContactGGroup>>() {
+        }.getType());
+        System.out.println(responseBodyAsString);
+
+
+        //转换json对象为List对象
+        Gson gson = new Gson();
+        List<ContactGGroup> contactGGroups = gson.fromJson(responseBodyAsString, new TypeToken<List<ContactGGroup>>() {
+        }.getType());
+
+//        演示代码，转换为单个对象
+//        for(int i = 0; i < contactGGroups.size() ; i++)
+//        {
+//            ContactGGroup contactGGroup = contactGGroups.get(i);
+//            System.out.println(contactGGroup.toString());
+//        }
+
+        return contactGGroups;
     }
 
     public void shutdown() {

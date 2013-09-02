@@ -57,14 +57,14 @@ public interface ContactGListListener {
     /**
      * Called when a <code>ContactGItem</code> has been clicked in the Contact List.
      *
-     * @param item         the <code>ContactGItem</code> double clicked.
+     * @param item the <code>ContactGItem</code> double clicked.
      */
     void contactGItemClicked(ContactGItem item);
 
     /**
      * Called when a <code>ContactGItem</code> has been double clicked in the Contact List.
      *
-     * @param item         the <code>ContactGItem</code> double clicked.
+     * @param item the <code>ContactGItem</code> double clicked.
      */
     void contactGItemDoubleClicked(ContactGItem item);
 }

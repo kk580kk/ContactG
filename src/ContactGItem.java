@@ -32,7 +32,7 @@ import java.net.URL;
  * Creator:Huang Jie
  * To change this template use File | Settings | File Templates.
  */
-public class ContactGItem  extends JPanel {
+public class ContactGItem extends JPanel {
     private static final long serialVersionUID = 1514044406550293152L;
     private JLabel imageLabel;
     private JLabel displayNameLabel;
@@ -110,7 +110,7 @@ public class ContactGItem  extends JPanel {
 
 
             descriptionLabel.setFont(new Font("Dialog", Font.PLAIN, fontSize));
-            descriptionLabel.setForeground((Color)UIManager.get("ContactItemDescription.foreground"));
+            descriptionLabel.setForeground((Color) UIManager.get("ContactItemDescription.foreground"));
             descriptionLabel.setHorizontalTextPosition(JLabel.LEFT);
             descriptionLabel.setHorizontalAlignment(JLabel.LEFT);
 
@@ -328,7 +328,7 @@ public class ContactGItem  extends JPanel {
 
         // Handle vCard update packet.
         if (packetExtension != null && packetExtension instanceof DefaultPacketExtension) {
-            DefaultPacketExtension o = (DefaultPacketExtension)packetExtension;
+            DefaultPacketExtension o = (DefaultPacketExtension) packetExtension;
             String hash = o.getValue("photo");
             if (hash != null) {
                 this.hash = hash;
@@ -395,7 +395,7 @@ public class ContactGItem  extends JPanel {
      */
     public void updatePresenceIcon(Presence presence) {
         ChatManager chatManager = SparkManager.getChatManager();
-        boolean handled = false ;//chatManager.fireContactItemPresenceChanged(this, presence);
+        boolean handled = false;//chatManager.fireContactItemPresenceChanged(this, presence);
         if (handled) {
             return;
         }
@@ -408,19 +408,15 @@ public class ContactGItem  extends JPanel {
             if (mode == Presence.Mode.available) {
                 status = Res.getString("status.online");
                 isAvailable = true;
-            }
-            else if (mode == Presence.Mode.away) {
+            } else if (mode == Presence.Mode.away) {
                 status = Res.getString("status.away");
                 statusIcon = SparkRes.getImageIcon(SparkRes.IM_AWAY);
-            }
-            else if (mode == Presence.Mode.chat) {
+            } else if (mode == Presence.Mode.chat) {
                 status = Res.getString("status.free.to.chat");
-            }
-            else if (mode == Presence.Mode.dnd) {
+            } else if (mode == Presence.Mode.dnd) {
                 status = Res.getString("status.do.not.disturb");
                 statusIcon = SparkRes.getImageIcon(SparkRes.IM_AWAY);
-            }
-            else if (mode == Presence.Mode.xa) {
+            } else if (mode == Presence.Mode.xa) {
                 status = Res.getString("status.extended.away");
                 statusIcon = SparkRes.getImageIcon(SparkRes.IM_AWAY);
             }
@@ -428,13 +424,11 @@ public class ContactGItem  extends JPanel {
 
         if (presence.isAvailable() && (presence.getMode() == Presence.Mode.dnd || presence.getMode() == Presence.Mode.away || presence.getMode() == Presence.Mode.xa)) {
             statusIcon = SparkRes.getImageIcon(SparkRes.IM_AWAY);
-        }
-        else if (presence.isAvailable()) {
+        } else if (presence.isAvailable()) {
             isAvailable = true;
-        }
-        else if (!presence.isAvailable()) {
+        } else if (!presence.isAvailable()) {
             getNicknameLabel().setFont(new Font("Dialog", Font.PLAIN, fontSize));
-            getNicknameLabel().setForeground((Color)UIManager.get("ContactItemOffline.color"));
+            getNicknameLabel().setForeground((Color) UIManager.get("ContactItemOffline.color"));
 
             RosterEntry entry = SparkManager.getConnection().getRoster().getEntry(getJID());
             if (entry != null && (entry.getType() == RosterPacket.ItemType.none || entry.getType() == RosterPacket.ItemType.from)
@@ -443,16 +437,14 @@ public class ContactGItem  extends JPanel {
                 setIcon(SparkRes.getImageIcon(SparkRes.SMALL_QUESTION));
                 getNicknameLabel().setFont(new Font("Dialog", Font.PLAIN, fontSize));
                 setStatusText(Res.getString("status.pending"));
-            }
-            else {
+            } else {
                 setIcon(null);
                 setFont(new Font("Dialog", Font.PLAIN, fontSize));
                 getNicknameLabel().setFont(new Font("Dialog", Font.PLAIN, fontSize));
                 setAvailable(false);
                 if (ModelUtil.hasLength(status)) {
                     setStatusText(status);
-                }
-                else {
+                } else {
                     setStatusText("");
                 }
             }
@@ -465,8 +457,7 @@ public class ContactGItem  extends JPanel {
         Icon sIcon = PresenceManager.getIconFromPresence(presence);
         if (sIcon != null) {
             setIcon(sIcon);
-        }
-        else {
+        } else {
             setIcon(statusIcon);
         }
         if (status != null) {
@@ -479,19 +470,17 @@ public class ContactGItem  extends JPanel {
         }
 
         // Always change nickname label to black.
-        getNicknameLabel().setForeground((Color)UIManager.get("ContactItemNickname.foreground"));
+        getNicknameLabel().setForeground((Color) UIManager.get("ContactItemNickname.foreground"));
 
 
         if (isAvailable) {
             getNicknameLabel().setFont(new Font("Dialog", Font.PLAIN, fontSize));
             if (Res.getString("status.online").equals(status) || Res.getString("available").equalsIgnoreCase(status)) {
                 setStatusText("");
-            }
-            else {
+            } else {
                 setStatusText(status);
             }
-        }
-        else if (presence.isAvailable()) {
+        } else if (presence.isAvailable()) {
             getNicknameLabel().setFont(new Font("Dialog", Font.ITALIC, fontSize));
             getNicknameLabel().setForeground(Color.gray);
             if (status != null) {
@@ -512,8 +501,7 @@ public class ContactGItem  extends JPanel {
 
         if (ModelUtil.hasLength(status)) {
             getDescriptionLabel().setText(" - " + status);
-        }
-        else {
+        } else {
             getDescriptionLabel().setText("");
         }
     }
@@ -535,8 +523,7 @@ public class ContactGItem  extends JPanel {
      *
      * @param icon the icon to use.
      */
-    public void setSpecialIcon(Icon icon)
-    {
+    public void setSpecialIcon(Icon icon) {
         specialImageLabel.setIcon(icon);
     }
 
@@ -602,4 +589,7 @@ public class ContactGItem  extends JPanel {
         this.specialImageLabel = specialImageLabel;
     }
 
+    public ContactItem toContactItem() {
+        return new ContactItem(this.alias, this.nickname, this.fullyQualifiedJID);
+    }
 }
