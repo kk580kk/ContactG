@@ -1,4 +1,5 @@
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.HttpMethod;
@@ -50,6 +51,11 @@ import java.util.List;
  */
 public class ContactGList extends JPanel implements ActionListener,
         ContactGGroupListener, Plugin, RosterListener, ConnectionListener {
+    //分组请求地址，传递为JSON数组。格式如：[{ "groupName": "root", "parentGroup": null }]
+    final String targetURL = "http://localhost:8080/contactsweb/getcontactsggroup.jsp";
+
+    //参数设定为parentGroup为请求的父分组传参
+    final String parameterURL = "parentGroup";
 
     private static final long serialVersionUID = 1L;
     private JPanel mainPanel = new JPanel();
@@ -76,8 +82,8 @@ public class ContactGList extends JPanel implements ActionListener,
         // Load Local Preferences
         localPreferences = SettingsManager.getLocalPreferences();
 
-        unfiledGroup = new ContactGGroup("unfiledGroup");
-        System.out.println("unfiledGroup Created");
+//        unfiledGroup = new ContactGGroup("unfiledGroup");
+//        System.out.println("unfiledGroup Created");
 
         JToolBar toolbar = new JToolBar();
         toolbar.setFloatable(false);
@@ -137,10 +143,10 @@ public class ContactGList extends JPanel implements ActionListener,
         fireContactGGroupAdded(child);
     }
 
-    //从groupList中增加group分组，2013年9月2日10:12:59
-    private void addContactGGroupFromList(List<ContactGGroup> groupList) {
-//        for (int i = 0; i < groupList.size(); i++) {
-//            ContactGGroup contactGGroup = groupList.get(i);
+    //gGroups，2013年9月2日10:12:59
+    private void addContactGGroupFromList(List<ContactGGroup> gGroups) {
+//        for (int i = 0; i < gGroups.size(); i++) {
+//            ContactGGroup contactGGroup = gGroups.get(i);
 ////            System.out.println(contactGGroup.toString());
 //            //如果是根分组就直接添加在根目录下面，判断是是否存在重名
 //            if ("root".equals(contactGGroup.getParentGroup())) {
@@ -156,29 +162,37 @@ public class ContactGList extends JPanel implements ActionListener,
 //                }
 //            }
         //以上思路不好，重新编写，2013年9月2日10:16:07
-        List<ContactGGroup> contactGGroups = new ArrayList<ContactGGroup>(groupList);
-        for (int i = 0; i < contactGGroups.size(); i++) {
-            ContactGGroup contactGGroup = contactGGroups.get(i);
+        List<ContactGGroup> contactGGroups = new ArrayList<ContactGGroup>(gGroups);
+        ListIterator<ContactGGroup> contactGGroupListIterator = contactGGroups.listIterator();
+        while (contactGGroupListIterator.hasNext()) {
+            ContactGGroup contactGGroup = contactGGroupListIterator.next();
+            System.out.println("Start insert group：" + contactGGroup.getGroupName());
 //            System.out.println(contactGGroup.toString());
             //如果是根分组就直接添加在根目录下面，判断是是否存在重名
-            if (null == contactGGroup.getParentGroup() || "root".equals(contactGGroup.getParentGroup())) {
+            if (null == contactGGroup.getParentGroup()) {
+                System.out.println("This group is First line：" + contactGGroup.getGroupName());
                 if (null == getContactGGroup(contactGGroup.getGroupName())) {
+                    System.out.println("This group hasn't inserted before：" + contactGGroup.getGroupName());
                     this.addContactGGroup(contactGGroup);
                 }
-                contactGGroups.remove(contactGGroup);
+//                contactGGroups.remove(contactGGroup);
+                contactGGroupListIterator.remove();
             }
         }
         //不停递归，取得子分组，然后删除掉，直到所有分组全部取出，2013年9月2日10:22:01
         //用来确保所有分组正确取出，无论分组在grouplist中排序如何。
         //已处理2013年9月2日10:40:54：如何判断一个分组一定有父亲分组，否则这个循环不会跳出，BUG。
-        while (contactGGroups.size() > 0) {
+        ListIterator<ContactGGroup> listIterator = contactGGroups.listIterator();
+        while (listIterator.hasNext()) {
             ContactGGroup noParent = null;
-            for (int i = 0; i < contactGGroups.size(); i++) {
-                ContactGGroup contactGGroup = contactGGroups.get(i);
+            while (listIterator.hasNext()) {
+                ContactGGroup contactGGroup = listIterator.next();
                 //查找的父亲分组，然后添加。
                 if (null != contactGGroup.getParentGroup() && null != getContactGGroup(contactGGroup.getParentGroup())) {
+                    System.out.println("Insert " + contactGGroup.getGroupName() + " to " + contactGGroup.getParentGroup());
                     this.addContactGGroupToGroup(contactGGroup, getContactGGroup(contactGGroup.getParentGroup()));
-                    contactGGroups.remove(contactGGroup);
+//                    contactGGroups.remove(contactGGroup);
+                    listIterator.remove();
                 } else {
                     noParent = contactGGroup;
                 }
@@ -186,18 +200,23 @@ public class ContactGList extends JPanel implements ActionListener,
 
             //做个处理，如果某一个分组的父分组确实不存在与已有分组和grouplist中。删除掉，防止无限循环。2013年9月2日10:29:16
             if (null != noParent && null != getContactGGroup(noParent.getParentGroup())) {
-                for (int i = 0; i < contactGGroups.size(); i++) {
-                    ContactGGroup contactGGroup = contactGGroups.get(i);
+                listIterator = contactGGroups.listIterator();
+                int flag = 0;
+                while (listIterator.hasNext()) {
+                    ContactGGroup contactGGroup = listIterator.next();
                     if (contactGGroup.getGroupName().equals(noParent.getParentGroup())) {
-                        break;
-                    } else if (i == contactGGroups.size()) {
-                        contactGGroups.remove(noParent);
+                        flag = 1;
                         break;
                     }
                 }
+                if (flag == 0) {
+                    System.out.println("This group hasn't a father：" + noParent.getGroupName());
+                    //这里遍历已经结束，所以只能用list.remove，删除。2013年9月3日10:03:16
+                    contactGGroups.remove(noParent);
+//                    listIterator.remove();
+                }
             }
         }
-
     }
 
     /**
@@ -262,7 +281,7 @@ public class ContactGList extends JPanel implements ActionListener,
      */
     private ContactGGroup getSubContactGGroup(ContactGGroup group, String groupName) {
         //测试寻找字类是否好使，2013年8月28日14:49:42
-        System.out.println("getSubContactGGroup " + groupName);
+        System.out.println("getSubContactGGroup：" + groupName);
 
         final Iterator<ContactGGroup> contactGGroups = group.getContactGGroups().iterator();
         ContactGGroup grp = null;
@@ -832,14 +851,16 @@ public class ContactGList extends JPanel implements ActionListener,
         System.out.println("Welcome To Spark");
         // Add Contact List
         addContactGListToWorkspace();
+        List<ContactGGroup> gGroups = new ArrayList<ContactGGroup>();
+
         //锁定网址的条件下测试是否可以把分组读取出来。2013年9月2日10:47:58
         try {
-            groupList = getGroupListFromJson("http://localhost:8080/contactsweb/getcontactsggroup.jsp");
+            gGroups = getGroupListFromJson(targetURL);
         } catch (IOException e) {
             e.printStackTrace();
         }
-        System.out.println("groupList" + groupList.toString());
-        addContactGGroupFromList(groupList);
+//        System.out.println("groupList" + groupList.toString());
+        addContactGGroupFromList(gGroups);
 
 
         //测试分组，2013年9月2日10:02:52
@@ -932,26 +953,31 @@ public class ContactGList extends JPanel implements ActionListener,
         //释放连接
         method.releaseConnection();
 
-        //测试gson用，2013年9月2日13:00:45
-        List<ContactGGroup> contactGGroupsTest = new ArrayList<ContactGGroup>();
-        contactGGroupsTest.add(new ContactGGroup("a", "root"));
-        contactGGroupsTest.add(new ContactGGroup("b", "a"));
-        responseBodyAsString = new Gson().toJson(contactGGroupsTest, new TypeToken<List<ContactGGroup>>() {
+        /*
+        测试gson用，2013年9月2日13:00:45
+        List<ContactsGGroupBean> contactGGroupsTest = new ArrayList<ContactsGGroupBean>();
+        contactGGroupsTest.add(new ContactsGGroupBean("a", "root"));
+        contactGGroupsTest.add(new ContactsGGroupBean("b", "a"));
+        //        System.out.println(new GsonBuilder().create().toJson(new ContactGGroup("c","root"))); //测试输出json是否报错，2013年9月2日14:23:52
+        responseBodyAsString = new GsonBuilder().create().toJson(contactGGroupsTest, new TypeToken<List<ContactsGGroupBean>>() {
         }.getType());
         System.out.println(responseBodyAsString);
+        转换json对象为List对象
+        */
 
 
-        //转换json对象为List对象
-        Gson gson = new Gson();
-        List<ContactGGroup> contactGGroups = gson.fromJson(responseBodyAsString, new TypeToken<List<ContactGGroup>>() {
+        Gson gson = new GsonBuilder().create();
+        List<ContactsGGroupBean> contactGGroupBeans = gson.fromJson(responseBodyAsString, new TypeToken<List<ContactsGGroupBean>>() {
         }.getType());
+        System.out.println(contactGGroupBeans);
 
-//        演示代码，转换为单个对象
-//        for(int i = 0; i < contactGGroups.size() ; i++)
-//        {
-//            ContactGGroup contactGGroup = contactGGroups.get(i);
-//            System.out.println(contactGGroup.toString());
-//        }
+//       转换ContactsGGroupBean为ContactsGGroup
+        List<ContactGGroup> contactGGroups = new ArrayList<ContactGGroup>();
+        for (int i = 0; i < contactGGroupBeans.size(); i++) {
+            ContactsGGroupBean contactsGGroupBean = contactGGroupBeans.get(i);
+            contactGGroups.add(contactsGGroupBean.toContactGGroup());
+//            System.out.println(contactsGGroupBean.toString());
+        }
 
         return contactGGroups;
     }
@@ -1129,5 +1155,35 @@ public class ContactGList extends JPanel implements ActionListener,
             }
         }
         return list;
+    }
+
+    private class ContactsGGroupBean {
+        private String groupName;
+        private String parentGroup;
+
+        private ContactsGGroupBean(String groupName, String parentGroup) {
+            this.groupName = groupName;
+            this.parentGroup = parentGroup;
+        }
+
+        private String getGroupName() {
+            return groupName;
+        }
+
+        private String getParentGroup() {
+            return parentGroup;
+        }
+
+        private void setGroupName(String groupName) {
+            this.groupName = groupName;
+        }
+
+        private void setParentGroup(String parentGroup) {
+            this.parentGroup = parentGroup;
+        }
+
+        private ContactGGroup toContactGGroup() {
+            return new ContactGGroup(this.getGroupName(), this.getParentGroup());
+        }
     }
 }
