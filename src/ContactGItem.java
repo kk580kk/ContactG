@@ -62,6 +62,11 @@ public class ContactGItem extends JPanel {
 
     private boolean avatarsShowing;
 
+    public ContactGItem(String alias, String nickname, String fullyQualifiedJID, String groupName) {
+        this(alias, nickname, fullyQualifiedJID, true);
+        this.groupName = groupName;
+    }
+
     public ContactGItem(String alias, String nickname, String fullyQualifiedJID) {
         this(alias, nickname, fullyQualifiedJID, true);
     }

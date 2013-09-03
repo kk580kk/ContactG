@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2f7c82b2-b730-4e96-a905-3be7df872f7b" name="Default" comment="追加：右键菜单功能&#10;修复：点击选中问题&#10;BUG：send a chat不好使&#10;下一步：修复BUG，去除rename，去除remove 菜单项">
+    <list default="true" id="2f7c82b2-b730-4e96-a905-3be7df872f7b" name="Default" comment="追加：&#10;修复：中文冒号乱码&#10;BUG：&#10;下一步：">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/lib/plugin-classes.jar" afterPath="$PROJECT_DIR$/target/lib/plugin-classes.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ContactGGroup.java" afterPath="$PROJECT_DIR$/src/ContactGGroup.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ContactGItem.java" afterPath="$PROJECT_DIR$/src/ContactGItem.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ContactGList.java" afterPath="$PROJECT_DIR$/src/ContactGList.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -13,15 +13,15 @@
     <file path="/ExamplePlugin.java" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1376549349649" ignored="false" />
     <file path="/ContactGroupList.java" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1376985865455" ignored="false" />
     <file path="/fragment.java" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1376549047982" ignored="false" />
-    <file path="/a.dummy" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1378090899561" ignored="false" />
+    <file path="/a.dummy" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1378185998394" ignored="false" />
     <file path="$PROJECT_DIR$/../../Spark/.idea/workspace.xml" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1376613149881" ignored="false" />
     <file path="/ContactsGroupList.java" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1376549041179" ignored="false" />
     <file path="/ContactList.java" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1377672076535" ignored="false" />
     <file path="/plugin.xml" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1376550832405" ignored="false" />
     <file path="/ContactGroupGroup.java" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1376989201585" ignored="false" />
-    <file path="/ContactGList.java" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1378099919537" ignored="false" />
-    <file path="/Dummy.txt" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1378177728724" ignored="false" />
-    <file path="/ContactGItem.java" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1377669029264" ignored="false" />
+    <file path="/ContactGList.java" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1378187219476" ignored="false" />
+    <file path="/Dummy.txt" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1378179960862" ignored="false" />
+    <file path="/ContactGItem.java" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1378186146864" ignored="false" />
     <file path="/ContactGGroup.java" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1378085803323" ignored="false" />
     <file path="/ContactGGroupListener.java" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1377571382869" ignored="false" />
     <file path="/ContactListListener.java" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1377571132956" ignored="false" />
@@ -37,6 +37,10 @@
     <file path="/New Text Document.htm" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1377849454917" ignored="false" />
     <file path="$PROJECT_DIR$/../ContactsWeb/web/WEB-INF/web.xml" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1378177910418" ignored="false" />
     <file path="$PROJECT_DIR$/../ContactsWeb/META-INF/application.xml" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1378177764129" ignored="false" />
+    <file path="$PROJECT_DIR$/../ContactsWeb/web/getcontacts.jsp" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1378185098662" ignored="false" />
+    <file path="/getcontacts.jsp" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1378185053263" ignored="false" />
+    <file path="$PROJECT_DIR$/../ContactsWeb/web/getcontactsg.jsp" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1378185771445" ignored="false" />
+    <file path="/getcontactsg.jsp" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1378185768774" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,36 +109,38 @@
       <file leaf-file-name="ContactGList.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ContactGList.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="168" column="6" selection-start="7053" selection-end="7053" vertical-scroll-proportion="0.16235293">
+            <state line="55" column="88" selection-start="2344" selection-end="2344" vertical-scroll-proportion="0.3318584">
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2535#2550#0" expanded="true" />
-                <element signature="e#6796#6811#0" expanded="true" />
-                <element signature="e#12670#12911#0" expanded="true" />
-                <element signature="e#12684#12699#0" expanded="true" />
-                <element signature="e#12904#12905#0" expanded="true" />
-                <element signature="e#18390#18668#0" expanded="true" />
-                <element signature="e#18657#18658#0" expanded="true" />
-                <element signature="e#20960#21340#0" expanded="true" />
-                <element signature="e#21329#21330#0" expanded="true" />
-                <element signature="e#21629#22964#0" expanded="true" />
-                <element signature="e#22953#22954#0" expanded="true" />
-                <element signature="e#23410#23818#0" expanded="true" />
-                <element signature="e#23807#23808#0" expanded="true" />
-                <element signature="e#25432#25572#0" expanded="true" />
-                <element signature="e#25561#25562#0" expanded="true" />
-                <element signature="e#26247#26264#0" expanded="true" />
-                <element signature="e#27195#27216#0" expanded="true" />
-                <element signature="e#31294#31587#0" expanded="true" />
-                <element signature="e#31576#31577#0" expanded="true" />
-                <element signature="e#31626#31918#0" expanded="true" />
-                <element signature="e#31907#31908#0" expanded="true" />
-                <element signature="e#34025#34040#0" expanded="true" />
-                <element signature="e#39580#39595#0" expanded="true" />
-                <element signature="e#42643#42658#0" expanded="true" />
-                <element signature="e#42820#42838#0" expanded="true" />
-                <element signature="e#43657#43679#0" expanded="true" />
-                <element signature="e#45618#45632#0" expanded="true" />
+                <element signature="e#2631#2646#0" expanded="true" />
+                <element signature="e#5656#5670#0" expanded="true" />
+                <element signature="e#8174#8189#0" expanded="true" />
+                <element signature="e#14048#14289#0" expanded="true" />
+                <element signature="e#14062#14077#0" expanded="true" />
+                <element signature="e#14282#14283#0" expanded="true" />
+                <element signature="e#19768#20046#0" expanded="true" />
+                <element signature="e#20035#20036#0" expanded="true" />
+                <element signature="e#22338#22718#0" expanded="true" />
+                <element signature="e#22707#22708#0" expanded="true" />
+                <element signature="e#23007#24342#0" expanded="true" />
+                <element signature="e#24331#24332#0" expanded="true" />
+                <element signature="e#24788#25196#0" expanded="true" />
+                <element signature="e#25185#25186#0" expanded="true" />
+                <element signature="e#26810#26950#0" expanded="true" />
+                <element signature="e#26939#26940#0" expanded="true" />
+                <element signature="e#27625#27642#0" expanded="true" />
+                <element signature="e#28573#28594#0" expanded="true" />
+                <element signature="e#32672#32965#0" expanded="true" />
+                <element signature="e#32954#32955#0" expanded="true" />
+                <element signature="e#33004#33296#0" expanded="true" />
+                <element signature="e#33285#33286#0" expanded="true" />
+                <element signature="e#35403#35418#0" expanded="true" />
+                <element signature="e#41258#41273#0" expanded="true" />
+                <element signature="e#42702#42716#0" expanded="true" />
+                <element signature="e#45746#45761#0" expanded="true" />
+                <element signature="e#45923#45941#0" expanded="true" />
+                <element signature="e#46760#46782#0" expanded="true" />
+                <element signature="e#48721#48735#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -143,7 +149,7 @@
       <file leaf-file-name="ContactGGroup.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ContactGGroup.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="481" column="30" selection-start="14054" selection-end="14054" vertical-scroll-proportion="0.0">
+            <state line="481" column="0" selection-start="14054" selection-end="14054" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="e#1143#1158#0" expanded="true" />
               </folding>
@@ -154,16 +160,7 @@
       <file leaf-file-name="ChatManager.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../../Spark/src/java/org/jivesoftware/spark/ChatManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="182" column="61" selection-start="7103" selection-end="7103" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ContactGItem.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ContactGItem.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="64" column="11" selection-start="1963" selection-end="1963" vertical-scroll-proportion="0.0">
+            <state line="182" column="47" selection-start="7103" selection-end="7103" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -208,11 +205,11 @@
         <option value="$PROJECT_DIR$/src/ContactListListener.java" />
         <option value="$PROJECT_DIR$/src/ContactGGroupListener.java" />
         <option value="$PROJECT_DIR$/src/ChatGManager.java" />
-        <option value="$PROJECT_DIR$/src/ContactGItem.java" />
         <option value="$PROJECT_DIR$/../../Spark/src/java/org/jivesoftware/spark/ui/ContactGroup.java" />
         <option value="$PROJECT_DIR$/../../Spark/src/java/org/jivesoftware/spark/ui/ContactList.java" />
         <option value="$USER_HOME$/Desktop/New Text Document.htm" />
         <option value="$PROJECT_DIR$/src/ContactGGroup.java" />
+        <option value="$PROJECT_DIR$/src/ContactGItem.java" />
         <option value="$PROJECT_DIR$/src/ContactGList.java" />
       </list>
     </option>
@@ -323,6 +320,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="ContactG" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="builder" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ContactG" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="build" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -532,7 +543,11 @@
       <created>1377746079537</created>
       <updated>1377746079537</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="追加：&#10;修复：中文冒号乱码&#10;BUG：&#10;下一步：">
+      <created>1378179730859</created>
+      <updated>1378179730859</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -630,7 +645,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="修复：聊天传输，jid填写正确，就可以聊天" />
+    <option name="LAST_COMMIT_MESSAGE" value="追加：&#10;修复：中文冒号乱码&#10;BUG：&#10;下一步：" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -654,6 +669,7 @@
     <MESSAGE value="追加：右键菜单功能&#10;修复：点击选中问题&#10;BUG：send a chat不好使&#10;下一步：修复BUG，去除rename，去除remove 菜单项" />
     <MESSAGE value="追加：右键菜单功能的实际功能代码&#10;修复：send chat功能，去除rename和remove" />
     <MESSAGE value="修复：聊天传输，jid填写正确，就可以聊天" />
+    <MESSAGE value="追加：&#10;修复：中文冒号乱码&#10;BUG：&#10;下一步：" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -672,18 +688,6 @@
     </buildFile>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/ContactGItem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="64" column="11" selection-start="1963" selection-end="1963" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../Spark/src/java/org/jivesoftware/spark/SparkManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="203" column="30" selection-start="6926" selection-end="6926" vertical-scroll-proportion="3.1464968" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../Spark/src/java/org/jivesoftware/spark/ui/ContactItem.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="90" column="11" selection-start="2777" selection-end="2777" vertical-scroll-proportion="0.33280253" />
@@ -721,16 +725,11 @@
         <state line="1486" column="31" selection-start="56980" selection-end="56980" vertical-scroll-proportion="-8.08" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ContactGItem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="64" column="11" selection-start="1963" selection-end="1963" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$PROJECT_DIR$/lib/gson-2.2.4-javadoc.jar!/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="jar://$PROJECT_DIR$/lib/gson-2.2.4-sources.jar!/com/google/gson/GsonBuilder.java">
@@ -745,16 +744,37 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/ContactGItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="66" column="23" selection-start="2130" selection-end="2130" vertical-scroll-proportion="0.5420354">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/../../Spark/src/java/org/jivesoftware/spark/ChatManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="182" column="61" selection-start="7103" selection-end="7103" vertical-scroll-proportion="0.0">
+        <state line="182" column="47" selection-start="7103" selection-end="7103" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="41" selection-start="773" selection-end="773" vertical-scroll-proportion="-23.02306">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build/build.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-2.2183673">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ContactGGroup.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="481" column="30" selection-start="14054" selection-end="14054" vertical-scroll-proportion="0.0">
+        <state line="481" column="0" selection-start="14054" selection-end="14054" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="e#1143#1158#0" expanded="true" />
           </folding>
@@ -763,36 +783,38 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ContactGList.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="168" column="6" selection-start="7053" selection-end="7053" vertical-scroll-proportion="0.16235293">
+        <state line="55" column="88" selection-start="2344" selection-end="2344" vertical-scroll-proportion="0.3318584">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2535#2550#0" expanded="true" />
-            <element signature="e#6796#6811#0" expanded="true" />
-            <element signature="e#12670#12911#0" expanded="true" />
-            <element signature="e#12684#12699#0" expanded="true" />
-            <element signature="e#12904#12905#0" expanded="true" />
-            <element signature="e#18390#18668#0" expanded="true" />
-            <element signature="e#18657#18658#0" expanded="true" />
-            <element signature="e#20960#21340#0" expanded="true" />
-            <element signature="e#21329#21330#0" expanded="true" />
-            <element signature="e#21629#22964#0" expanded="true" />
-            <element signature="e#22953#22954#0" expanded="true" />
-            <element signature="e#23410#23818#0" expanded="true" />
-            <element signature="e#23807#23808#0" expanded="true" />
-            <element signature="e#25432#25572#0" expanded="true" />
-            <element signature="e#25561#25562#0" expanded="true" />
-            <element signature="e#26247#26264#0" expanded="true" />
-            <element signature="e#27195#27216#0" expanded="true" />
-            <element signature="e#31294#31587#0" expanded="true" />
-            <element signature="e#31576#31577#0" expanded="true" />
-            <element signature="e#31626#31918#0" expanded="true" />
-            <element signature="e#31907#31908#0" expanded="true" />
-            <element signature="e#34025#34040#0" expanded="true" />
-            <element signature="e#39580#39595#0" expanded="true" />
-            <element signature="e#42643#42658#0" expanded="true" />
-            <element signature="e#42820#42838#0" expanded="true" />
-            <element signature="e#43657#43679#0" expanded="true" />
-            <element signature="e#45618#45632#0" expanded="true" />
+            <element signature="e#2631#2646#0" expanded="true" />
+            <element signature="e#5656#5670#0" expanded="true" />
+            <element signature="e#8174#8189#0" expanded="true" />
+            <element signature="e#14048#14289#0" expanded="true" />
+            <element signature="e#14062#14077#0" expanded="true" />
+            <element signature="e#14282#14283#0" expanded="true" />
+            <element signature="e#19768#20046#0" expanded="true" />
+            <element signature="e#20035#20036#0" expanded="true" />
+            <element signature="e#22338#22718#0" expanded="true" />
+            <element signature="e#22707#22708#0" expanded="true" />
+            <element signature="e#23007#24342#0" expanded="true" />
+            <element signature="e#24331#24332#0" expanded="true" />
+            <element signature="e#24788#25196#0" expanded="true" />
+            <element signature="e#25185#25186#0" expanded="true" />
+            <element signature="e#26810#26950#0" expanded="true" />
+            <element signature="e#26939#26940#0" expanded="true" />
+            <element signature="e#27625#27642#0" expanded="true" />
+            <element signature="e#28573#28594#0" expanded="true" />
+            <element signature="e#32672#32965#0" expanded="true" />
+            <element signature="e#32954#32955#0" expanded="true" />
+            <element signature="e#33004#33296#0" expanded="true" />
+            <element signature="e#33285#33286#0" expanded="true" />
+            <element signature="e#35403#35418#0" expanded="true" />
+            <element signature="e#41258#41273#0" expanded="true" />
+            <element signature="e#42702#42716#0" expanded="true" />
+            <element signature="e#45746#45761#0" expanded="true" />
+            <element signature="e#45923#45941#0" expanded="true" />
+            <element signature="e#46760#46782#0" expanded="true" />
+            <element signature="e#48721#48735#0" expanded="true" />
           </folding>
         </state>
       </provider>

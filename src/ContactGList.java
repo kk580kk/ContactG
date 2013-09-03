@@ -52,7 +52,8 @@ import java.util.List;
 public class ContactGList extends JPanel implements ActionListener,
         ContactGGroupListener, Plugin, RosterListener, ConnectionListener {
     //分组请求地址，传递为JSON数组。格式如:[{ "groupName": "root", "parentGroup": null }]
-    final String targetURL = "http://localhost:8080/contactsweb/getcontactsggroup.jsp";
+    final String targetGroupURL = "http://localhost:8080/contactsweb/getcontactsggroup.jsp";
+    final String targetContactsURL = "http://localhost:8080/contactsweb/getcontactsg.jsp";
 
     //参数设定为parentGroup为请求的父分组传参
     final String parameterURL = "parentGroup";
@@ -134,6 +135,33 @@ public class ContactGList extends JPanel implements ActionListener,
 //        this.addContactGGroup(unfiledGroup);
 //        System.out.println("unfiledGroup Added");
 
+
+    }
+
+    private List<ContactGItem> contactGItems = new ArrayList<ContactGItem>();
+
+    private void addContactGItemListToGroup(List<ContactGItem> contactGItems) {
+        ListIterator<ContactGItem> contactGItemListIterator = contactGItems.listIterator();
+        while (contactGItemListIterator.hasNext()) {
+            ContactGItem next = contactGItemListIterator.next();
+            addContactGItemToGroup(next);
+        }
+    }
+
+    private void addContactGItemToGroup(ContactGItem contactGItem) {
+        String groupName = contactGItem.getGroupName();
+        if (null != groupName) {
+            System.out.println("Now insert item " + contactGItem.getFullyQualifiedJID() + " to group " + contactGItem.getGroupName());
+            ContactGGroup contactGGroup = getContactGGroup(groupName);
+            if (null != contactGGroup) {
+                System.out.println("Already found " + contactGGroup.getGroupName() + " to insert.");
+                contactGGroup.addContactGItem(contactGItem);
+            } else {
+                System.out.println("There hasn't some group named " + contactGGroup.getGroupName() + " to insert.");
+            }
+        } else {
+            System.out.println("This " + contactGItem.getFullyQualifiedJID() + " hasn't a group name.");
+        }
 
     }
 
@@ -855,13 +883,20 @@ public class ContactGList extends JPanel implements ActionListener,
 
         //锁定网址的条件下测试是否可以把分组读取出来。2013年9月2日10:47:58
         try {
-            gGroups = getGroupListFromJson(targetURL);
+            gGroups = getGroupListFromJson(targetGroupURL);
         } catch (IOException e) {
             e.printStackTrace();
         }
 //        System.out.println("groupList" + groupList.toString());
         addContactGGroupFromList(gGroups);
-
+        //获取 contactGItems 从指定URL，2013年9月3日13:47:05 s
+        try {
+            contactGItems = getContactsListFromJson(targetContactsURL);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        //将contactGItems添加进入分组
+        addContactGItemListToGroup(contactGItems);
 
         //测试分组，2013年9月2日10:02:52
 //        ContactGGroup contactGGroup1 = new ContactGGroup("Group 1");
@@ -980,6 +1015,49 @@ public class ContactGList extends JPanel implements ActionListener,
         }
 
         return contactGGroups;
+    }
+
+    public List<ContactGItem> getContactsListFromJson(String url) throws IOException {
+
+        HttpClient client = new HttpClient();
+
+        //设置代理服务器地址和端口
+        //client.getHostConfiguration().setProxy("proxy_host_addr",proxy_port);
+
+        //使用GET方法，如果服务器需要通过HTTPS连接，那只需要将下面URL中的http换成https
+        HttpMethod method = new GetMethod(url);
+
+        //使用POST方法
+        //HttpMethod method = new PostMethod(url);
+
+        client.executeMethod(method);
+
+        //打印服务器返回的状态
+        StatusLine states = method.getStatusLine();
+        System.out.println(states);
+
+
+        //打印返回的信息
+        String responseBodyAsString = method.getResponseBodyAsString();
+        System.out.println(responseBodyAsString);
+
+        //释放连接
+        method.releaseConnection();
+
+        Gson gson = new GsonBuilder().create();
+        List<ContactsGBean> contactGGroupBeans = gson.fromJson(responseBodyAsString, new TypeToken<List<ContactsGBean>>() {
+        }.getType());
+        System.out.println(contactGGroupBeans);
+
+//       转换ContactsGBean为ContactsGGroup
+        List<ContactGItem> contactGItems = new ArrayList<ContactGItem>();
+        for (int i = 0; i < contactGGroupBeans.size(); i++) {
+            ContactsGBean contactsGBean = contactGGroupBeans.get(i);
+            contactGItems.add(contactsGBean.toContactGItem());
+//            System.out.println(contactsGGroupBean.toString());
+        }
+
+        return contactGItems;
     }
 
     public void shutdown() {
@@ -1155,6 +1233,62 @@ public class ContactGList extends JPanel implements ActionListener,
             }
         }
         return list;
+    }
+
+    private class ContactsGBean {
+        private String alias;
+        private String nickname;
+        private String fullyQualifiedJID;
+        private String groupName;
+
+        ContactsGBean(String alias, String nickname, String fullyQualifiedJID, String groupName) {
+            this.alias = alias;
+            this.nickname = nickname;
+            this.fullyQualifiedJID = fullyQualifiedJID;
+            this.groupName = groupName;
+        }
+
+        ContactsGBean(String alias, String nickname, String fullyQualifiedJID) {
+            this.alias = alias;
+            this.nickname = nickname;
+            this.fullyQualifiedJID = fullyQualifiedJID;
+        }
+
+        void setAlias(String alias) {
+            this.alias = alias;
+        }
+
+        void setNickname(String nickname) {
+            this.nickname = nickname;
+        }
+
+        void setFullyQualifiedJID(String fullyQualifiedJID) {
+            this.fullyQualifiedJID = fullyQualifiedJID;
+        }
+
+        void setGroupName(String groupName) {
+            this.groupName = groupName;
+        }
+
+        String getAlias() {
+            return alias;
+        }
+
+        String getNickname() {
+            return nickname;
+        }
+
+        String getFullyQualifiedJID() {
+            return fullyQualifiedJID;
+        }
+
+        String getGroupName() {
+            return groupName;
+        }
+
+        public ContactGItem toContactGItem() {
+            return new ContactGItem(this.alias, this.nickname, this.fullyQualifiedJID, this.getGroupName());
+        }
     }
 
     private class ContactsGGroupBean {
