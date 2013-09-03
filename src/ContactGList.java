@@ -870,7 +870,7 @@ public class ContactGList extends JPanel implements ActionListener,
     private void addContactGListToWorkspace() {
         Workspace workspace = SparkManager.getWorkspace();
 //        workspace.getWorkspacePane().addTab("My Tab",null,new JButton("Hello"));
-        workspace.getWorkspacePane().addTab("ContactGList", null, this);
+        workspace.getWorkspacePane().addTab("组织结构分组", null, this);
     }
 
     public void initialize() {
