@@ -51,7 +51,7 @@ import java.util.List;
  */
 public class ContactGList extends JPanel implements ActionListener,
         ContactGGroupListener, Plugin, RosterListener, ConnectionListener {
-    //分组请求地址，传递为JSON数组。格式如：[{ "groupName": "root", "parentGroup": null }]
+    //分组请求地址，传递为JSON数组。格式如:[{ "groupName": "root", "parentGroup": null }]
     final String targetURL = "http://localhost:8080/contactsweb/getcontactsggroup.jsp";
 
     //参数设定为parentGroup为请求的父分组传参
@@ -166,13 +166,13 @@ public class ContactGList extends JPanel implements ActionListener,
         ListIterator<ContactGGroup> contactGGroupListIterator = contactGGroups.listIterator();
         while (contactGGroupListIterator.hasNext()) {
             ContactGGroup contactGGroup = contactGGroupListIterator.next();
-            System.out.println("Start insert group：" + contactGGroup.getGroupName());
+            System.out.println("Start insert group:" + contactGGroup.getGroupName());
 //            System.out.println(contactGGroup.toString());
             //如果是根分组就直接添加在根目录下面，判断是是否存在重名
             if (null == contactGGroup.getParentGroup()) {
-                System.out.println("This group is First line：" + contactGGroup.getGroupName());
+                System.out.println("This group is First line:" + contactGGroup.getGroupName());
                 if (null == getContactGGroup(contactGGroup.getGroupName())) {
-                    System.out.println("This group hasn't inserted before：" + contactGGroup.getGroupName());
+                    System.out.println("This group hasn't inserted before:" + contactGGroup.getGroupName());
                     this.addContactGGroup(contactGGroup);
                 }
 //                contactGGroups.remove(contactGGroup);
@@ -181,7 +181,7 @@ public class ContactGList extends JPanel implements ActionListener,
         }
         //不停递归，取得子分组，然后删除掉，直到所有分组全部取出，2013年9月2日10:22:01
         //用来确保所有分组正确取出，无论分组在grouplist中排序如何。
-        //已处理2013年9月2日10:40:54：如何判断一个分组一定有父亲分组，否则这个循环不会跳出，BUG。
+        //已处理2013年9月2日10:40:54:如何判断一个分组一定有父亲分组，否则这个循环不会跳出，BUG。
         ListIterator<ContactGGroup> listIterator = contactGGroups.listIterator();
         while (listIterator.hasNext()) {
             ContactGGroup noParent = null;
@@ -210,7 +210,7 @@ public class ContactGList extends JPanel implements ActionListener,
                     }
                 }
                 if (flag == 0) {
-                    System.out.println("This group hasn't a father：" + noParent.getGroupName());
+                    System.out.println("This group hasn't a father:" + noParent.getGroupName());
                     //这里遍历已经结束，所以只能用list.remove，删除。2013年9月3日10:03:16
                     contactGGroups.remove(noParent);
 //                    listIterator.remove();
@@ -281,7 +281,7 @@ public class ContactGList extends JPanel implements ActionListener,
      */
     private ContactGGroup getSubContactGGroup(ContactGGroup group, String groupName) {
         //测试寻找字类是否好使，2013年8月28日14:49:42
-        System.out.println("getSubContactGGroup：" + groupName);
+        System.out.println("getSubContactGGroup:" + groupName);
 
         final Iterator<ContactGGroup> contactGGroups = group.getContactGGroups().iterator();
         ContactGGroup grp = null;

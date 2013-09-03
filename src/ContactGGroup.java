@@ -41,7 +41,7 @@ public class ContactGGroup extends CollapsiblePane implements MouseListener {
     private JPanel listPanel;
 
     public ContactGGroup(String groupName, String parentGroup) {
-        this.groupName = groupName;
+        this(groupName);
         this.parentGroup = parentGroup;
     }
 
