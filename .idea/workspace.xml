@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2f7c82b2-b730-4e96-a905-3be7df872f7b" name="Default" comment="追加：&#10;修复：中文冒号乱码&#10;BUG：&#10;下一步：">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/lib/plugin-classes.jar" afterPath="$PROJECT_DIR$/target/lib/plugin-classes.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ContactGItem.java" afterPath="$PROJECT_DIR$/src/ContactGItem.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ContactGList.java" afterPath="$PROJECT_DIR$/src/ContactGList.java" />
+    <list default="true" id="2f7c82b2-b730-4e96-a905-3be7df872f7b" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="edba8b3b-40d6-4acf-9e68-966bb70df8fb" name="Rejected commit: Default" comment="追加：右键菜单功能&#10;修复：点击选中问题&#10;BUG：send a chat不好使&#10;下一步：修复BUG，去除rename，去除remove 菜单项" />
@@ -20,15 +17,15 @@
     <file path="/plugin.xml" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1376550832405" ignored="false" />
     <file path="/ContactGroupGroup.java" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1376989201585" ignored="false" />
     <file path="/ContactGList.java" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1378187219476" ignored="false" />
-    <file path="/Dummy.txt" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1378179960862" ignored="false" />
+    <file path="/Dummy.txt" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1378188567513" ignored="false" />
     <file path="/ContactGItem.java" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1378186146864" ignored="false" />
     <file path="/ContactGGroup.java" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1378085803323" ignored="false" />
     <file path="/ContactGGroupListener.java" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1377571382869" ignored="false" />
     <file path="/ContactListListener.java" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1377571132956" ignored="false" />
     <file path="/ContactGroup.java" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1377582319428" ignored="false" />
     <file path="/ChatGManager.java" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1377667877564" ignored="false" />
-    <file path="$PROJECT_DIR$/../ContactsWeb/web/getcontactsggroup.jsp" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1378179069052" ignored="false" />
-    <file path="/getcontactsggroup.jsp" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1378179062315" ignored="false" />
+    <file path="$PROJECT_DIR$/../ContactsWeb/web/getcontactsggroup.jsp" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1378190276835" ignored="false" />
+    <file path="/getcontactsggroup.jsp" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1378189481005" ignored="false" />
     <file path="$PROJECT_DIR$/../../PlatDemo/web/index.jsp" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1377763154918" ignored="false" />
     <file path="/index.jsp" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1377764554638" ignored="false" />
     <file path="$PROJECT_DIR$/../ContactsWeb/web/index.jsp" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1377764555044" ignored="false" />
@@ -39,7 +36,7 @@
     <file path="$PROJECT_DIR$/../ContactsWeb/META-INF/application.xml" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1378177764129" ignored="false" />
     <file path="$PROJECT_DIR$/../ContactsWeb/web/getcontacts.jsp" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1378185098662" ignored="false" />
     <file path="/getcontacts.jsp" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1378185053263" ignored="false" />
-    <file path="$PROJECT_DIR$/../ContactsWeb/web/getcontactsg.jsp" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1378185771445" ignored="false" />
+    <file path="$PROJECT_DIR$/../ContactsWeb/web/getcontactsg.jsp" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1378189566763" ignored="false" />
     <file path="/getcontactsg.jsp" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1378185768774" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -109,38 +106,38 @@
       <file leaf-file-name="ContactGList.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ContactGList.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="55" column="88" selection-start="2344" selection-end="2344" vertical-scroll-proportion="0.3318584">
+            <state line="55" column="64" selection-start="2320" selection-end="2320" vertical-scroll-proportion="0.3318584">
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#2631#2646#0" expanded="true" />
-                <element signature="e#5656#5670#0" expanded="true" />
-                <element signature="e#8174#8189#0" expanded="true" />
-                <element signature="e#14048#14289#0" expanded="true" />
-                <element signature="e#14062#14077#0" expanded="true" />
-                <element signature="e#14282#14283#0" expanded="true" />
-                <element signature="e#19768#20046#0" expanded="true" />
-                <element signature="e#20035#20036#0" expanded="true" />
-                <element signature="e#22338#22718#0" expanded="true" />
-                <element signature="e#22707#22708#0" expanded="true" />
-                <element signature="e#23007#24342#0" expanded="true" />
-                <element signature="e#24331#24332#0" expanded="true" />
-                <element signature="e#24788#25196#0" expanded="true" />
-                <element signature="e#25185#25186#0" expanded="true" />
-                <element signature="e#26810#26950#0" expanded="true" />
-                <element signature="e#26939#26940#0" expanded="true" />
-                <element signature="e#27625#27642#0" expanded="true" />
-                <element signature="e#28573#28594#0" expanded="true" />
-                <element signature="e#32672#32965#0" expanded="true" />
-                <element signature="e#32954#32955#0" expanded="true" />
-                <element signature="e#33004#33296#0" expanded="true" />
-                <element signature="e#33285#33286#0" expanded="true" />
-                <element signature="e#35403#35418#0" expanded="true" />
-                <element signature="e#41258#41273#0" expanded="true" />
-                <element signature="e#42702#42716#0" expanded="true" />
-                <element signature="e#45746#45761#0" expanded="true" />
-                <element signature="e#45923#45941#0" expanded="true" />
-                <element signature="e#46760#46782#0" expanded="true" />
-                <element signature="e#48721#48735#0" expanded="true" />
+                <element signature="e#5657#5671#0" expanded="true" />
+                <element signature="e#8179#8194#0" expanded="true" />
+                <element signature="e#14053#14294#0" expanded="true" />
+                <element signature="e#14067#14082#0" expanded="true" />
+                <element signature="e#14287#14288#0" expanded="true" />
+                <element signature="e#19773#20051#0" expanded="true" />
+                <element signature="e#20040#20041#0" expanded="true" />
+                <element signature="e#22343#22723#0" expanded="true" />
+                <element signature="e#22712#22713#0" expanded="true" />
+                <element signature="e#23012#24347#0" expanded="true" />
+                <element signature="e#24336#24337#0" expanded="true" />
+                <element signature="e#24793#25201#0" expanded="true" />
+                <element signature="e#25190#25191#0" expanded="true" />
+                <element signature="e#26815#26955#0" expanded="true" />
+                <element signature="e#26944#26945#0" expanded="true" />
+                <element signature="e#27630#27647#0" expanded="true" />
+                <element signature="e#28578#28599#0" expanded="true" />
+                <element signature="e#32677#32970#0" expanded="true" />
+                <element signature="e#32959#32960#0" expanded="true" />
+                <element signature="e#33009#33301#0" expanded="true" />
+                <element signature="e#33290#33291#0" expanded="true" />
+                <element signature="e#35408#35423#0" expanded="true" />
+                <element signature="e#41266#41281#0" expanded="true" />
+                <element signature="e#42710#42724#0" expanded="true" />
+                <element signature="e#45754#45769#0" expanded="true" />
+                <element signature="e#45931#45949#0" expanded="true" />
+                <element signature="e#46768#46790#0" expanded="true" />
+                <element signature="e#48729#48743#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -350,7 +347,7 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="MemberChooser.sorted" value="false" />
-    <property name="options.lastSelected" value="preferences.keymap" />
+    <property name="options.lastSelected" value="settings.github" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/gson-2.2.4-sources.jar!/" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="GoToClass.includeJavaFiles" value="true" />
@@ -547,7 +544,11 @@
       <created>1378179730859</created>
       <updated>1378179730859</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="追加：网路读取group，网络读取item。&#10;修复：&#10;BUG：&#10;下一步：添加测试数据，尝试完成点击读取事件">
+      <created>1378187517753</created>
+      <updated>1378187517753</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -645,7 +646,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="追加：&#10;修复：中文冒号乱码&#10;BUG：&#10;下一步：" />
+    <option name="LAST_COMMIT_MESSAGE" value="追加：网路读取group，网络读取item。&#10;修复：&#10;BUG：&#10;下一步：添加测试数据，尝试完成点击读取事件" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -670,6 +671,7 @@
     <MESSAGE value="追加：右键菜单功能的实际功能代码&#10;修复：send chat功能，去除rename和remove" />
     <MESSAGE value="修复：聊天传输，jid填写正确，就可以聊天" />
     <MESSAGE value="追加：&#10;修复：中文冒号乱码&#10;BUG：&#10;下一步：" />
+    <MESSAGE value="追加：网路读取group，网络读取item。&#10;修复：&#10;BUG：&#10;下一步：添加测试数据，尝试完成点击读取事件" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -783,38 +785,38 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ContactGList.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="55" column="88" selection-start="2344" selection-end="2344" vertical-scroll-proportion="0.3318584">
+        <state line="55" column="64" selection-start="2320" selection-end="2320" vertical-scroll-proportion="0.3318584">
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#2631#2646#0" expanded="true" />
-            <element signature="e#5656#5670#0" expanded="true" />
-            <element signature="e#8174#8189#0" expanded="true" />
-            <element signature="e#14048#14289#0" expanded="true" />
-            <element signature="e#14062#14077#0" expanded="true" />
-            <element signature="e#14282#14283#0" expanded="true" />
-            <element signature="e#19768#20046#0" expanded="true" />
-            <element signature="e#20035#20036#0" expanded="true" />
-            <element signature="e#22338#22718#0" expanded="true" />
-            <element signature="e#22707#22708#0" expanded="true" />
-            <element signature="e#23007#24342#0" expanded="true" />
-            <element signature="e#24331#24332#0" expanded="true" />
-            <element signature="e#24788#25196#0" expanded="true" />
-            <element signature="e#25185#25186#0" expanded="true" />
-            <element signature="e#26810#26950#0" expanded="true" />
-            <element signature="e#26939#26940#0" expanded="true" />
-            <element signature="e#27625#27642#0" expanded="true" />
-            <element signature="e#28573#28594#0" expanded="true" />
-            <element signature="e#32672#32965#0" expanded="true" />
-            <element signature="e#32954#32955#0" expanded="true" />
-            <element signature="e#33004#33296#0" expanded="true" />
-            <element signature="e#33285#33286#0" expanded="true" />
-            <element signature="e#35403#35418#0" expanded="true" />
-            <element signature="e#41258#41273#0" expanded="true" />
-            <element signature="e#42702#42716#0" expanded="true" />
-            <element signature="e#45746#45761#0" expanded="true" />
-            <element signature="e#45923#45941#0" expanded="true" />
-            <element signature="e#46760#46782#0" expanded="true" />
-            <element signature="e#48721#48735#0" expanded="true" />
+            <element signature="e#5657#5671#0" expanded="true" />
+            <element signature="e#8179#8194#0" expanded="true" />
+            <element signature="e#14053#14294#0" expanded="true" />
+            <element signature="e#14067#14082#0" expanded="true" />
+            <element signature="e#14287#14288#0" expanded="true" />
+            <element signature="e#19773#20051#0" expanded="true" />
+            <element signature="e#20040#20041#0" expanded="true" />
+            <element signature="e#22343#22723#0" expanded="true" />
+            <element signature="e#22712#22713#0" expanded="true" />
+            <element signature="e#23012#24347#0" expanded="true" />
+            <element signature="e#24336#24337#0" expanded="true" />
+            <element signature="e#24793#25201#0" expanded="true" />
+            <element signature="e#25190#25191#0" expanded="true" />
+            <element signature="e#26815#26955#0" expanded="true" />
+            <element signature="e#26944#26945#0" expanded="true" />
+            <element signature="e#27630#27647#0" expanded="true" />
+            <element signature="e#28578#28599#0" expanded="true" />
+            <element signature="e#32677#32970#0" expanded="true" />
+            <element signature="e#32959#32960#0" expanded="true" />
+            <element signature="e#33009#33301#0" expanded="true" />
+            <element signature="e#33290#33291#0" expanded="true" />
+            <element signature="e#35408#35423#0" expanded="true" />
+            <element signature="e#41266#41281#0" expanded="true" />
+            <element signature="e#42710#42724#0" expanded="true" />
+            <element signature="e#45754#45769#0" expanded="true" />
+            <element signature="e#45931#45949#0" expanded="true" />
+            <element signature="e#46768#46790#0" expanded="true" />
+            <element signature="e#48729#48743#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -877,6 +879,7 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>
