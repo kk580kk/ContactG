@@ -1,3 +1,5 @@
+package com.baosight.spark.plugin;
+
 import org.jivesoftware.resource.Res;
 import org.jivesoftware.resource.SparkRes;
 import org.jivesoftware.smack.RosterEntry;

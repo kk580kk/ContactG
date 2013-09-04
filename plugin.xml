@@ -1,12 +1,12 @@
 <!-- Define your plugin -->
 <plugin>
-    <name>ContactGList</name>
+    <name>com.baosight.spark.plugin.ContactGList</name>
     <version>0.1 bate</version>
     <author>Huang Jie</author>
     <homePage>http://www.baosight.com</homePage>
     <email>huangjie@baosight.com</email>
     <description>这个插件主要目的是尝试实现外部组织分组显示方式。</description>
-    <class>ContactGList</class>
+    <class>com.baosight.spark.plugin.ContactGList</class>
     <minSparkVersion>2.0.0</minSparkVersion>
     <os>Windows,Linux</os>
     <java>1.6.0_17</java>

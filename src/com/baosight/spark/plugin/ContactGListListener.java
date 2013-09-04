@@ -1,4 +1,4 @@
-/**
+package com.baosight.spark.plugin; /**
  * $RCSfile: ,v $
  * $Revision: $
  * $Date: $
@@ -27,44 +27,44 @@
 public interface ContactGListListener {
 
     /**
-     * Notified when a <code>ContactGItem</code> has been added to the ContactList.
+     * Notified when a <code>com.baosight.spark.plugin.ContactGItem</code> has been added to the ContactList.
      *
-     * @param item the ContactGItem added.
+     * @param item the com.baosight.spark.plugin.ContactGItem added.
      */
     void contactGItemAdded(ContactGItem item);
 
     /**
-     * Notified when a <code>ContactGItem</code> has been removed from the ContactList.
+     * Notified when a <code>com.baosight.spark.plugin.ContactGItem</code> has been removed from the ContactList.
      *
-     * @param item the ContactGItem removed.
+     * @param item the com.baosight.spark.plugin.ContactGItem removed.
      */
     void contactGItemRemoved(ContactGItem item);
 
     /**
-     * Called when a <code>ContactGGroup</code> has been added to the ContactList.
+     * Called when a <code>com.baosight.spark.plugin.ContactGGroup</code> has been added to the ContactList.
      *
-     * @param group the ContactGGroup.
+     * @param group the com.baosight.spark.plugin.ContactGGroup.
      */
     void contactGGroupAdded(ContactGGroup group);
 
     /**
-     * Called when a <code>ContactGGroup</code> has been removed from the ContactList.
+     * Called when a <code>com.baosight.spark.plugin.ContactGGroup</code> has been removed from the ContactList.
      *
-     * @param group the ContactGGroup.
+     * @param group the com.baosight.spark.plugin.ContactGGroup.
      */
     void contactGGroupRemoved(ContactGGroup group);
 
     /**
-     * Called when a <code>ContactGItem</code> has been clicked in the Contact List.
+     * Called when a <code>com.baosight.spark.plugin.ContactGItem</code> has been clicked in the Contact List.
      *
-     * @param item the <code>ContactGItem</code> double clicked.
+     * @param item the <code>com.baosight.spark.plugin.ContactGItem</code> double clicked.
      */
     void contactGItemClicked(ContactGItem item);
 
     /**
-     * Called when a <code>ContactGItem</code> has been double clicked in the Contact List.
+     * Called when a <code>com.baosight.spark.plugin.ContactGItem</code> has been double clicked in the Contact List.
      *
-     * @param item the <code>ContactGItem</code> double clicked.
+     * @param item the <code>com.baosight.spark.plugin.ContactGItem</code> double clicked.
      */
     void contactGItemDoubleClicked(ContactGItem item);
 }

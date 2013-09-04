@@ -1,3 +1,5 @@
+package com.baosight.spark.plugin;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
@@ -77,13 +79,13 @@ public class ContactGList extends JPanel implements ActionListener,
 
 
     /**
-     * Creates a new instance of ContactGList.
+     * Creates a new instance of com.baosight.spark.plugin.ContactGList.
      */
     public ContactGList() {
         // Load Local Preferences
         localPreferences = SettingsManager.getLocalPreferences();
 
-//        unfiledGroup = new ContactGGroup("unfiledGroup");
+//        unfiledGroup = new com.baosight.spark.plugin.ContactGGroup("unfiledGroup");
 //        System.out.println("unfiledGroup Created");
 
         JToolBar toolbar = new JToolBar();
@@ -108,7 +110,7 @@ public class ContactGList extends JPanel implements ActionListener,
         setLayout(new BorderLayout());
 
         mainPanel.setLayout(new VerticalFlowLayout(VerticalFlowLayout.TOP, 0, 0, true, false));
-        mainPanel.setBackground((Color) UIManager.get("ContactGItem.background"));
+        mainPanel.setBackground((Color) UIManager.get("com.baosight.spark.plugin.ContactGItem.background"));
 
         contactListScrollPane = new JScrollPane(mainPanel);
         contactListScrollPane.setAutoscrolls(true);
@@ -174,7 +176,7 @@ public class ContactGList extends JPanel implements ActionListener,
     //gGroups，2013年9月2日10:12:59
     private void addContactGGroupFromList(List<ContactGGroup> gGroups) {
 //        for (int i = 0; i < gGroups.size(); i++) {
-//            ContactGGroup contactGGroup = gGroups.get(i);
+//            com.baosight.spark.plugin.ContactGGroup contactGGroup = gGroups.get(i);
 ////            System.out.println(contactGGroup.toString());
 //            //如果是根分组就直接添加在根目录下面，判断是是否存在重名
 //            if ("root".equals(contactGGroup.getParentGroup())) {
@@ -186,7 +188,7 @@ public class ContactGList extends JPanel implements ActionListener,
 //                if (null != contactGGroup.getParentGroup()) {
 //                    this.addContactGGroupToGroup(contactGGroup, getContactGGroup(contactGGroup.getParentGroup()));
 //                } else {
-//                    this.addContactGGroup(new ContactGGroup(contactGGroup.getParentGroup()));
+//                    this.addContactGGroup(new com.baosight.spark.plugin.ContactGGroup(contactGGroup.getParentGroup()));
 //                }
 //            }
         //以上思路不好，重新编写，2013年9月2日10:16:07
@@ -248,7 +250,7 @@ public class ContactGList extends JPanel implements ActionListener,
     }
 
     /**
-     * Adds a new ContactGGroup to the ContactGList.
+     * Adds a new com.baosight.spark.plugin.ContactGGroup to the com.baosight.spark.plugin.ContactGList.
      *
      * @param group the group to add.
      */
@@ -277,10 +279,10 @@ public class ContactGList extends JPanel implements ActionListener,
     private Properties props;
 
     /**
-     * Returns a ContactGGroup based on its name.
+     * Returns a com.baosight.spark.plugin.ContactGGroup based on its name.
      *
-     * @param groupName the name of the ContactGGroup.
-     * @return the ContactGGroup. If no ContactGGroup is found, null is returned.
+     * @param groupName the name of the com.baosight.spark.plugin.ContactGGroup.
+     * @return the com.baosight.spark.plugin.ContactGGroup. If no com.baosight.spark.plugin.ContactGGroup is found, null is returned.
      */
     public ContactGGroup getContactGGroup(String groupName) {
         ContactGGroup cGroup = null;
@@ -301,11 +303,11 @@ public class ContactGList extends JPanel implements ActionListener,
     }
 
     /**
-     * Returns the nested ContactGGroup of a given ContactGGroup with associated name.
+     * Returns the nested com.baosight.spark.plugin.ContactGGroup of a given com.baosight.spark.plugin.ContactGGroup with associated name.
      *
-     * @param group     the parent ContactGGroup.
+     * @param group     the parent com.baosight.spark.plugin.ContactGGroup.
      * @param groupName the name of the nested group.
-     * @return the nested ContactGGroup. If not found, null will be returned.
+     * @return the nested com.baosight.spark.plugin.ContactGGroup. If not found, null will be returned.
      */
     private ContactGGroup getSubContactGGroup(ContactGGroup group, String groupName) {
         //测试寻找字类是否好使，2013年8月28日14:49:42
@@ -385,8 +387,8 @@ public class ContactGList extends JPanel implements ActionListener,
 //                }
 //
 //                String address = activeItem.getJID();
-//                ContactGGroup contactGGroup = getContactGGroup(activeItem.getGroupName());
-//                ContactGItem contactGItem = contactGGroup.getContactGItemByDisplayName(activeItem.getDisplayName());
+//                com.baosight.spark.plugin.ContactGGroup contactGGroup = getContactGGroup(activeItem.getGroupName());
+//                com.baosight.spark.plugin.ContactGItem contactGItem = contactGGroup.getContactGItemByDisplayName(activeItem.getDisplayName());
 //                contactGItem.setAlias(newAlias);
 //
 //                final Roster roster = SparkManager.getConnection().getRoster();
@@ -394,11 +396,11 @@ public class ContactGList extends JPanel implements ActionListener,
 //                entry.setName(newAlias);
 //
 //
-//                final Iterator<ContactGGroup> contactGGroups = groupList.iterator();
+//                final Iterator<com.baosight.spark.plugin.ContactGGroup> contactGGroups = groupList.iterator();
 //                String user = StringUtils.parseBareAddress(address);
 //                while (contactGGroups.hasNext()) {
-//                    ContactGGroup cg = contactGGroups.next();
-//                    ContactGItem ci = cg.getContactGItemByJID(user);
+//                    com.baosight.spark.plugin.ContactGGroup cg = contactGGroups.next();
+//                    com.baosight.spark.plugin.ContactGItem ci = cg.getContactGItemByJID(user);
 //                    if (ci != null) {
 //                        ci.setAlias(newAlias);
 //                    }
@@ -428,7 +430,7 @@ public class ContactGList extends JPanel implements ActionListener,
     }
 
     //特殊分组，暂且去除,2013年8月28日13:54:22
-//    private ContactGGroup getUnfiledGroup() {
+//    private com.baosight.spark.plugin.ContactGGroup getUnfiledGroup() {
 //        if (unfiledGroup == null) {
 //            // Add Unfiled Group
 //            if(EventQueue.isDispatchThread()) {
@@ -471,10 +473,10 @@ public class ContactGList extends JPanel implements ActionListener,
 //    private JMenuItem renameMenu;
 
     /**
-     * Shows popup for right-clicking of ContactGItem.
+     * Shows popup for right-clicking of com.baosight.spark.plugin.ContactGItem.
      *
      * @param e         the MouseEvent
-     * @param item      the ContactGItem
+     * @param item      the com.baosight.spark.plugin.ContactGItem
      * @param component the owning component
      */
     public void showPopup(Component component, MouseEvent e, final ContactGItem item) {
@@ -543,9 +545,9 @@ public class ContactGList extends JPanel implements ActionListener,
 //
 //        // Check if user is in shared group.
 //        boolean isInSharedGroup = false;
-//        for (ContactGGroup cGroup : new ArrayList<ContactGGroup>(getContactGGroups())) {
+//        for (com.baosight.spark.plugin.ContactGGroup cGroup : new ArrayList<com.baosight.spark.plugin.ContactGGroup>(getContactGGroups())) {
 //            if (cGroup.isSharedGroup()) {
-//                ContactGItem it = cGroup.getContactGItemByJID(item.getJID());
+//                com.baosight.spark.plugin.ContactGItem it = cGroup.getContactGItemByJID(item.getJID());
 //                if (it != null) {
 //                    isInSharedGroup = true;
 //                }
@@ -787,7 +789,7 @@ public class ContactGList extends JPanel implements ActionListener,
 //                Roster roster = SparkManager.getConnection().getRoster();
 //
 //                RosterGroup rosterGroup = roster.getGroup(groupName);
-//                //Do not remove ContactGGroup if the name entered was the same
+//                //Do not remove com.baosight.spark.plugin.ContactGGroup if the name entered was the same
 //                if (rosterGroup != null && !groupName.equals(newName)) {
 //                    removeContactGGroup(group);
 //                    rosterGroup.setName(newName);
@@ -826,7 +828,7 @@ public class ContactGList extends JPanel implements ActionListener,
      * For traversing of a nested group. Allows users to find the owning parent of a given contact group.
      *
      * @param groupName the name of the nested contact group.
-     * @return the parent ContactGGroup. If no parent, null will be returned.
+     * @return the parent com.baosight.spark.plugin.ContactGGroup. If no parent, null will be returned.
      */
     public ContactGGroup getParentGroup(String groupName) {
         // Check if there is even a parent group
@@ -846,9 +848,9 @@ public class ContactGList extends JPanel implements ActionListener,
     }
 
     /**
-     * Removes a ContactGGroup from the group model and ContactList.
+     * Removes a com.baosight.spark.plugin.ContactGGroup from the group model and ContactList.
      *
-     * @param contactGGroup the ContactGGroup to remove.
+     * @param contactGGroup the com.baosight.spark.plugin.ContactGGroup to remove.
      */
     private void removeContactGGroup(ContactGGroup contactGGroup) {
         contactGGroup.removeContactGGroupListener(this);
@@ -899,17 +901,17 @@ public class ContactGList extends JPanel implements ActionListener,
         addContactGItemListToGroup(contactGItems);
 
         //测试分组，2013年9月2日10:02:52
-//        ContactGGroup contactGGroup1 = new ContactGGroup("Group 1");
-//        ContactGGroup contactGGroup2 = new ContactGGroup("Group 2");
-//        ContactGGroup contactGGroup3 = new ContactGGroup("Group 3");
-//        ContactGGroup contactGGroup4 = new ContactGGroup("Group 4");
-//        ContactGGroup contactGGroup41 = new ContactGGroup("Group 41");
-//        ContactGGroup contactGGroup42 = new ContactGGroup("Group 42");
-//        ContactGGroup contactGGroup43 = new ContactGGroup("Group 43");
-//        ContactGGroup contactGGroup431 = new ContactGGroup("Group 431");
-//        ContactGGroup contactGGroup432 = new ContactGGroup("Group 432");
-//        ContactGGroup contactGGroup4321 = new ContactGGroup("Group 4321");
-//        ContactGGroup contactGGroup4322 = new ContactGGroup("Group 4322");    //
+//        com.baosight.spark.plugin.ContactGGroup contactGGroup1 = new com.baosight.spark.plugin.ContactGGroup("Group 1");
+//        com.baosight.spark.plugin.ContactGGroup contactGGroup2 = new com.baosight.spark.plugin.ContactGGroup("Group 2");
+//        com.baosight.spark.plugin.ContactGGroup contactGGroup3 = new com.baosight.spark.plugin.ContactGGroup("Group 3");
+//        com.baosight.spark.plugin.ContactGGroup contactGGroup4 = new com.baosight.spark.plugin.ContactGGroup("Group 4");
+//        com.baosight.spark.plugin.ContactGGroup contactGGroup41 = new com.baosight.spark.plugin.ContactGGroup("Group 41");
+//        com.baosight.spark.plugin.ContactGGroup contactGGroup42 = new com.baosight.spark.plugin.ContactGGroup("Group 42");
+//        com.baosight.spark.plugin.ContactGGroup contactGGroup43 = new com.baosight.spark.plugin.ContactGGroup("Group 43");
+//        com.baosight.spark.plugin.ContactGGroup contactGGroup431 = new com.baosight.spark.plugin.ContactGGroup("Group 431");
+//        com.baosight.spark.plugin.ContactGGroup contactGGroup432 = new com.baosight.spark.plugin.ContactGGroup("Group 432");
+//        com.baosight.spark.plugin.ContactGGroup contactGGroup4321 = new com.baosight.spark.plugin.ContactGGroup("Group 4321");
+//        com.baosight.spark.plugin.ContactGGroup contactGGroup4322 = new com.baosight.spark.plugin.ContactGGroup("Group 4322");    //
 //        this.addContactGGroup(contactGGroup1);
 //        this.addContactGGroup(contactGGroup2);
 //        this.addContactGGroup(contactGGroup3);
@@ -933,14 +935,14 @@ public class ContactGList extends JPanel implements ActionListener,
 //        contactGGroup432.addContactGGroup(contactGGroup4322);
 
         //测试item，2013年9月2日10:02:37
-//        ContactGItem contactGItem = new ContactGItem("a", "a", "a@berserker");
-//        ContactGItem contactGItem1 = new ContactGItem("b", "b", "b@berserker");
-//        ContactGItem contactGItem2 = new ContactGItem("c", "c", "c@berserker");
-//        ContactGItem contactGItem3 = new ContactGItem("d", "d", "d@berserker");
-//        ContactGItem contactGItem4 = new ContactGItem("e", "e", "e@berserker");
-//        ContactGItem contactGItem5 = new ContactGItem("f", "f", "f@berserker");
-//        ContactGItem contactGItem6 = new ContactGItem("g", "g", "g@berserker");
-//        ContactGItem contactGItem7 = new ContactGItem("h", "h", "h@berserker");      //
+//        com.baosight.spark.plugin.ContactGItem contactGItem = new com.baosight.spark.plugin.ContactGItem("a", "a", "a@berserker");
+//        com.baosight.spark.plugin.ContactGItem contactGItem1 = new com.baosight.spark.plugin.ContactGItem("b", "b", "b@berserker");
+//        com.baosight.spark.plugin.ContactGItem contactGItem2 = new com.baosight.spark.plugin.ContactGItem("c", "c", "c@berserker");
+//        com.baosight.spark.plugin.ContactGItem contactGItem3 = new com.baosight.spark.plugin.ContactGItem("d", "d", "d@berserker");
+//        com.baosight.spark.plugin.ContactGItem contactGItem4 = new com.baosight.spark.plugin.ContactGItem("e", "e", "e@berserker");
+//        com.baosight.spark.plugin.ContactGItem contactGItem5 = new com.baosight.spark.plugin.ContactGItem("f", "f", "f@berserker");
+//        com.baosight.spark.plugin.ContactGItem contactGItem6 = new com.baosight.spark.plugin.ContactGItem("g", "g", "g@berserker");
+//        com.baosight.spark.plugin.ContactGItem contactGItem7 = new com.baosight.spark.plugin.ContactGItem("h", "h", "h@berserker");      //
 //        contactGGroup1.addContactGItem(contactGItem);
 //        contactGGroup2.addContactGItem(contactGItem1);
 //        contactGGroup3.addContactGItem(contactGItem2);
@@ -993,7 +995,7 @@ public class ContactGList extends JPanel implements ActionListener,
         List<ContactsGGroupBean> contactGGroupsTest = new ArrayList<ContactsGGroupBean>();
         contactGGroupsTest.add(new ContactsGGroupBean("a", "root"));
         contactGGroupsTest.add(new ContactsGGroupBean("b", "a"));
-        //        System.out.println(new GsonBuilder().create().toJson(new ContactGGroup("c","root"))); //测试输出json是否报错，2013年9月2日14:23:52
+        //        System.out.println(new GsonBuilder().create().toJson(new com.baosight.spark.plugin.ContactGGroup("c","root"))); //测试输出json是否报错，2013年9月2日14:23:52
         responseBodyAsString = new GsonBuilder().create().toJson(contactGGroupsTest, new TypeToken<List<ContactsGGroupBean>>() {
         }.getType());
         System.out.println(responseBodyAsString);
@@ -1175,7 +1177,7 @@ public class ContactGList extends JPanel implements ActionListener,
     }
 
     /*
-        Adding ContactGListListener support.
+        Adding com.baosight.spark.plugin.ContactGListListener support.
     */
 
     private final List<ContactGListListener> contactListListeners = new ArrayList<ContactGListListener>();

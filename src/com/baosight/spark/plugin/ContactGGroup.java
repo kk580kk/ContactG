@@ -1,3 +1,5 @@
+package com.baosight.spark.plugin;
+
 import org.jivesoftware.resource.Res;
 import org.jivesoftware.spark.component.VerticalFlowLayout;
 import org.jivesoftware.spark.component.panes.CollapsiblePane;
@@ -92,9 +94,9 @@ public class ContactGGroup extends CollapsiblePane implements MouseListener {
     }
 
     /**
-     * Add a <code>ContactGGroupListener</code>.
+     * Add a <code>com.baosight.spark.plugin.ContactGGroupListener</code>.
      *
-     * @param listener the ContactGGroupListener.
+     * @param listener the com.baosight.spark.plugin.ContactGGroupListener.
      */
     public void addContactGGroupListener(ContactGGroupListener listener) {
         listeners.add(listener);
@@ -211,13 +213,13 @@ public class ContactGGroup extends CollapsiblePane implements MouseListener {
     private boolean needToChangePopup(MouseEvent e) {
 //        ContactInfoWindow contact = UIComponentRegistry.getContactInfoWindow();
 //        int loc = getList().locationToIndex(e.getPoint());
-//        ContactGItem item = (ContactGItem)getList().getModel().getElementAt(loc);
+//        com.baosight.spark.plugin.ContactGItem item = (com.baosight.spark.plugin.ContactGItem)getList().getModel().getElementAt(loc);
 //        boolean isTrue =item == null || contact == null || contact.getContactGItem() == null ? true : !contact.getContactGItem().getJID().equals(item.getJID());
         return false;
     }
 
     /**
-     * Returns the containing <code>JList</code> of the ContactGGroup.
+     * Returns the containing <code>JList</code> of the com.baosight.spark.plugin.ContactGGroup.
      *
      * @return the JList.
      */
@@ -226,7 +228,7 @@ public class ContactGGroup extends CollapsiblePane implements MouseListener {
     }
 
     /**
-     * Returns the "pretty" title of the ContactGGroup.
+     * Returns the "pretty" title of the com.baosight.spark.plugin.ContactGGroup.
      *
      * @param title the title.
      * @return the new title.
@@ -241,9 +243,9 @@ public class ContactGGroup extends CollapsiblePane implements MouseListener {
     }
 
     /**
-     * Returns the name of the ContactGGroup.
+     * Returns the name of the com.baosight.spark.plugin.ContactGGroup.
      *
-     * @return the name of the ContactGGroup.
+     * @return the name of the com.baosight.spark.plugin.ContactGGroup.
      */
     public String getGroupName() {
         return groupName;
@@ -273,9 +275,9 @@ public class ContactGGroup extends CollapsiblePane implements MouseListener {
 
 
     /**
-     * Removes a <code>ContactGGroupListener</code>.
+     * Removes a <code>com.baosight.spark.plugin.ContactGGroupListener</code>.
      *
-     * @param listener the ContactGGroupListener.
+     * @param listener the com.baosight.spark.plugin.ContactGGroupListener.
      */
     public void removeContactGGroupListener(ContactGGroupListener listener) {
         listeners.remove(listener);
@@ -283,7 +285,7 @@ public class ContactGGroup extends CollapsiblePane implements MouseListener {
 
 
     /**
-     * Removes a child ContactGGroup.
+     * Removes a child com.baosight.spark.plugin.ContactGGroup.
      *
      * @param contactGGroup the contact group to remove.
      */
@@ -314,10 +316,10 @@ public class ContactGGroup extends CollapsiblePane implements MouseListener {
     }
 
     /**
-     * Returns a ContactGGroup based on it's name.
+     * Returns a com.baosight.spark.plugin.ContactGGroup based on it's name.
      *
      * @param groupName the name of the group.
-     * @return the ContactGGroup.
+     * @return the com.baosight.spark.plugin.ContactGGroup.
      */
     public ContactGGroup getContactGGroup(String groupName) {
         for (ContactGGroup group : new ArrayList<ContactGGroup>(contactGGroups)) {
@@ -330,9 +332,9 @@ public class ContactGGroup extends CollapsiblePane implements MouseListener {
     }
 
     /**
-     * Adds a <code>ContactGItem</code> to the ContactGGroup.
+     * Adds a <code>com.baosight.spark.plugin.ContactGItem</code> to the com.baosight.spark.plugin.ContactGGroup.
      *
-     * @param item the ContactGItem.
+     * @param item the com.baosight.spark.plugin.ContactGItem.
      */
     public void addContactGItem(ContactGItem item) {
 
@@ -367,9 +369,9 @@ public class ContactGGroup extends CollapsiblePane implements MouseListener {
     }
 
     /**
-     * Removes a <code>ContactGItem</code>.
+     * Removes a <code>com.baosight.spark.plugin.ContactGItem</code>.
      *
-     * @param item the ContactGItem to remove.
+     * @param item the com.baosight.spark.plugin.ContactGItem to remove.
      */
     public void removeContactGItem(ContactGItem item) {
         contactGItems.remove(item);
@@ -397,7 +399,7 @@ public class ContactGGroup extends CollapsiblePane implements MouseListener {
     }
 
     /**
-     * Returns all <code>ContactGItem</cod>s in the ContactGGroup.
+     * Returns all <code>com.baosight.spark.plugin.ContactGItem</cod>s in the com.baosight.spark.plugin.ContactGGroup.
      *
      * @return all ContactGItems.
      */
@@ -418,10 +420,10 @@ public class ContactGGroup extends CollapsiblePane implements MouseListener {
 
 
     /**
-     * Returns a <code>ContactGItem</code> by the users bare bareJID.
+     * Returns a <code>com.baosight.spark.plugin.ContactGItem</code> by the users bare bareJID.
      *
      * @param bareJID the bareJID of the user.
-     * @return the ContactGItem.
+     * @return the com.baosight.spark.plugin.ContactGItem.
      */
     public ContactGItem getContactGItemByJID(String bareJID) {
         for (ContactGItem item : new ArrayList<ContactGItem>(contactGItems)) {
@@ -433,10 +435,10 @@ public class ContactGGroup extends CollapsiblePane implements MouseListener {
     }
 
     /**
-     * Returns a <code>ContactGItem</code> by the displayed name the user has been assigned.
+     * Returns a <code>com.baosight.spark.plugin.ContactGItem</code> by the displayed name the user has been assigned.
      *
      * @param displayName the displayed name of the user.
-     * @return the ContactGItem.
+     * @return the com.baosight.spark.plugin.ContactGItem.
      */
     public ContactGItem getContactGItemByDisplayName(String displayName) {
         for (ContactGItem item : new ArrayList<ContactGItem>(contactGItems)) {
@@ -533,12 +535,12 @@ public class ContactGGroup extends CollapsiblePane implements MouseListener {
             firePopupEvent(e, (ContactGItem) contactGItemList.getSelectedValue());
 
             //todo:传入选中的SelectedItems，目前尚未完成，2013年8月28日13:39:10
-//            final Collection<ContactGItem> selectedItems = SparkManager.getChatManager().getSelectedContactGItems();
+//            final Collection<com.baosight.spark.plugin.ContactGItem> selectedItems = SparkManager.getChatManager().getSelectedContactGItems();
 //            if (selectedItems.size() > 1) {
 //                firePopupEvent(e, selectedItems);
 //            }
 //            else if (selectedItems.size() == 1) {
-//                final ContactGItem contactGItem = selectedItems.iterator().next();
+//                final com.baosight.spark.plugin.ContactGItem contactGItem = selectedItems.iterator().next();
 //                firePopupEvent(e, contactGItem);
 //            }
         }
