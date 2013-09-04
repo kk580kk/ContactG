@@ -8,7 +8,6 @@ import org.jivesoftware.smack.packet.PacketExtension;
 import org.jivesoftware.smack.packet.Presence;
 import org.jivesoftware.smack.packet.RosterPacket;
 import org.jivesoftware.smack.util.StringUtils;
-import org.jivesoftware.spark.ChatManager;
 import org.jivesoftware.spark.PresenceManager;
 import org.jivesoftware.spark.SparkManager;
 import org.jivesoftware.spark.ui.ContactItem;
@@ -86,18 +85,22 @@ public class ContactGItem extends JPanel {
 
         // Set Default Font
         final LocalPreferences pref = SettingsManager.getLocalPreferences();
-        fontSize = pref.getContactListFontSize();
+//        fontSize = pref.getContactListFontSize();
+        fontSize = 14;  //写死地址在14,。todo：待修正
         iconSize = pref.getContactListIconSize();
-        avatarsShowing = pref.areAvatarsVisible();
+//        avatarsShowing = pref.areAvatarsVisible();
+        avatarsShowing = true;//设置头像可见的模式  todo：待修正
 
-        // Set default presence
-        presence = new Presence(Presence.Type.unavailable);
+        // Set default presence ,修改于，2013年9月4日10:39:08，为了实现显示头像。
+        presence = new Presence(Presence.Type.available);
+
 
         contactsDir = new File(SparkManager.getUserDirectory(), "contacts");
 
         this.alias = alias;
         this.nickname = nickname;
         this.fullyQualifiedJID = fullyQualifiedJID;
+
 
         if (initUi) {
             displayNameLabel = new JLabel();
@@ -116,7 +119,7 @@ public class ContactGItem extends JPanel {
             //displayNameLabel.setText(nickname);
 
 
-            descriptionLabel.setFont(new Font("Dialog", Font.PLAIN, fontSize));
+            descriptionLabel.setFont(new Font("微软雅黑", Font.PLAIN, fontSize));
             descriptionLabel.setForeground((Color) UIManager.get("ContactItemDescription.foreground"));
             descriptionLabel.setHorizontalTextPosition(JLabel.LEFT);
             descriptionLabel.setHorizontalAlignment(JLabel.LEFT);
@@ -131,6 +134,11 @@ public class ContactGItem extends JPanel {
             add(sideIcon, new GridBagConstraints(4, 0, 1, 2, 0.0, 0.0, GridBagConstraints.WEST, GridBagConstraints.HORIZONTAL, new Insets(0, 5, 0, 0), 0, 0));
 
             setDisplayName();
+
+            //强制载入头像，错误可能未知
+            updateAvatar();
+            updateAvatarInSideIcon();
+
         }
     }
 
@@ -279,7 +287,7 @@ public class ContactGItem extends JPanel {
     }
 
     /**
-     * Sets the name of the <code>ContactGrouop</code> that this contact belongs to.
+     * Sets the name of the <code>ContactGroup</code> that this contact belongs to.
      *
      * @param groupName the name of the ContactGroup.
      */
@@ -401,7 +409,7 @@ public class ContactGItem extends JPanel {
      * @param presence the users presence.
      */
     public void updatePresenceIcon(Presence presence) {
-        ChatManager chatManager = SparkManager.getChatManager();
+//        ChatManager chatManager = SparkManager.getChatManager();
         boolean handled = false;//chatManager.fireContactItemPresenceChanged(this, presence);
         if (handled) {
             return;

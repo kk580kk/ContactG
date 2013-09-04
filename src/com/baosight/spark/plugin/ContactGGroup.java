@@ -8,6 +8,7 @@ import org.jivesoftware.spark.ui.ContactGroup;
 import org.jivesoftware.spark.util.GraphicUtils;
 import org.jivesoftware.spark.util.log.Log;
 import org.jivesoftware.sparkimpl.settings.local.LocalPreferences;
+import org.jivesoftware.sparkimpl.settings.local.SettingsManager;
 
 import javax.swing.*;
 import java.awt.*;
@@ -33,13 +34,13 @@ public class ContactGGroup extends CollapsiblePane implements MouseListener {
     private List<ContactGItem> contactGItems = new ArrayList<ContactGItem>();
     private List<ContactGGroup> contactGGroups = new ArrayList<ContactGGroup>();
     private List<ContactGGroupListener> listeners = new ArrayList<ContactGGroupListener>();
-    private List<ContactGItem> offlineGContacts = new ArrayList<ContactGItem>();
+    //    private List<ContactGItem> offlineGContacts = new ArrayList<ContactGItem>();
 
     // Used to display no contacts in list.
 
     private String groupName;
     private String parentGroup;
-    private DefaultListModel model;
+    private DefaultListModel<ContactGItem> model;
     private JPanel listPanel;
 
     public ContactGGroup(String groupName, String parentGroup) {
@@ -62,8 +63,10 @@ public class ContactGGroup extends CollapsiblePane implements MouseListener {
     public ContactGGroup(String groupName) {
 //        super(groupName);
         // Initialize Model and UI
-        model = new DefaultListModel();
-        contactGItemList = new JList(model);
+        model = new DefaultListModel<ContactGItem>();
+        contactGItemList = new JList<ContactGItem>(model);
+
+        preferences = SettingsManager.getLocalPreferences();
 
         setTitle(getGroupTitle(groupName));
 
@@ -78,7 +81,7 @@ public class ContactGGroup extends CollapsiblePane implements MouseListener {
         listPanel.add(contactGItemList, listPanel);
 
         //设置分组是不可以拖拽的
-        contactGItemList.setDragEnabled(false);
+        contactGItemList.setDragEnabled(true);
 //        contactGItemList.setTransferHandler(new ContactGGroupTransferHandler());
 
 
@@ -87,6 +90,8 @@ public class ContactGGroup extends CollapsiblePane implements MouseListener {
         // Items should have selection listener
         contactGItemList.addMouseListener(this);
 
+        //设置默认是折叠起来
+        this.setCollapsed(false);
 
         // Add Popup Window
         addPopupWindow();
@@ -105,20 +110,20 @@ public class ContactGGroup extends CollapsiblePane implements MouseListener {
     private Timer timer = new Timer();
 
     /**
-     * Adds an internal popup listesner.
+     * Adds an internal popup Listener.
      */
     private void addPopupWindow() {
         contactGItemList.addMouseListener(new MouseAdapter() {
             //todo:以下有bug，尚未解决，所以注释掉 2013年8月27日13:56:15
             public void mouseEntered(MouseEvent mouseEvent) {
-//                canShowPopup = true;
-//                timerTask = new DisplayWindowTask(mouseEvent);
-//                timer.schedule(timerTask, 500, 1000);
+                canShowPopup = true;
+                timerTask = new DisplayWindowTask(mouseEvent);
+                timer.schedule(timerTask, 500, 1000);
             }
 
             public void mouseExited(MouseEvent mouseEvent) {
-//                canShowPopup = false;
-//                UIComponentRegistry.getContactInfoWindow().dispose();
+                canShowPopup = false;
+                contactGInfoWindow.dispose();
             }
         });
 
@@ -129,6 +134,14 @@ public class ContactGGroup extends CollapsiblePane implements MouseListener {
     private final ListMotionListener motionListener = new ListMotionListener();
     private boolean mouseDragged = false;
     private DisplayWindowTask timerTask = null;
+
+    public JList getContactItemList() {
+        return contactItemList;
+    }
+
+    public void setContactItemList(JList contactItemList) {
+        this.contactItemList = contactItemList;
+    }
 
     private class DisplayWindowTask extends TimerTask {
         private MouseEvent event;
@@ -197,6 +210,15 @@ public class ContactGGroup extends CollapsiblePane implements MouseListener {
     }
 
     private LocalPreferences preferences;
+    private ContactGInfoWindow contactGInfoWindow;
+
+    public void setContactGInfoWindow(ContactGInfoWindow contactGInfoWindow) {
+        this.contactGInfoWindow = contactGInfoWindow;
+    }
+
+    public ContactGInfoWindow getContactGInfoWindow() {
+        return contactGInfoWindow;
+    }
 
     /**
      * Displays the <code>ContactInfoWindow</code>.
@@ -205,8 +227,9 @@ public class ContactGGroup extends CollapsiblePane implements MouseListener {
      */
     private void displayWindow(MouseEvent e) {
         if (preferences.areVCardsVisible()) {
-            //原始代码无法复用，对象不同
-//            UIComponentRegistry.getContactInfoWindow().display(this, e);
+            //todo:原始代码无法复用，对象不同
+//            UIComponentRegistry.getContactInfoWindow().display(this.toContactGroup(), e);
+            contactGInfoWindow.display(this, e);
         }
     }
 
@@ -223,7 +246,7 @@ public class ContactGGroup extends CollapsiblePane implements MouseListener {
      *
      * @return the JList.
      */
-    public JList getList() {
+    public JList<ContactGItem> getList() {
         return contactGItemList;
     }
 
@@ -351,13 +374,13 @@ public class ContactGGroup extends CollapsiblePane implements MouseListener {
         int index = tempItems.indexOf(item);
 
 
-        Object[] objs = contactGItemList.getSelectedValues();
+        Object[] objects = contactGItemList.getSelectedValues();
 
         model.insertElementAt(item, index);
 
-        int[] intList = new int[objs.length];
-        for (int i = 0; i < objs.length; i++) {
-            ContactGItem contact = (ContactGItem) objs[i];
+        int[] intList = new int[objects.length];
+        for (int i = 0; i < objects.length; i++) {
+            ContactGItem contact = (ContactGItem) objects[i];
             intList[i] = model.indexOf(contact);
         }
 
@@ -389,8 +412,7 @@ public class ContactGGroup extends CollapsiblePane implements MouseListener {
         int count = 0;
         List<ContactGItem> list = new ArrayList<ContactGItem>(getContactGItems());
         int size = list.size();
-        for (int i = 0; i < size; i++) {
-            ContactGItem it = list.get(i);
+        for (ContactGItem it : list) {
             if (it.isAvailable()) {
                 count++;
             }
@@ -451,23 +473,22 @@ public class ContactGGroup extends CollapsiblePane implements MouseListener {
 
     public void mouseClicked(MouseEvent e) {
 
-        Object o = contactGItemList.getSelectedValue();
-        if (!(o instanceof ContactGItem)) {
-            return;
-        }
+        ContactGItem o = contactGItemList.getSelectedValue();
+        if (o != null) {
 
-        // Iterator through rest
-        ContactGItem item = (ContactGItem) o;
+            // Iterator through rest
+            ContactGItem item = o;
 
-        if (e.getClickCount() == 2) {
-            System.out.println("fireContactGItemDoubleClicked");
-            //双击事件，测试版本
-            fireContactGItemDoubleClicked(item);
-        } else if (e.getClickCount() == 1) {
-            System.out.println("fireContactGItemClicked");
+            if (e.getClickCount() == 2) {
+                System.out.println("fireContactGItemDoubleClicked");
+                //双击事件，测试版本
+                fireContactGItemDoubleClicked(item);
+            } else if (e.getClickCount() == 1) {
+                System.out.println("fireContactGItemClicked");
 
-            //单击事件，测试版本
-            fireContactGItemClicked(item);
+                //单击事件，测试版本
+                fireContactGItemClicked(item);
+            }
         }
     }
 
@@ -482,8 +503,8 @@ public class ContactGGroup extends CollapsiblePane implements MouseListener {
     public void mouseEntered(MouseEvent e) {
         int loc = contactGItemList.locationToIndex(e.getPoint());
 
-        Object o = model.getElementAt(loc);
-        if (!(o instanceof ContactGItem)) {
+        ContactGItem o = model.getElementAt(loc);
+        if (o == null) {
             return;
         }
 
@@ -491,7 +512,7 @@ public class ContactGGroup extends CollapsiblePane implements MouseListener {
     }
 
     public void mouseExited(MouseEvent e) {
-        Object o;
+        ContactGItem o;
         try {
             int loc = contactGItemList.locationToIndex(e.getPoint());
             if (loc == -1) {
@@ -499,7 +520,7 @@ public class ContactGGroup extends CollapsiblePane implements MouseListener {
             }
 
             o = model.getElementAt(loc);
-            if (!(o instanceof ContactGItem)) {
+            if (null == o) {
 //                UIComponentRegistry.getContactInfoWindow().dispose();
                 return;
             }
@@ -528,11 +549,11 @@ public class ContactGGroup extends CollapsiblePane implements MouseListener {
 
                 if (!selected) {
                     contactGItemList.setSelectedIndex(index);
-                    fireContactGItemClicked((ContactGItem) contactGItemList.getSelectedValue());
+                    fireContactGItemClicked(contactGItemList.getSelectedValue());
                 }
             }
 
-            firePopupEvent(e, (ContactGItem) contactGItemList.getSelectedValue());
+            firePopupEvent(e, contactGItemList.getSelectedValue());
 
             //todo:传入选中的SelectedItems，目前尚未完成，2013年8月28日13:39:10
 //            final Collection<com.baosight.spark.plugin.ContactGItem> selectedItems = SparkManager.getChatManager().getSelectedContactGItems();
@@ -609,7 +630,7 @@ public class ContactGGroup extends CollapsiblePane implements MouseListener {
         }
     }
 
-    private JList contactGItemList;
+    private JList<ContactGItem> contactGItemList;
 
     public void clearSelection(ContactGItem selectedItem) {
         contactGItemList.clearSelection();
@@ -623,13 +644,13 @@ public class ContactGGroup extends CollapsiblePane implements MouseListener {
         }
     }
 
+    private boolean sharedGroup;
+
     /**
      * Returns true if ContactGroup is a Shared Group.
      *
      * @return true if Shared Group.
      */
-    private boolean sharedGroup;
-
     public boolean isSharedGroup() {
         return sharedGroup;
     }
@@ -647,4 +668,15 @@ public class ContactGGroup extends CollapsiblePane implements MouseListener {
         return new ContactGroup(this.groupName);
     }
 
+    /**
+     * Call whenever the UI needs to be updated.
+     */
+
+    private JList contactItemList;
+
+    public void fireContactGroupUpdated() {
+        contactGItemList.validate();
+        contactGItemList.repaint();
+        updateTitle();
+    }
 }
