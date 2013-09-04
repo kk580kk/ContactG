@@ -6,6 +6,12 @@
     <JAVADOC />
     <SOURCES>
       <root url="file://$PROJECT_DIR$/../../Spark/src/java" />
+      <root url="jar://$PROJECT_DIR$/lib/gson-2.2.4-sources.jar!/" />
+      <root url="file://$PROJECT_DIR$/../../smack/test" />
+      <root url="file://$PROJECT_DIR$/../../smack/jingle/extension/test" />
+      <root url="file://$PROJECT_DIR$/../../smack/jingle/extension/source" />
+      <root url="file://$PROJECT_DIR$/../../smack/source" />
+      <root url="file://$PROJECT_DIR$/../../smack/test-unit" />
     </SOURCES>
     <jarDirectory url="file://$PROJECT_DIR$/lib" recursive="false" />
   </library>
