@@ -8,7 +8,6 @@ import org.jivesoftware.smack.packet.PacketExtension;
 import org.jivesoftware.smack.packet.Presence;
 import org.jivesoftware.smack.packet.RosterPacket;
 import org.jivesoftware.smack.util.StringUtils;
-import org.jivesoftware.spark.ChatManager;
 import org.jivesoftware.spark.PresenceManager;
 import org.jivesoftware.spark.SparkManager;
 import org.jivesoftware.spark.ui.ContactItem;
@@ -288,7 +287,7 @@ public class ContactGItem extends JPanel {
     }
 
     /**
-     * Sets the name of the <code>ContactGrouop</code> that this contact belongs to.
+     * Sets the name of the <code>ContactGroup</code> that this contact belongs to.
      *
      * @param groupName the name of the ContactGroup.
      */
@@ -410,7 +409,7 @@ public class ContactGItem extends JPanel {
      * @param presence the users presence.
      */
     public void updatePresenceIcon(Presence presence) {
-        ChatManager chatManager = SparkManager.getChatManager();
+//        ChatManager chatManager = SparkManager.getChatManager();
         boolean handled = false;//chatManager.fireContactItemPresenceChanged(this, presence);
         if (handled) {
             return;

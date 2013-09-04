@@ -61,7 +61,7 @@ public interface ContactGGroupListener {
     public void contactGItemClicked(ContactGItem item);
 
     /**
-     * Notifies the user that a popup call has occured on the com.baosight.spark.plugin.ContactGGroup.
+     * Notifies the user that a popup call has occurred on the com.baosight.spark.plugin.ContactGGroup.
      *
      * @param e    the MouseEvent that triggered the event.
      * @param item the com.baosight.spark.plugin.ContactGItem clicked within the com.baosight.spark.plugin.ContactGGroup.
@@ -70,7 +70,7 @@ public interface ContactGGroupListener {
     public void showPopup(MouseEvent e, ContactGItem item);
 
     /**
-     * Notifies the user that a popup call has occured on the com.baosight.spark.plugin.ContactGGroup.
+     * Notifies the user that a popup call has occurred on the com.baosight.spark.plugin.ContactGGroup.
      *
      * @param e     the MouseEvent that triggered the event.
      * @param items the ContactGItems within the com.baosight.spark.plugin.ContactGGroup.
@@ -79,7 +79,7 @@ public interface ContactGGroupListener {
     public void showPopup(MouseEvent e, Collection<ContactGItem> items);
 
     /**
-     * Notifies the user that a Popup event has occured on the com.baosight.spark.plugin.ContactGGroup title
+     * Notifies the user that a Popup event has occurred on the com.baosight.spark.plugin.ContactGGroup title
      * bar.
      *
      * @param e     the MouseEvent that triggered the event.

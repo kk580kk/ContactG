@@ -48,7 +48,7 @@ import java.util.Date;
  * @author Derek DeMoro
  */
 public class ContactGInfoWindow extends JPanel {
-    private final long serialVersionUID = 8409694344721276453L;
+    //    private final long serialVersionUID = 8409694344721276453L;
     private final JLabel nicknameLabel = new JLabel();
     private final JTextArea statusLabel = new JTextArea();
     private final JLabel fullJIDLabel = new JLabel();
@@ -137,7 +137,7 @@ public class ContactGInfoWindow extends JPanel {
         int loc = group.getList().locationToIndex(e.getPoint());
 
 
-        ContactGItem item = (ContactGItem) group.getList().getModel().getElementAt(loc);
+        ContactGItem item = group.getList().getModel().getElementAt(loc);
 
 //        //增加一个功能，刷新Presence,效果不是特别好，需要切换tab才会刷新。需要增加个事件刷新tab表单。
 //        if(null!=item) {

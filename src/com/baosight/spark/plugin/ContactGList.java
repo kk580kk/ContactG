@@ -31,8 +31,6 @@ import org.jivesoftware.spark.ui.RosterDialog;
 import org.jivesoftware.spark.util.ModelUtil;
 import org.jivesoftware.spark.util.log.Log;
 import org.jivesoftware.sparkimpl.profile.VCardManager;
-import org.jivesoftware.sparkimpl.settings.local.LocalPreferences;
-import org.jivesoftware.sparkimpl.settings.local.SettingsManager;
 
 import javax.swing.*;
 import java.awt.*;
@@ -60,7 +58,7 @@ public class ContactGList extends JPanel implements ActionListener,
     final String targetContactsURL = "http://localhost:8080/contactsweb/getcontactsg.jsp";
 
     //参数设定为parentGroup为请求的父分组传参
-    final String parameterURL = "parentGroup";
+//    final String parameterURL = "parentGroup";
 
     private static final long serialVersionUID = 1L;
     private JPanel mainPanel = new JPanel();
@@ -77,15 +75,15 @@ public class ContactGList extends JPanel implements ActionListener,
 //    private File propertiesFile;
 
 
-    private LocalPreferences localPreferences;
+//    private LocalPreferences localPreferences;
 
 
     /**
      * Creates a new instance of com.baosight.spark.plugin.contactGList.
      */
     public ContactGList() {
-        // Load Local Preferences
-        localPreferences = SettingsManager.getLocalPreferences();
+        // Load Local Preferences，暂时用不上，2013年9月4日18:11:42
+//        localPreferences = SettingsManager.getLocalPreferences();
 
 //        unfiledGroup = new com.baosight.spark.plugin.ContactGGroup("unfiledGroup");
 //        System.out.println("unfiledGroup Created");
@@ -144,9 +142,7 @@ public class ContactGList extends JPanel implements ActionListener,
     private List<ContactGItem> contactGItems = new ArrayList<ContactGItem>();
 
     private void addContactGItemListToGroup(List<ContactGItem> contactGItems) {
-        ListIterator<ContactGItem> contactGItemListIterator = contactGItems.listIterator();
-        while (contactGItemListIterator.hasNext()) {
-            ContactGItem next = contactGItemListIterator.next();
+        for (ContactGItem next : contactGItems) {
             addContactGItemToGroup(next);
         }
     }
@@ -163,7 +159,7 @@ public class ContactGList extends JPanel implements ActionListener,
                 System.out.println("Already found " + contactGGroup.getGroupName() + " to insert.");
                 contactGGroup.addContactGItem(contactGItem);
             } else {
-                System.out.println("There hasn't some group named " + contactGGroup.getGroupName() + " to insert.");
+                System.out.println("There hasn't some group named " + groupName + " to insert.");
             }
         } else {
             System.out.println("This " + contactGItem.getFullyQualifiedJID() + " hasn't a group name.");
@@ -280,8 +276,6 @@ public class ContactGList extends JPanel implements ActionListener,
 //        }
     }
 
-    private Properties props;
-
     /**
      * Returns a com.baosight.spark.plugin.ContactGGroup based on its name.
      *
@@ -347,10 +341,6 @@ public class ContactGList extends JPanel implements ActionListener,
         }
     };
 
-    public JPanel getMainPanel() {
-        return mainPanel;
-    }
-
     private final RolloverButton addingGroupButton;
 
     public void actionPerformed(ActionEvent e) {
@@ -414,23 +404,18 @@ public class ContactGList extends JPanel implements ActionListener,
     }
 
     public void connectionClosed() {
-        //To change body of implemented methods use File | Settings | File Templates.
     }
 
     public void connectionClosedOnError(Exception e) {
-        //To change body of implemented methods use File | Settings | File Templates.
     }
 
     public void reconnectingIn(int i) {
-        //To change body of implemented methods use File | Settings | File Templates.
     }
 
     public void reconnectionSuccessful() {
-        //To change body of implemented methods use File | Settings | File Templates.
     }
 
     public void reconnectionFailed(Exception e) {
-        //To change body of implemented methods use File | Settings | File Templates.
     }
 
     //特殊分组，暂且去除,2013年8月28日13:54:22
@@ -456,17 +441,19 @@ public class ContactGList extends JPanel implements ActionListener,
 //        }
 //        return unfiledGroup;
 //    }
-    private void removeContactFromRoster(ContactGItem item) {
-        Roster roster = SparkManager.getConnection().getRoster();
-        RosterEntry entry = roster.getEntry(item.getJID());
-        if (entry != null) {
-            try {
-                roster.removeEntry(entry);
-            } catch (XMPPException e) {
-                Log.warning("Unable to remove roster entry.", e);
-            }
-        }
-    }
+
+    //暂时用不上，删除roster代码
+//    private void removeContactFromRoster(ContactGItem item) {
+//        Roster roster = SparkManager.getConnection().getRoster();
+//        RosterEntry entry = roster.getEntry(item.getJID());
+//        if (entry != null) {
+//            try {
+//                roster.removeEntry(entry);
+//            } catch (XMPPException e) {
+//                Log.warning("Unable to remove roster entry.", e);
+//            }
+//        }
+//    }
 
     public JComponent getGUI() {
         return this;
@@ -514,8 +501,8 @@ public class ContactGList extends JPanel implements ActionListener,
         popup.addSeparator();
 
 
-        String groupName = item.getGroupName();
-        ContactGGroup contactGGroup = getContactGGroup(groupName);
+//        String groupName = item.getGroupName();
+//        ContactGGroup contactGGroup = getContactGGroup(groupName);
 //去除removeContact，2013年8月29日10:19:47
 //        // Only show "Remove Contact From Group" if the user belongs to more than one group.
 //        if (!contactGGroup.isSharedGroup()) {
@@ -589,7 +576,7 @@ public class ContactGList extends JPanel implements ActionListener,
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
                     String client = "";
-                    if (item.getPresence().getType() != Presence.Type.unavailable) {
+                    if (item.getPresence() != null && (item.getPresence().getType() != Presence.Type.unavailable)) {
                         client = item.getPresence().getFrom();
                         if ((client != null) && (client.lastIndexOf("/") != -1)) {
                             client = client.substring(client.lastIndexOf("/"));
@@ -610,7 +597,7 @@ public class ContactGList extends JPanel implements ActionListener,
         lastActivityAction.putValue(Action.NAME, Res.getString("menuitem.view.last.activity"));
         lastActivityAction.putValue(Action.SMALL_ICON, SparkRes.getImageIcon(SparkRes.SMALL_USER1_STOPWATCH));
 
-        if (item.getPresence().isAway() || (item.getPresence().getType() == Presence.Type.unavailable) || (item.getPresence().getType() == null)) {
+        if (item.getPresence() != null && (item.getPresence().isAway() || (item.getPresence().getType() == Presence.Type.unavailable) || (item.getPresence().getType() == null))) {
             popup.add(lastActivityAction);
         }
 
@@ -834,45 +821,44 @@ public class ContactGList extends JPanel implements ActionListener,
      * @param groupName the name of the nested contact group.
      * @return the parent com.baosight.spark.plugin.ContactGGroup. If no parent, null will be returned.
      */
-    public ContactGGroup getParentGroup(String groupName) {
-        // Check if there is even a parent group
-        if (!groupName.contains("::")) {
-            return null;
-        }
-
-        final ContactGGroup group = getContactGGroup(groupName);
-        if (group == null) {
-            return null;
-        }
-
-        // Otherwise, find parent
-        int index = groupName.lastIndexOf("::");
-        String parentGroupName = groupName.substring(0, index);
-        return getContactGGroup(parentGroupName);
-    }
+//    public ContactGGroup getParentGroup(String groupName) {
+//        // Check if there is even a parent group
+//        if (!groupName.contains("::")) {
+//            return null;
+//        }
+//
+//        final ContactGGroup group = getContactGGroup(groupName);
+//        if (group == null) {
+//            return null;
+//        }
+//
+//        // Otherwise, find parent
+//        int index = groupName.lastIndexOf("::");
+//        String parentGroupName = groupName.substring(0, index);
+//        return getContactGGroup(parentGroupName);
+//    }
 
     /**
      * Removes a com.baosight.spark.plugin.ContactGGroup from the group model and ContactList.
      *
      * @param contactGGroup the com.baosight.spark.plugin.ContactGGroup to remove.
      */
-    private void removeContactGGroup(ContactGGroup contactGGroup) {
-        contactGGroup.removeContactGGroupListener(this);
-        groupList.remove(contactGGroup);
-        mainPanel.remove(contactGGroup);
-
-        ContactGGroup parent = getParentGroup(contactGGroup.getGroupName());
-        if (parent != null) {
-            parent.removeContactGGroup(contactGGroup);
-        }
-
-        contactListScrollPane.validate();
-        mainPanel.invalidate();
-        mainPanel.repaint();
-
-        fireContactGGroupRemoved(contactGGroup);
-    }
-
+//    private void removeContactGGroup(ContactGGroup contactGGroup) {
+//        contactGGroup.removeContactGGroupListener(this);
+//        groupList.remove(contactGGroup);
+//        mainPanel.remove(contactGGroup);
+//
+//        ContactGGroup parent = getParentGroup(contactGGroup.getGroupName());
+//        if (parent != null) {
+//            parent.removeContactGGroup(contactGGroup);
+//        }
+//
+//        contactListScrollPane.validate();
+//        mainPanel.invalidate();
+//        mainPanel.repaint();
+//
+//        fireContactGGroupRemoved(contactGGroup);
+//    }
     private void addContactGListToWorkspace() {
         Workspace workspace = SparkManager.getWorkspace();
 //        workspace.getWorkspacePane().addTab("My Tab",null,new JButton("Hello"));
@@ -1011,18 +997,18 @@ public class ContactGList extends JPanel implements ActionListener,
             return;
         }
 
-        final Roster roster = SparkManager.getConnection().getRoster();
+//        final Roster roster = SparkManager.getConnection().getRoster();
 
         final String bareJID = StringUtils.parseBareAddress(presence.getFrom());
 
-        RosterEntry entry = roster.getEntry(bareJID);
+//        RosterEntry entry = roster.getEntry(bareJID);
 
         // If online, check to see if they are in the offline group.
         // If so, remove from offline group and add to all groups they
         // belong to.
 
         Presence rosterPresence = PresenceManager.getPresence(bareJID);
-        updateContactItemsPresence(rosterPresence, entry, bareJID);
+        updateContactItemsPresence(rosterPresence, bareJID);
 
     }
 
@@ -1030,10 +1016,9 @@ public class ContactGList extends JPanel implements ActionListener,
      * Updates the presence of one individual based on their JID.
      *
      * @param presence the users presence.
-     * @param entry    the roster entry being updated.
      * @param bareJID  the bare jid of the user.
      */
-    private void updateContactItemsPresence(Presence presence, RosterEntry entry, String bareJID) {
+    private void updateContactItemsPresence(Presence presence, String bareJID) {
         for (ContactGGroup group : groupList) {
             ContactGItem item = group.getContactGItemByJID(bareJID);
             if (item != null) {
@@ -1264,7 +1249,8 @@ public class ContactGList extends JPanel implements ActionListener,
         System.out.println("Start contactGItemDoubleClicked");
 
         ChatManager chatManager = SparkManager.getChatManager();
-        //todo:chatManager 里面没有好用的方法，尚未找到解决办法，2013年8月27日10:52:21
+        //done:chatManager 里面没有好用的方法，尚未找到解决办法，2013年8月27日10:52:21
+        //目前测试好使
 //        boolean handled = chatManager.fireContactGItemDoubleClicked(item);
 
 //        if (!handled) {
@@ -1336,12 +1322,11 @@ public class ContactGList extends JPanel implements ActionListener,
         fireContactGItemRemoved(item);
     }
 
+    private final List<ContactGListListener> contactListListeners = new ArrayList<ContactGListListener>();
+
     /*
         Adding com.baosight.spark.plugin.ContactGListListener support.
     */
-
-    private final List<ContactGListListener> contactListListeners = new ArrayList<ContactGListListener>();
-
     public void addContactGListListener(ContactGListListener listener) {
         contactListListeners.add(listener);
     }
