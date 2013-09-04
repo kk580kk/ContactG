@@ -17,6 +17,7 @@ import org.jivesoftware.smack.packet.RosterPacket;
 import org.jivesoftware.smackx.LastActivityManager;
 import org.jivesoftware.smackx.packet.LastActivity;
 import org.jivesoftware.spark.ChatManager;
+import org.jivesoftware.spark.PresenceManager;
 import org.jivesoftware.spark.SparkManager;
 import org.jivesoftware.spark.Workspace;
 import org.jivesoftware.spark.component.InputDialog;
@@ -151,6 +152,9 @@ public class ContactGList extends JPanel implements ActionListener,
     }
 
     private void addContactGItemToGroup(ContactGItem contactGItem) {
+        //获取用户状态，2013年9月4日11:01:05
+        contactGItem.setPresence(PresenceManager.getPresence(contactGItem.getJID()));
+
         String groupName = contactGItem.getGroupName();
         if (null != groupName) {
             System.out.println("Now insert item " + contactGItem.getFullyQualifiedJID() + " to group " + contactGItem.getGroupName());
@@ -872,7 +876,7 @@ public class ContactGList extends JPanel implements ActionListener,
     private void addContactGListToWorkspace() {
         Workspace workspace = SparkManager.getWorkspace();
 //        workspace.getWorkspacePane().addTab("My Tab",null,new JButton("Hello"));
-        workspace.getWorkspacePane().addTab("组织结构分组", null, this);
+        workspace.getWorkspacePane().addTab("组织结构分组", SparkRes.getImageIcon(SparkRes.SMALL_ALL_CHATS_IMAGE), this);
     }
 
     public void initialize() {
@@ -1078,8 +1082,43 @@ public class ContactGList extends JPanel implements ActionListener,
         //To change body of implemented methods use File | Settings | File Templates.
     }
 
-    public void entriesUpdated(Collection collection) {
-        //To change body of implemented methods use File | Settings | File Templates.
+    /**
+     * Handle when the Roster changes based on subscription notices.
+     *
+     * @param addresses List of entries that were updated.
+     */
+    public void entriesUpdated(final Collection<String> addresses) {
+        handleEntriesUpdated(addresses);
+    }
+
+    /**
+     * Handles any presence modifications of a user(s).
+     *
+     * @param addresses the Collection of addresses that have been modified within the Roster.
+     */
+    private synchronized void handleEntriesUpdated(final Collection<String> addresses) {
+        SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                Roster roster = SparkManager.getConnection().getRoster();
+                Iterator<String> iterator = addresses.iterator();
+                while (iterator.hasNext()) {
+                    String jid = iterator.next();
+                    RosterEntry rosterEntry = roster.getEntry(jid);
+                    if (rosterEntry != null) {
+                        Presence presence = PresenceManager.getPresence(jid);
+                        ContactGItem contactGItem = null;
+                        for (ContactGItem item : new ArrayList<ContactGItem>(contactGItems)) {
+                            if (item != null && item.getJID().equals(jid)) {
+                                contactGItem = item;
+                            }
+                        }
+                        if (null != contactGItem) {
+                            contactGItem.setPresence(presence);
+                        }
+                    }
+                }
+            }
+        });
     }
 
     public void entriesDeleted(Collection collection) {
