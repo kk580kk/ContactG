@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2f7c82b2-b730-4e96-a905-3be7df872f7b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/baosight/spark/plugin/ContactGInfoWindow.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/lib/plugin-classes.jar" afterPath="$PROJECT_DIR$/target/lib/plugin-classes.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/baosight/spark/plugin/ContactGGroup.java" afterPath="$PROJECT_DIR$/src/com/baosight/spark/plugin/ContactGGroup.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/baosight/spark/plugin/ContactGGroupListener.java" afterPath="$PROJECT_DIR$/src/com/baosight/spark/plugin/ContactGGroupListener.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/baosight/spark/plugin/ContactGInfoWindow.java" afterPath="$PROJECT_DIR$/src/com/baosight/spark/plugin/ContactGInfoWindow.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/baosight/spark/plugin/ContactGList.java" afterPath="$PROJECT_DIR$/src/com/baosight/spark/plugin/ContactGList.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -13,17 +14,17 @@
     <ignored path=".idea/workspace.xml" />
     <file path="/ExamplePlugin.java" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1376549349649" ignored="false" />
     <file path="/ContactGroupList.java" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1376985865455" ignored="false" />
-    <file path="/fragment.java" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1378274247597" ignored="false" />
-    <file path="/a.dummy" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1378259735077" ignored="false" />
+    <file path="/fragment.java" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1378285257937" ignored="false" />
+    <file path="/a.dummy" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1378281969375" ignored="false" />
     <file path="$PROJECT_DIR$/../../Spark/.idea/workspace.xml" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1376613149881" ignored="false" />
     <file path="/ContactsGroupList.java" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1376549041179" ignored="false" />
     <file path="/ContactList.java" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1377672076535" ignored="false" />
     <file path="/plugin.xml" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1376550832405" ignored="false" />
     <file path="/ContactGroupGroup.java" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1376989201585" ignored="false" />
-    <file path="/ContactGList.java" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1378276169670" ignored="false" />
-    <file path="/Dummy.txt" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1378265150498" ignored="false" />
+    <file path="/ContactGList.java" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1378285674648" ignored="false" />
+    <file path="/Dummy.txt" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1378276615306" ignored="false" />
     <file path="/ContactGItem.java" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1378262732212" ignored="false" />
-    <file path="/ContactGGroup.java" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1378274550993" ignored="false" />
+    <file path="/ContactGGroup.java" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1378281410157" ignored="false" />
     <file path="/ContactGGroupListener.java" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1377571382869" ignored="false" />
     <file path="/ContactListListener.java" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1377571132956" ignored="false" />
     <file path="/ContactGroup.java" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1377582319428" ignored="false" />
@@ -47,7 +48,7 @@
     <file path="$PROJECT_DIR$/../../Spark/src/plugins/orgTree/target/plugin.xml" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1378256707755" ignored="false" />
     <file path="$PROJECT_DIR$/../../Spark/src/plugins/orgTree/src/com/jivesoftware/spark/orgtree/TreePanel.java" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1378257373041" ignored="false" />
     <file path="/TreePanel.java" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1378257000552" ignored="false" />
-    <file path="/ContactGInfoWindow.java" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1378275401971" ignored="false" />
+    <file path="/ContactGInfoWindow.java" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1378281946990" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,6 +60,9 @@
     <leftPanel />
     <rightPanel />
     <splitter proportion="0.5" />
+  </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/ContactG$Spark.coverage" NAME="Spark Coverage Results" MODIFIED="1378280346399" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -104,6 +108,25 @@
       </breakpoint>
     </breakpoint_any>
     <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
+    <method_breakpoints>
+      <breakpoint url="file://$PROJECT_DIR$/src/com/baosight/spark/plugin/ContactGList.java" line="1230" class="com.baosight.spark.plugin.ContactGList" package="com.baosight.spark.plugin">
+        <option name="WATCH_ENTRY" value="true" />
+        <option name="WATCH_EXIT" value="true" />
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+    </method_breakpoints>
     <breakpoint_rules />
     <ui_properties />
   </component>
@@ -113,53 +136,59 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ContactGList.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="ContactGList.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/baosight/spark/plugin/ContactGList.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="967" column="0" selection-start="41533" selection-end="41533" vertical-scroll-proportion="-4.64">
+            <state line="29" column="0" selection-start="1296" selection-end="1296" vertical-scroll-proportion="0.71302426">
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#2714#2729#0" expanded="true" />
-                <element signature="e#5821#5835#0" expanded="true" />
-                <element signature="e#8517#8532#0" expanded="true" />
-                <element signature="e#14651#14892#0" expanded="true" />
-                <element signature="e#14665#14680#0" expanded="true" />
-                <element signature="e#14885#14886#0" expanded="true" />
-                <element signature="e#20579#20857#0" expanded="true" />
-                <element signature="e#20846#20847#0" expanded="true" />
-                <element signature="e#23227#23607#0" expanded="true" />
-                <element signature="e#23596#23597#0" expanded="true" />
-                <element signature="e#23896#25231#0" expanded="true" />
-                <element signature="e#25220#25221#0" expanded="true" />
-                <element signature="e#25677#26085#0" expanded="true" />
-                <element signature="e#26074#26075#0" expanded="true" />
-                <element signature="e#27699#27839#0" expanded="true" />
-                <element signature="e#27828#27829#0" expanded="true" />
-                <element signature="e#28514#28531#0" expanded="true" />
-                <element signature="e#29462#29483#0" expanded="true" />
-                <element signature="e#33587#33880#0" expanded="true" />
-                <element signature="e#33869#33870#0" expanded="true" />
-                <element signature="e#33919#34211#0" expanded="true" />
-                <element signature="e#34200#34201#0" expanded="true" />
-                <element signature="e#36439#36454#0" expanded="true" />
-                <element signature="e#43370#43385#0" expanded="true" />
-                <element signature="e#44837#44851#0" expanded="true" />
-                <element signature="e#46263#47284#0" expanded="true" />
-                <element signature="e#47273#47274#0" expanded="true" />
-                <element signature="e#49329#49344#0" expanded="true" />
-                <element signature="e#49506#49524#0" expanded="true" />
-                <element signature="e#50369#50391#0" expanded="true" />
-                <element signature="e#52330#52344#0" expanded="true" />
+                <element signature="e#2762#2777#0" expanded="true" />
+                <element signature="e#5869#5883#0" expanded="true" />
+                <element signature="e#8565#8580#0" expanded="true" />
+                <element signature="e#14699#14940#0" expanded="true" />
+                <element signature="e#14713#14728#0" expanded="true" />
+                <element signature="e#14933#14934#0" expanded="true" />
+                <element signature="e#20627#20905#0" expanded="true" />
+                <element signature="e#20894#20895#0" expanded="true" />
+                <element signature="e#23275#23655#0" expanded="true" />
+                <element signature="e#23644#23645#0" expanded="true" />
+                <element signature="e#23944#25279#0" expanded="true" />
+                <element signature="e#25268#25269#0" expanded="true" />
+                <element signature="e#25725#26133#0" expanded="true" />
+                <element signature="e#26122#26123#0" expanded="true" />
+                <element signature="e#27747#27887#0" expanded="true" />
+                <element signature="e#27876#27877#0" expanded="true" />
+                <element signature="e#28562#28579#0" expanded="true" />
+                <element signature="e#29510#29531#0" expanded="true" />
+                <element signature="e#33635#33928#0" expanded="true" />
+                <element signature="e#33917#33918#0" expanded="true" />
+                <element signature="e#33967#34259#0" expanded="true" />
+                <element signature="e#34248#34249#0" expanded="true" />
+                <element signature="e#36533#36640#0" expanded="true" />
+                <element signature="e#36629#36630#0" expanded="true" />
+                <element signature="e#37384#37399#0" expanded="true" />
+                <element signature="e#45620#45635#0" expanded="true" />
+                <element signature="e#47087#47101#0" expanded="true" />
+                <element signature="e#47902#48212#0" expanded="true" />
+                <element signature="e#48201#48202#0" expanded="true" />
+                <element signature="e#49228#50249#0" expanded="true" />
+                <element signature="e#50238#50239#0" expanded="true" />
+                <element signature="e#52966#52981#0" expanded="true" />
+                <element signature="e#53143#53161#0" expanded="true" />
+                <element signature="e#54006#54028#0" expanded="true" />
+                <element signature="e#55967#55981#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ContactGItem.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/baosight/spark/plugin/ContactGItem.java">
+      <file leaf-file-name="ContactGGroup.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/baosight/spark/plugin/ContactGGroup.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="391" column="0" selection-start="12077" selection-end="12077" vertical-scroll-proportion="0.0">
-              <folding />
+            <state line="223" column="34" selection-start="6659" selection-end="6659" vertical-scroll-proportion="21.96">
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#13057#13071#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -167,22 +196,10 @@
       <file leaf-file-name="ContactGInfoWindow.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/baosight/spark/plugin/ContactGInfoWindow.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="70" column="0" selection-start="2375" selection-end="2375" vertical-scroll-proportion="0.0">
+            <state line="139" column="75" selection-start="5439" selection-end="5439" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="n#!!doc" expanded="true" />
                 <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ContactGGroup.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/baosight/spark/plugin/ContactGGroup.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="385" column="47" selection-start="11708" selection-end="11708" vertical-scroll-proportion="0.1903409">
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#13112#13126#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -498,7 +515,7 @@
     <configuration default="false" name="Spark" type="Application" factoryName="Application">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" value="org.jivesoftware.launcher.Startup" />
-      <option name="VM_PARAMETERS" value=" -Dfile.encoding=utf-8 -Djava.library.path=C:\Users\SaintKnight\workspace\Spark\target\build\lib\windows64" />
+      <option name="VM_PARAMETERS" value=" -Djava.library.path=C:\Users\SaintKnight\workspace\Spark\target\build\lib\windows64" />
       <option name="PROGRAM_PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -508,12 +525,14 @@
       <option name="PASS_PARENT_ENVS" value="true" />
       <module name="ContactG" />
       <envs />
+      <RunnerSettings RunnerId="Cover" />
       <RunnerSettings RunnerId="Debug">
         <option name="DEBUG_PORT" value="" />
         <option name="TRANSPORT" value="0" />
         <option name="LOCAL" value="true" />
       </RunnerSettings>
       <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Cover" />
       <ConfigurationWrapper RunnerId="Debug" />
       <ConfigurationWrapper RunnerId="Run" />
       <method />
@@ -624,7 +643,11 @@
       <created>1378265174682</created>
       <updated>1378265174682</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="追加：鼠标悬停资料卡&#10;修复：&#10;BUG：状态图标目前无法实时更新&#10;下一步：解决BUG">
+      <created>1378276626783</created>
+      <updated>1378276626783</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -656,21 +679,22 @@
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32656023" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23144877" sideWeight="0.60087085" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39912918" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23144877" sideWeight="0.75181425" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39912918" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21908127" sideWeight="0.287373" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3280116" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24818578" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24818578" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23144877" sideWeight="0.287373" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27285922" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22084805" sideWeight="0.42960814" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22084805" sideWeight="0.25108853" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295053" sideWeight="0.49201742" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39929327" sideWeight="0.49201742" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22084805" sideWeight="0.60087085" order="0" side_tool="false" content_ui="combo" x="660" y="73" width="218" height="753" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22084805" sideWeight="0.75181425" order="0" side_tool="false" content_ui="combo" x="660" y="73" width="218" height="753" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3280116" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -722,7 +746,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="追加：追加头像和状态图标&#10;修复：&#10;BUG：状态图标目前无法实时更新&#10;下一步：鼠标悬停菜单" />
+    <option name="LAST_COMMIT_MESSAGE" value="追加：鼠标悬停资料卡&#10;修复：&#10;BUG：状态图标目前无法实时更新&#10;下一步：解决BUG" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -751,6 +775,7 @@
     <MESSAGE value="追加：中文化处理&#10;修复：&#10;BUG：&#10;下一步：添加测试数据，尝试完成点击读取事件" />
     <MESSAGE value="追加：增加目录包结构，更新spark.jar文件&#10;修复：&#10;BUG：&#10;下一步：完善UI设计" />
     <MESSAGE value="追加：追加头像和状态图标&#10;修复：&#10;BUG：状态图标目前无法实时更新&#10;下一步：鼠标悬停菜单" />
+    <MESSAGE value="追加：鼠标悬停资料卡&#10;修复：&#10;BUG：状态图标目前无法实时更新&#10;下一步：解决BUG" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -769,54 +794,9 @@
     </buildFile>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../../Spark/src/java/org/jivesoftware/spark/Workspace.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="96" column="24" selection-start="3773" selection-end="3773" vertical-scroll-proportion="0.33257404">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/baosight/spark/plugin/ContactGListListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="17" selection-start="989" selection-end="989" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../Spark/src/java/org/jivesoftware/spark/SparkManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="227" column="28" selection-start="7701" selection-end="7701" vertical-scroll-proportion="0.36084905">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.7.0_17/src.zip!/java/awt/event/MouseEvent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="807" column="17" selection-start="34750" selection-end="34750" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.7.0_17/src.zip!/javax/swing/JList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1589" column="15" selection-start="60723" selection-end="60723" vertical-scroll-proportion="0.33333334">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../Spark/src/java/org/jivesoftware/spark/ui/ContactGroup.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="762" column="17" selection-start="24099" selection-end="24099" vertical-scroll-proportion="0.33188722">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../Spark/src/java/org/jivesoftware/spark/ui/ContactInfoWindow.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="75" column="20" selection-start="2566" selection-end="2566" vertical-scroll-proportion="-2.0173535">
+        <state line="176" column="41" selection-start="6380" selection-end="6380" vertical-scroll-proportion="0.54829544">
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="imports" expanded="true" />
@@ -826,40 +806,23 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../../Spark/src/java/org/jivesoftware/spark/util/UIComponentRegistry.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="323" column="36" selection-start="12144" selection-end="12144" vertical-scroll-proportion="9.592827">
+        <state line="306" column="30" selection-start="11477" selection-end="11477" vertical-scroll-proportion="0.33197555">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../Spark/src/java/org/jivesoftware/Spark.java">
+    <entry file="file://$PROJECT_DIR$/../../Spark/src/java/org/jivesoftware/spark/ui/ContactItem.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="218" column="0" selection-start="7236" selection-end="7236" vertical-scroll-proportion="0.0">
+        <state line="63" column="60" selection-start="2276" selection-end="2276" vertical-scroll-proportion="0.33891213">
           <folding>
-            <element signature="e#6972#7152#0" expanded="true" />
-            <element signature="e#7140#7141#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../Spark/src/java/org/jivesoftware/launcher/Startup.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="0" selection-start="1289" selection-end="1289" vertical-scroll-proportion="0.33333334">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../smack/source/org/jivesoftware/smack/packet/Packet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="251" column="42" selection-start="8683" selection-end="8683" vertical-scroll-proportion="0.38242894">
-          <folding>
-            <element signature="e#2996#3013#0" expanded="true" />
+            <element signature="n#!!doc" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/baosight/spark/plugin/ContactGInfoWindow.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="70" column="0" selection-start="2375" selection-end="2375" vertical-scroll-proportion="0.0">
+        <state line="139" column="75" selection-start="5439" selection-end="5439" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="imports" expanded="true" />
@@ -867,66 +830,136 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../Spark/src/java/org/jivesoftware/spark/PluginManager.java">
+    <entry file="file://$PROJECT_DIR$/src/com/baosight/spark/plugin/ContactGGroup.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="665" column="0" selection-start="22374" selection-end="22374" vertical-scroll-proportion="0.3315508">
+        <state line="223" column="34" selection-start="6659" selection-end="6659" vertical-scroll-proportion="21.96">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#13057#13071#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../smack/source/org/jivesoftware/smack/RosterListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="81" column="16" selection-start="3003" selection-end="3003" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/baosight/spark/plugin/ContactGList.java">
+    <entry file="file://$PROJECT_DIR$/../../smack/source/org/jivesoftware/smack/Connection.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="967" column="0" selection-start="41533" selection-end="41533" vertical-scroll-proportion="-4.64">
+        <state line="854" column="0" selection-start="34149" selection-end="34149" vertical-scroll-proportion="0.0">
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2714#2729#0" expanded="true" />
-            <element signature="e#5821#5835#0" expanded="true" />
-            <element signature="e#8517#8532#0" expanded="true" />
-            <element signature="e#14651#14892#0" expanded="true" />
-            <element signature="e#14665#14680#0" expanded="true" />
-            <element signature="e#14885#14886#0" expanded="true" />
-            <element signature="e#20579#20857#0" expanded="true" />
-            <element signature="e#20846#20847#0" expanded="true" />
-            <element signature="e#23227#23607#0" expanded="true" />
-            <element signature="e#23596#23597#0" expanded="true" />
-            <element signature="e#23896#25231#0" expanded="true" />
-            <element signature="e#25220#25221#0" expanded="true" />
-            <element signature="e#25677#26085#0" expanded="true" />
-            <element signature="e#26074#26075#0" expanded="true" />
-            <element signature="e#27699#27839#0" expanded="true" />
-            <element signature="e#27828#27829#0" expanded="true" />
-            <element signature="e#28514#28531#0" expanded="true" />
-            <element signature="e#29462#29483#0" expanded="true" />
-            <element signature="e#33587#33880#0" expanded="true" />
-            <element signature="e#33869#33870#0" expanded="true" />
-            <element signature="e#33919#34211#0" expanded="true" />
-            <element signature="e#34200#34201#0" expanded="true" />
-            <element signature="e#36439#36454#0" expanded="true" />
-            <element signature="e#43370#43385#0" expanded="true" />
-            <element signature="e#44837#44851#0" expanded="true" />
-            <element signature="e#46263#47284#0" expanded="true" />
-            <element signature="e#47273#47274#0" expanded="true" />
-            <element signature="e#49329#49344#0" expanded="true" />
-            <element signature="e#49506#49524#0" expanded="true" />
-            <element signature="e#50369#50391#0" expanded="true" />
-            <element signature="e#52330#52344#0" expanded="true" />
+            <element signature="e#3888#3911#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../smack/source/org/jivesoftware/smack/PacketReader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="423" column="0" selection-start="19410" selection-end="19410" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../smack/source/org/jivesoftware/smack/Roster.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="664" column="0" selection-start="27512" selection-end="27512" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../smack/source/org/jivesoftware/smack/packet/Packet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="84" column="19" selection-start="2858" selection-end="2858" vertical-scroll-proportion="0.33150685">
+          <folding>
+            <element signature="e#2996#3013#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../smack/source/org/jivesoftware/smack/packet/Presence.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="58" column="13" selection-start="2610" selection-end="2610" vertical-scroll-proportion="0.33150685">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/baosight/spark/plugin/ContactGItem.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="391" column="0" selection-start="12077" selection-end="12077" vertical-scroll-proportion="0.0">
+        <state line="338" column="32" selection-start="10534" selection-end="10534" vertical-scroll-proportion="0.33238637">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/baosight/spark/plugin/ContactGGroup.java">
+    <entry file="file://$PROJECT_DIR$/../../Spark/src/java/org/jivesoftware/spark/ui/ContactGroup.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="385" column="47" selection-start="11708" selection-end="11708" vertical-scroll-proportion="0.1903409">
+        <state line="74" column="18" selection-start="2786" selection-end="2786" vertical-scroll-proportion="15.88">
           <folding>
+            <element signature="n#!!doc" expanded="true" />
             <element signature="imports" expanded="true" />
-            <element signature="e#13112#13126#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.7.0_17/src.zip!/java/awt/Component.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3353" column="16" selection-start="116462" selection-end="116462" vertical-scroll-proportion="0.33150685">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Spark/src/java/org/jivesoftware/spark/ui/ContactList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1479" column="20" selection-start="56886" selection-end="56886" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#5313#5323#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/baosight/spark/plugin/ContactGList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="0" selection-start="1296" selection-end="1296" vertical-scroll-proportion="0.71302426">
+          <folding>
+            <element signature="e#2762#2777#0" expanded="true" />
+            <element signature="e#5869#5883#0" expanded="true" />
+            <element signature="e#8565#8580#0" expanded="true" />
+            <element signature="e#14699#14940#0" expanded="true" />
+            <element signature="e#14713#14728#0" expanded="true" />
+            <element signature="e#14933#14934#0" expanded="true" />
+            <element signature="e#20627#20905#0" expanded="true" />
+            <element signature="e#20894#20895#0" expanded="true" />
+            <element signature="e#23275#23655#0" expanded="true" />
+            <element signature="e#23644#23645#0" expanded="true" />
+            <element signature="e#23944#25279#0" expanded="true" />
+            <element signature="e#25268#25269#0" expanded="true" />
+            <element signature="e#25725#26133#0" expanded="true" />
+            <element signature="e#26122#26123#0" expanded="true" />
+            <element signature="e#27747#27887#0" expanded="true" />
+            <element signature="e#27876#27877#0" expanded="true" />
+            <element signature="e#28562#28579#0" expanded="true" />
+            <element signature="e#29510#29531#0" expanded="true" />
+            <element signature="e#33635#33928#0" expanded="true" />
+            <element signature="e#33917#33918#0" expanded="true" />
+            <element signature="e#33967#34259#0" expanded="true" />
+            <element signature="e#34248#34249#0" expanded="true" />
+            <element signature="e#36533#36640#0" expanded="true" />
+            <element signature="e#36629#36630#0" expanded="true" />
+            <element signature="e#37384#37399#0" expanded="true" />
+            <element signature="e#45620#45635#0" expanded="true" />
+            <element signature="e#47087#47101#0" expanded="true" />
+            <element signature="e#47902#48212#0" expanded="true" />
+            <element signature="e#48201#48202#0" expanded="true" />
+            <element signature="e#49228#50249#0" expanded="true" />
+            <element signature="e#50238#50239#0" expanded="true" />
+            <element signature="e#52966#52981#0" expanded="true" />
+            <element signature="e#53143#53161#0" expanded="true" />
+            <element signature="e#54006#54028#0" expanded="true" />
+            <element signature="e#55967#55981#0" expanded="true" />
           </folding>
         </state>
       </provider>

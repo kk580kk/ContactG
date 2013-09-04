@@ -138,6 +138,13 @@ public class ContactGInfoWindow extends JPanel {
 
 
         ContactGItem item = (ContactGItem) group.getList().getModel().getElementAt(loc);
+
+//        //增加一个功能，刷新Presence,效果不是特别好，需要切换tab才会刷新。需要增加个事件刷新tab表单。
+//        if(null!=item) {
+//            item.setPresence(PresenceManager.getPresence(item.getJID()));
+//        }
+
+
         if (item == null || item.getJID() == null) {
             return;
         }

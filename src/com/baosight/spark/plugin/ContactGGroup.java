@@ -663,4 +663,15 @@ public class ContactGGroup extends CollapsiblePane implements MouseListener {
         return contactGroup;
     }
 
+    /**
+     * Call whenever the UI needs to be updated.
+     */
+
+    private JList contactItemList;
+
+    public void fireContactGroupUpdated() {
+        contactGItemList.validate();
+        contactGItemList.repaint();
+        updateTitle();
+    }
 }

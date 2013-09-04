@@ -14,6 +14,7 @@ import org.jivesoftware.smack.*;
 import org.jivesoftware.smack.packet.Message;
 import org.jivesoftware.smack.packet.Presence;
 import org.jivesoftware.smack.packet.RosterPacket;
+import org.jivesoftware.smack.util.StringUtils;
 import org.jivesoftware.smackx.LastActivityManager;
 import org.jivesoftware.smackx.packet.LastActivity;
 import org.jivesoftware.spark.ChatManager;
@@ -884,9 +885,48 @@ public class ContactGList extends JPanel implements ActionListener,
         System.out.println("Welcome To Spark");
         // Add Contact List
         addContactGListToWorkspace();
-        List<ContactGGroup> gGroups = new ArrayList<ContactGGroup>();
 
         contactGInfoWindow = new ContactGInfoWindow(this);
+
+
+        SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                loadContactList();
+            }
+        });
+
+        this.setVisible(true);
+
+    }
+
+    private void loadContactList() {
+        // Build the initial contact list.
+        buildContactList();
+
+        //其他各种属性设置
+
+
+//        //设置一个更新状态的事件
+//        SparkManager.getSessionManager().addPresenceListener(new PresenceListener() {
+//            public void presenceChanged(Presence presence) {
+////                    updateUserPresence(presence);
+//
+//            }
+//        });
+    }
+
+    /**
+     * Called to build the initial ContactList.
+     */
+
+    private void buildContactList() {
+
+        XMPPConnection con = SparkManager.getConnection();
+        final Roster roster = con.getRoster();
+        roster.addRosterListener(this);
+
+        List<ContactGGroup> gGroups = new ArrayList<ContactGGroup>();
+
 
         //锁定网址的条件下测试是否可以把分组读取出来。2013年9月2日10:47:58
         try {
@@ -957,15 +997,52 @@ public class ContactGList extends JPanel implements ActionListener,
 //        contactGGroup43.addContactGItem(contactGItem6);
 //        contactGGroup431.addContactGItem(contactGItem7);
 
+    }
 
-        this.setVisible(true);
+    /**
+     * Updates the users presence.
+     *
+     * @param presence the user to update.
+     * @throws Exception if there is a problem while updating the user's presence.
+     */
+    private synchronized void updateUserPresence(Presence presence) throws Exception {
+        if (presence.getError() != null) {
+            // We ignore this.
+            return;
+        }
 
-        SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-            }
-        });
+        final Roster roster = SparkManager.getConnection().getRoster();
+
+        final String bareJID = StringUtils.parseBareAddress(presence.getFrom());
+
+        RosterEntry entry = roster.getEntry(bareJID);
+
+        // If online, check to see if they are in the offline group.
+        // If so, remove from offline group and add to all groups they
+        // belong to.
+
+        Presence rosterPresence = PresenceManager.getPresence(bareJID);
+        updateContactItemsPresence(rosterPresence, entry, bareJID);
 
     }
+
+    /**
+     * Updates the presence of one individual based on their JID.
+     *
+     * @param presence the users presence.
+     * @param entry    the roster entry being updated.
+     * @param bareJID  the bare jid of the user.
+     */
+    private void updateContactItemsPresence(Presence presence, RosterEntry entry, String bareJID) {
+        for (ContactGGroup group : groupList) {
+            ContactGItem item = group.getContactGItemByJID(bareJID);
+            if (item != null) {
+                item.setPresence(presence);
+                group.fireContactGroupUpdated();
+            }
+        }
+    }
+
 
     // 最简单的HTTP客户端,用来演示通过GET或者POST方式访问某个页面
     public List<ContactGGroup> getGroupListFromJson(String url) throws IOException {
@@ -1079,8 +1156,32 @@ public class ContactGList extends JPanel implements ActionListener,
         //To change body of implemented methods use File | Settings | File Templates.
     }
 
-    public void entriesAdded(Collection collection) {
-        //To change body of implemented methods use File | Settings | File Templates.
+    public void entriesAdded(final Collection<String> addresses) {
+        SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                Roster roster = SparkManager.getConnection().getRoster();
+
+                for (String jid : addresses) {
+                    RosterEntry entry = roster.getEntry(jid);
+                    addUser(entry);
+                }
+            }
+        });
+    }
+
+    /**
+     * Adds a single user to the ContactList.
+     *
+     * @param entry the <code>RosterEntry</code> of the the user.
+     */
+    private void addUser(RosterEntry entry) {
+        // Update users icon
+        Presence presence = SparkManager.getConnection().getRoster().getPresence(entry.getUser());
+        try {
+            updateUserPresence(presence);
+        } catch (Exception e) {
+            Log.error(e);
+        }
     }
 
     /**
@@ -1128,7 +1229,26 @@ public class ContactGList extends JPanel implements ActionListener,
 
 
     public void presenceChanged(Presence presence) {
-        //To change body of implemented methods use File | Settings | File Templates.
+
+        //接受推送消息，然后更新roster
+        //todo:尚且需要做个重载目录处理
+        String fromRoster[] = presence.getFrom().split("/");
+        ListIterator<ContactGItem> contactGItemListIterator = contactGItems.listIterator();
+        while (contactGItemListIterator.hasNext()) {
+            ContactGItem contactGItem = contactGItemListIterator.next();
+            if (null != contactGItem && contactGItem.getFullyQualifiedJID().equals(fromRoster[0])) {
+                contactGItem.setPresence(presence);
+            }
+        }
+
+        contactListScrollPane.validate();
+        mainPanel.invalidate();
+        mainPanel.repaint();
+
+//        invalidate();
+//        repaint();
+        //源码也是为空
+//        To change body of implemented methods use File | Settings | File Templates.
     }
 
     private ContactGItem activeItem;

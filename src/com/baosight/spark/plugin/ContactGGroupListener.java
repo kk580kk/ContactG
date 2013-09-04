@@ -18,6 +18,7 @@ package com.baosight.spark.plugin; /**
  * limitations under the License.
  */
 
+import org.jivesoftware.smack.packet.Presence;
 import org.jivesoftware.spark.plugin.ContextMenuListener;
 
 import java.awt.event.MouseEvent;
@@ -85,4 +86,6 @@ public interface ContactGGroupListener {
      * @param group the com.baosight.spark.plugin.ContactGGroup.
      */
     public void contactGGroupPopup(MouseEvent e, ContactGGroup group);
+
+    void presenceChanged(Presence presence);
 }
