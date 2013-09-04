@@ -72,15 +72,15 @@ public class ContactGList extends JPanel implements ActionListener,
     private JMenuItem addContactMenu;
     private JMenuItem addContactGGroupMenu;
 
-    private ContactGGroup unfiledGroup;
-    private File propertiesFile;
+//    private ContactGGroup unfiledGroup;
+//    private File propertiesFile;
 
 
     private LocalPreferences localPreferences;
 
 
     /**
-     * Creates a new instance of com.baosight.spark.plugin.ContactGList.
+     * Creates a new instance of com.baosight.spark.plugin.contactGList.
      */
     public ContactGList() {
         // Load Local Preferences
@@ -137,7 +137,6 @@ public class ContactGList extends JPanel implements ActionListener,
         //unfiledGroup测试分组,2013年9月2日10:04:35
 //        this.addContactGGroup(unfiledGroup);
 //        System.out.println("unfiledGroup Added");
-
 
     }
 
@@ -254,7 +253,7 @@ public class ContactGList extends JPanel implements ActionListener,
     }
 
     /**
-     * Adds a new com.baosight.spark.plugin.ContactGGroup to the com.baosight.spark.plugin.ContactGList.
+     * Adds a new com.baosight.spark.plugin.ContactGGroup to the com.baosight.spark.plugin.contactGList.
      *
      * @param group the group to add.
      */
@@ -887,6 +886,8 @@ public class ContactGList extends JPanel implements ActionListener,
         addContactGListToWorkspace();
         List<ContactGGroup> gGroups = new ArrayList<ContactGGroup>();
 
+        contactGInfoWindow = new ContactGInfoWindow(this);
+
         //锁定网址的条件下测试是否可以把分组读取出来。2013年9月2日10:47:58
         try {
             gGroups = getGroupListFromJson(targetGroupURL);
@@ -1016,7 +1017,7 @@ public class ContactGList extends JPanel implements ActionListener,
         List<ContactGGroup> contactGGroups = new ArrayList<ContactGGroup>();
         for (int i = 0; i < contactGGroupBeans.size(); i++) {
             ContactsGGroupBean contactsGGroupBean = contactGGroupBeans.get(i);
-            contactGGroups.add(contactsGGroupBean.toContactGGroup());
+            contactGGroups.add(contactsGGroupBean.toContactGGroup(this.contactGInfoWindow));
 //            System.out.println(contactsGGroupBean.toString());
         }
 
@@ -1358,7 +1359,16 @@ public class ContactGList extends JPanel implements ActionListener,
         }
 
         private ContactGGroup toContactGGroup() {
-            return new ContactGGroup(this.getGroupName(), this.getParentGroup());
+            ContactGGroup contactGGroup = new ContactGGroup(this.getGroupName(), this.getParentGroup());
+            return contactGGroup;
+        }
+
+        private ContactGGroup toContactGGroup(ContactGInfoWindow contactGInfoWindow) {
+            ContactGGroup contactGGroup = new ContactGGroup(this.getGroupName(), this.getParentGroup());
+            contactGGroup.setContactGInfoWindow(contactGInfoWindow);
+            return contactGGroup;
         }
     }
+
+    ContactGInfoWindow contactGInfoWindow;
 }

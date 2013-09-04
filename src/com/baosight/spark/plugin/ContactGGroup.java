@@ -8,6 +8,7 @@ import org.jivesoftware.spark.ui.ContactGroup;
 import org.jivesoftware.spark.util.GraphicUtils;
 import org.jivesoftware.spark.util.log.Log;
 import org.jivesoftware.sparkimpl.settings.local.LocalPreferences;
+import org.jivesoftware.sparkimpl.settings.local.SettingsManager;
 
 import javax.swing.*;
 import java.awt.*;
@@ -65,6 +66,8 @@ public class ContactGGroup extends CollapsiblePane implements MouseListener {
         model = new DefaultListModel();
         contactGItemList = new JList(model);
 
+        preferences = SettingsManager.getLocalPreferences();
+
         setTitle(getGroupTitle(groupName));
 
         // Use JPanel Renderer
@@ -78,7 +81,7 @@ public class ContactGGroup extends CollapsiblePane implements MouseListener {
         listPanel.add(contactGItemList, listPanel);
 
         //设置分组是不可以拖拽的
-        contactGItemList.setDragEnabled(false);
+        contactGItemList.setDragEnabled(true);
 //        contactGItemList.setTransferHandler(new ContactGGroupTransferHandler());
 
 
@@ -87,6 +90,8 @@ public class ContactGGroup extends CollapsiblePane implements MouseListener {
         // Items should have selection listener
         contactGItemList.addMouseListener(this);
 
+        //设置默认是折叠起来
+        this.setCollapsed(false);
 
         // Add Popup Window
         addPopupWindow();
@@ -111,14 +116,14 @@ public class ContactGGroup extends CollapsiblePane implements MouseListener {
         contactGItemList.addMouseListener(new MouseAdapter() {
             //todo:以下有bug，尚未解决，所以注释掉 2013年8月27日13:56:15
             public void mouseEntered(MouseEvent mouseEvent) {
-//                canShowPopup = true;
-//                timerTask = new DisplayWindowTask(mouseEvent);
-//                timer.schedule(timerTask, 500, 1000);
+                canShowPopup = true;
+                timerTask = new DisplayWindowTask(mouseEvent);
+                timer.schedule(timerTask, 500, 1000);
             }
 
             public void mouseExited(MouseEvent mouseEvent) {
-//                canShowPopup = false;
-//                UIComponentRegistry.getContactInfoWindow().dispose();
+                canShowPopup = false;
+                contactGInfoWindow.dispose();
             }
         });
 
@@ -197,6 +202,15 @@ public class ContactGGroup extends CollapsiblePane implements MouseListener {
     }
 
     private LocalPreferences preferences;
+    private ContactGInfoWindow contactGInfoWindow;
+
+    public void setContactGInfoWindow(ContactGInfoWindow contactGInfoWindow) {
+        this.contactGInfoWindow = contactGInfoWindow;
+    }
+
+    public ContactGInfoWindow getContactGInfoWindow() {
+        return contactGInfoWindow;
+    }
 
     /**
      * Displays the <code>ContactInfoWindow</code>.
@@ -205,8 +219,9 @@ public class ContactGGroup extends CollapsiblePane implements MouseListener {
      */
     private void displayWindow(MouseEvent e) {
         if (preferences.areVCardsVisible()) {
-            //原始代码无法复用，对象不同
-//            UIComponentRegistry.getContactInfoWindow().display(this, e);
+            //todo:原始代码无法复用，对象不同
+//            UIComponentRegistry.getContactInfoWindow().display(this.toContactGroup(), e);
+            contactGInfoWindow.display(this, e);
         }
     }
 
@@ -644,7 +659,8 @@ public class ContactGGroup extends CollapsiblePane implements MouseListener {
     }
 
     public ContactGroup toContactGroup() {
-        return new ContactGroup(this.groupName);
+        ContactGroup contactGroup = new ContactGroup(this.groupName);
+        return contactGroup;
     }
 
 }
