@@ -2,8 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2f7c82b2-b730-4e96-a905-3be7df872f7b" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/java/com/baosight/spark/plugin/ContactGPreference.java" afterPath="$PROJECT_DIR$/src/java/com/baosight/spark/plugin/ContactGPreference.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/lib2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/lib2.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/java/com/baosight/spark/plugin/ContactGGroup.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/java/com/baosight/spark/plugin/ContactGGroupListener.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/java/com/baosight/spark/plugin/ContactGInfoWindow.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/java/com/baosight/spark/plugin/ContactGItem.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/java/com/baosight/spark/plugin/ContactGList.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/java/com/baosight/spark/plugin/ContactGListListener.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="edba8b3b-40d6-4acf-9e68-966bb70df8fb" name="Rejected commit: Default" comment="追加：右键菜单功能&#10;修复：点击选中问题&#10;BUG：send a chat不好使&#10;下一步：修复BUG，去除rename，去除remove 菜单项" />
@@ -19,7 +23,7 @@
     <file path="/plugin.xml" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1376550832405" ignored="false" />
     <file path="/ContactGroupGroup.java" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1376989201585" ignored="false" />
     <file path="/ContactGList.java" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1378460254214" ignored="false" />
-    <file path="/Dummy.txt" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1378457165220" ignored="false" />
+    <file path="/Dummy.txt" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1378460843639" ignored="false" />
     <file path="/ContactGItem.java" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1378262732212" ignored="false" />
     <file path="/ContactGGroup.java" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1378351169967" ignored="false" />
     <file path="/ContactGGroupListener.java" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1377571382869" ignored="false" />
@@ -128,7 +132,7 @@
       <file leaf-file-name="ContactGPreference.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/java/com/baosight/spark/plugin/ContactGPreference.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="76" column="78" selection-start="2600" selection-end="2600" vertical-scroll-proportion="0.22267206">
+            <state line="83" column="16" selection-start="2811" selection-end="2811" vertical-scroll-proportion="0.72267205">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -743,7 +747,11 @@
       <created>1378457173626</created>
       <updated>1378457173626</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="追加：修复BUG，实现更新设置，刷新插件功能。&#10;修复：&#10;BUG：&#10;下一步：">
+      <created>1378460847900</created>
+      <updated>1378460847900</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TodoView" selected-index="1">
@@ -843,7 +851,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="追加：属性设置功能，改变了目录结构，用来适应新版本开发&#10;修复：&#10;BUG：没有办法及时刷新plugin&#10;下一步：" />
+    <option name="LAST_COMMIT_MESSAGE" value="追加：修复BUG，实现更新设置，刷新插件功能。&#10;修复：&#10;BUG：&#10;下一步：" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -877,6 +885,7 @@
     <MESSAGE value="追加：重构全部代码，去除很多可能发生错误的问题，以及修改很多拼写错误&#10;修复：&#10;BUG：&#10;下一步：" />
     <MESSAGE value="追加：追加设置，默认将所有分组折叠起来&#10;修复：&#10;BUG：&#10;下一步：" />
     <MESSAGE value="追加：属性设置功能，改变了目录结构，用来适应新版本开发&#10;修复：&#10;BUG：没有办法及时刷新plugin&#10;下一步：" />
+    <MESSAGE value="追加：修复BUG，实现更新设置，刷新插件功能。&#10;修复：&#10;BUG：&#10;下一步：" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1018,7 +1027,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/java/com/baosight/spark/plugin/ContactGPreference.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="76" column="78" selection-start="2600" selection-end="2600" vertical-scroll-proportion="0.22267206">
+        <state line="83" column="16" selection-start="2811" selection-end="2811" vertical-scroll-proportion="0.72267205">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
