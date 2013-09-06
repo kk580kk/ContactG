@@ -1,8 +1,6 @@
 <component name="libraryTable">
   <library name="resources">
-    <CLASSES>
-      <root url="file://$PROJECT_DIR$/../spark/resources" />
-    </CLASSES>
+    <CLASSES />
     <JAVADOC />
     <SOURCES />
   </library>
