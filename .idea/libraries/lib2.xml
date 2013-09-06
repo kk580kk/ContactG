@@ -6,6 +6,31 @@
     <JAVADOC />
     <SOURCES>
       <root url="file://$PROJECT_DIR$/../../../target/build/lib" />
+      <root url="file://$PROJECT_DIR$/../../java" />
+      <root url="file://$PROJECT_DIR$/../../test" />
+      <root url="file://$PROJECT_DIR$/../../jtattoo/src" />
+      <root url="file://$PROJECT_DIR$/../otr/src/java" />
+      <root url="file://$PROJECT_DIR$/../sip/src/java" />
+      <root url="file://$PROJECT_DIR$/../sso/src/java" />
+      <root url="file://$PROJECT_DIR$/../roar/src/java" />
+      <root url="file://$PROJECT_DIR$/../apple/src" />
+      <root url="file://$PROJECT_DIR$/../growl/src" />
+      <root url="file://$PROJECT_DIR$/../linux/src/java" />
+      <root url="file://$PROJECT_DIR$/../google/src/java" />
+      <root url="file://$PROJECT_DIR$/../jingle/src/java" />
+      <root url="file://$PROJECT_DIR$/../orgTree/src" />
+      <root url="file://$PROJECT_DIR$/../reversi/src/java" />
+      <root url="file://$PROJECT_DIR$/src/java" />
+      <root url="file://$PROJECT_DIR$/../fastpath/src/java" />
+      <root url="file://$PROJECT_DIR$/../flashing/src/java" />
+      <root url="file://$PROJECT_DIR$/../spelling/src/java" />
+      <root url="file://$PROJECT_DIR$/../tictactoe/src/java" />
+      <root url="file://$PROJECT_DIR$/../navigation/src" />
+      <root url="file://$PROJECT_DIR$/../translator/src/java" />
+      <root url="file://$PROJECT_DIR$/../translator/src/test" />
+      <root url="file://$PROJECT_DIR$/../battleships/src/java" />
+      <root url="file://$PROJECT_DIR$/../transferguard/src/java" />
+      <root url="file://$PROJECT_DIR$/../../resources/i18n" />
     </SOURCES>
     <jarDirectory url="file://$PROJECT_DIR$/../../../target/build/lib" recursive="false" />
     <jarDirectory url="file://$PROJECT_DIR$/../../../target/build/lib" recursive="false" type="SOURCES" />

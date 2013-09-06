@@ -1,6 +1,8 @@
 package com.baosight.spark.plugin;
 
 import com.baosight.spark.plugin.gui.ContactGPreferencePanel;
+import org.jivesoftware.spark.PluginManager;
+import org.jivesoftware.spark.plugin.Plugin;
 import org.jivesoftware.spark.preference.Preference;
 import org.jivesoftware.spark.util.log.Log;
 
@@ -68,10 +70,22 @@ public class ContactGPreference implements Preference {
         //To change body of implemented methods use File | Settings | File Templates.
     }
 
+    PluginManager pluginManager;
+
     public void commit() {
         _props.setRemoteContacts(_prefPanel.getContactsUrl());
         _props.setRemoteGroup(_prefPanel.getGroupUrl());
         _props.save();
+
+        //刷新重载plugin
+        pluginManager = PluginManager.getInstance();
+        Plugin plugin = pluginManager.getPlugin(ContactGList.class);
+        plugin.shutdown();
+        pluginManager.removePlugin(plugin);
+        plugin = new ContactGList();
+        plugin.initialize();
+        pluginManager.registerPlugin(plugin);
+
 //        SparkManager.getWorkspace().loadPlugins();
         //To change body of implemented methods use File | Settings | File Templates.
     }
