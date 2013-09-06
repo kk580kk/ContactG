@@ -90,8 +90,8 @@ public class ContactGGroup extends CollapsiblePane implements MouseListener {
         // Items should have selection listener
         contactGItemList.addMouseListener(this);
 
-        //设置默认是折叠起来
-        this.setCollapsed(false);
+        //设置默认是否折叠起来，true是折叠
+        this.setCollapsed(true);
 
         // Add Popup Window
         addPopupWindow();
@@ -114,7 +114,8 @@ public class ContactGGroup extends CollapsiblePane implements MouseListener {
      */
     private void addPopupWindow() {
         contactGItemList.addMouseListener(new MouseAdapter() {
-            //todo:以下有bug，尚未解决，所以注释掉 2013年8月27日13:56:15
+            //fixed:以下有bug，尚未解决，所以注释掉 2013年8月27日13:56:15
+            //bug已经解决，2013年9月5日11:07:18
             public void mouseEntered(MouseEvent mouseEvent) {
                 canShowPopup = true;
                 timerTask = new DisplayWindowTask(mouseEvent);
@@ -504,11 +505,14 @@ public class ContactGGroup extends CollapsiblePane implements MouseListener {
         int loc = contactGItemList.locationToIndex(e.getPoint());
 
         ContactGItem o = model.getElementAt(loc);
-        if (o == null) {
-            return;
+        if (o != null) {
+            contactGItemList.setCursor(GraphicUtils.HAND_CURSOR);
+            //添加事件，在鼠标放在名字上面的时候，更新状态图标
+            //todo:无法获取到最新的状态，故障未知，2013年9月5日11:14:22
+//            o.setPresence(PresenceManager.getPresence(o.getFullyQualifiedJID()));
+//            repaint();
         }
 
-        contactGItemList.setCursor(GraphicUtils.HAND_CURSOR);
     }
 
     public void mouseExited(MouseEvent e) {
