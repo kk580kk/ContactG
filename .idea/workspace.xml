@@ -1,53 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2f7c82b2-b730-4e96-a905-3be7df872f7b" name="Default" comment="追加：增加打包ANT的build文件，以及build文件夹，修改.git&#10;修复：&#10;BUG：&#10;下一步：">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/classes/com/baosight/spark/plugin/ContactGGroup$1.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/classes/com/baosight/spark/plugin/ContactGGroup$2.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/classes/com/baosight/spark/plugin/ContactGGroup$DisplayWindowTask.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/classes/com/baosight/spark/plugin/ContactGGroup$ListMotionListener.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/classes/com/baosight/spark/plugin/ContactGGroup.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/classes/com/baosight/spark/plugin/ContactGGroupListener.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/classes/com/baosight/spark/plugin/ContactGInfoWindow$1.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/classes/com/baosight/spark/plugin/ContactGInfoWindow.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/classes/com/baosight/spark/plugin/ContactGItem.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/classes/com/baosight/spark/plugin/ContactGList$1.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/classes/com/baosight/spark/plugin/ContactGList$10.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/classes/com/baosight/spark/plugin/ContactGList$11.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/classes/com/baosight/spark/plugin/ContactGList$12.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/classes/com/baosight/spark/plugin/ContactGList$13.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/classes/com/baosight/spark/plugin/ContactGList$2.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/classes/com/baosight/spark/plugin/ContactGList$3.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/classes/com/baosight/spark/plugin/ContactGList$4.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/classes/com/baosight/spark/plugin/ContactGList$5.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/classes/com/baosight/spark/plugin/ContactGList$6.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/classes/com/baosight/spark/plugin/ContactGList$7.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/classes/com/baosight/spark/plugin/ContactGList$8.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/classes/com/baosight/spark/plugin/ContactGList$9.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/classes/com/baosight/spark/plugin/ContactGList$ContactsGBean.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/classes/com/baosight/spark/plugin/ContactGList$ContactsGGroupBean.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/classes/com/baosight/spark/plugin/ContactGList.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/classes/com/baosight/spark/plugin/ContactGListListener.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/lib/JTattoo.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/lib/activation.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/lib/base.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/lib/dom4j.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/lib/fmj.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/lib/gson-2.2.4-javadoc.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/lib/gson-2.2.4-sources.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/lib/gson-2.2.4.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/lib/i4jruntime.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/lib/jdom.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/lib/log4j.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/lib/lti-civil.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/lib/smack.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/lib/smackx.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/lib/spark.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/lib/startup.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/build.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/lib/log4j.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+    <list default="true" id="2f7c82b2-b730-4e96-a905-3be7df872f7b" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="edba8b3b-40d6-4acf-9e68-966bb70df8fb" name="Rejected commit: Default" comment="追加：右键菜单功能&#10;修复：点击选中问题&#10;BUG：send a chat不好使&#10;下一步：修复BUG，去除rename，去除remove 菜单项" />
@@ -63,7 +17,7 @@
     <file path="/plugin.xml" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1376550832405" ignored="false" />
     <file path="/ContactGroupGroup.java" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1376989201585" ignored="false" />
     <file path="/ContactGList.java" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1378460254214" ignored="false" />
-    <file path="/Dummy.txt" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1378884256364" ignored="false" />
+    <file path="/Dummy.txt" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1378884275700" ignored="false" />
     <file path="/ContactGItem.java" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1378262732212" ignored="false" />
     <file path="/ContactGGroup.java" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1378351169967" ignored="false" />
     <file path="/ContactGGroupListener.java" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1377571382869" ignored="false" />
@@ -101,7 +55,7 @@
     <file path="$PROJECT_DIR$/../sso/src/java/org/jivesoftware/spark/sso/SSOPreference.java" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1378455021911" ignored="false" />
     <file path="/SSOPreference.java" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1378455018884" ignored="false" />
     <file path="$PROJECT_DIR$/../../../target/plugins/orgcontacts/plugin.xml" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1378458317725" ignored="false" />
-    <file path="$PROJECT_DIR$/../../../.idea/workspace.xml" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1378884228574" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../.idea/workspace.xml" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1378884350293" ignored="false" />
     <file path="/.gitignore" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1378884203939" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -192,7 +146,7 @@
       <file leaf-file-name="ContactGList.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/java/com/baosight/spark/plugin/ContactGList.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1147" column="40" selection-start="47282" selection-end="47282" vertical-scroll-proportion="0.1637931">
+            <state line="1147" column="40" selection-start="47282" selection-end="47282" vertical-scroll-proportion="0.25333333">
               <folding>
                 <element signature="e#46741#46755#0" expanded="true" />
               </folding>
@@ -252,7 +206,8 @@
     <treeState />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="63" />
+    <option name="x" value="8" />
+    <option name="y" value="48" />
     <option name="width" value="1196" />
     <option name="height" value="780" />
   </component>
@@ -664,7 +619,11 @@
       <created>1378460977299</created>
       <updated>1378460977299</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="追加：增加打包ANT的build文件，以及build文件夹，修改.gitignore文件&#10;修复：&#10;BUG：&#10;下一步：">
+      <created>1378884288145</created>
+      <updated>1378884288145</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TodoView" selected-index="1">
@@ -688,7 +647,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="63" y="0" width="1196" height="780" extended-state="0" />
+    <frame x="8" y="48" width="1196" height="780" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32656023" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -698,17 +657,18 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23144877" sideWeight="0.75616837" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39912918" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32850242" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21908127" sideWeight="0.287373" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3280116" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2431562" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27246377" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22084805" sideWeight="0.19738752" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295053" sideWeight="0.49201742" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39929327" sideWeight="0.49201742" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26060072" sideWeight="0.75616837" order="0" side_tool="false" content_ui="combo" x="660" y="73" width="218" height="753" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26060072" sideWeight="0.6714976" order="0" side_tool="false" content_ui="combo" x="660" y="73" width="218" height="753" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3280116" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23144877" sideWeight="0.287373" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -716,7 +676,6 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32656023" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24383163" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3280116" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -764,7 +723,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="追加：修复BUG，实现更新设置，刷新插件功能。&#10;修复：&#10;BUG：&#10;下一步：" />
+    <option name="LAST_COMMIT_MESSAGE" value="追加：增加打包ANT的build文件，以及build文件夹，修改.gitignore文件&#10;修复：&#10;BUG：&#10;下一步：" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -799,6 +758,7 @@
     <MESSAGE value="追加：追加设置，默认将所有分组折叠起来&#10;修复：&#10;BUG：&#10;下一步：" />
     <MESSAGE value="追加：属性设置功能，改变了目录结构，用来适应新版本开发&#10;修复：&#10;BUG：没有办法及时刷新plugin&#10;下一步：" />
     <MESSAGE value="追加：修复BUG，实现更新设置，刷新插件功能。&#10;修复：&#10;BUG：&#10;下一步：" />
+    <MESSAGE value="追加：增加打包ANT的build文件，以及build文件夹，修改.gitignore文件&#10;修复：&#10;BUG：&#10;下一步：" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -920,7 +880,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/java/com/baosight/spark/plugin/ContactGList.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1147" column="40" selection-start="47282" selection-end="47282" vertical-scroll-proportion="0.1637931">
+        <state line="1147" column="40" selection-start="47282" selection-end="47282" vertical-scroll-proportion="0.25333333">
           <folding>
             <element signature="e#46741#46755#0" expanded="true" />
           </folding>
