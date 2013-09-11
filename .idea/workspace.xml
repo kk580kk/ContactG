@@ -1,7 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2f7c82b2-b730-4e96-a905-3be7df872f7b" name="Default" comment="">
+    <list default="true" id="2f7c82b2-b730-4e96-a905-3be7df872f7b" name="Default" comment="追加：增加打包ANT的build文件，以及build文件夹，修改.git&#10;修复：&#10;BUG：&#10;下一步：">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/classes/com/baosight/spark/plugin/ContactGGroup$1.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/classes/com/baosight/spark/plugin/ContactGGroup$2.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/classes/com/baosight/spark/plugin/ContactGGroup$DisplayWindowTask.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/classes/com/baosight/spark/plugin/ContactGGroup$ListMotionListener.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/classes/com/baosight/spark/plugin/ContactGGroup.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/classes/com/baosight/spark/plugin/ContactGGroupListener.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/classes/com/baosight/spark/plugin/ContactGInfoWindow$1.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/classes/com/baosight/spark/plugin/ContactGInfoWindow.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/classes/com/baosight/spark/plugin/ContactGItem.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/classes/com/baosight/spark/plugin/ContactGList$1.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/classes/com/baosight/spark/plugin/ContactGList$10.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/classes/com/baosight/spark/plugin/ContactGList$11.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/classes/com/baosight/spark/plugin/ContactGList$12.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/classes/com/baosight/spark/plugin/ContactGList$13.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/classes/com/baosight/spark/plugin/ContactGList$2.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/classes/com/baosight/spark/plugin/ContactGList$3.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/classes/com/baosight/spark/plugin/ContactGList$4.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/classes/com/baosight/spark/plugin/ContactGList$5.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/classes/com/baosight/spark/plugin/ContactGList$6.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/classes/com/baosight/spark/plugin/ContactGList$7.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/classes/com/baosight/spark/plugin/ContactGList$8.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/classes/com/baosight/spark/plugin/ContactGList$9.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/classes/com/baosight/spark/plugin/ContactGList$ContactsGBean.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/classes/com/baosight/spark/plugin/ContactGList$ContactsGGroupBean.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/classes/com/baosight/spark/plugin/ContactGList.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/classes/com/baosight/spark/plugin/ContactGListListener.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/lib/JTattoo.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/lib/activation.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/lib/base.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/lib/dom4j.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/lib/fmj.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/lib/gson-2.2.4-javadoc.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/lib/gson-2.2.4-sources.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/lib/gson-2.2.4.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/lib/i4jruntime.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/lib/jdom.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/lib/log4j.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/lib/lti-civil.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/lib/smack.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/lib/smackx.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/lib/spark.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/lib/startup.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/build.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/build/lib/log4j.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="edba8b3b-40d6-4acf-9e68-966bb70df8fb" name="Rejected commit: Default" comment="追加：右键菜单功能&#10;修复：点击选中问题&#10;BUG：send a chat不好使&#10;下一步：修复BUG，去除rename，去除remove 菜单项" />
@@ -17,7 +63,7 @@
     <file path="/plugin.xml" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1376550832405" ignored="false" />
     <file path="/ContactGroupGroup.java" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1376989201585" ignored="false" />
     <file path="/ContactGList.java" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1378460254214" ignored="false" />
-    <file path="/Dummy.txt" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1378775799704" ignored="false" />
+    <file path="/Dummy.txt" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1378884256364" ignored="false" />
     <file path="/ContactGItem.java" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1378262732212" ignored="false" />
     <file path="/ContactGGroup.java" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1378351169967" ignored="false" />
     <file path="/ContactGGroupListener.java" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1377571382869" ignored="false" />
@@ -55,6 +101,8 @@
     <file path="$PROJECT_DIR$/../sso/src/java/org/jivesoftware/spark/sso/SSOPreference.java" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1378455021911" ignored="false" />
     <file path="/SSOPreference.java" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1378455018884" ignored="false" />
     <file path="$PROJECT_DIR$/../../../target/plugins/orgcontacts/plugin.xml" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1378458317725" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../.idea/workspace.xml" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1378884228574" ignored="false" />
+    <file path="/.gitignore" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1378884203939" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -144,7 +192,7 @@
       <file leaf-file-name="ContactGList.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/java/com/baosight/spark/plugin/ContactGList.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1146" column="51" selection-start="47247" selection-end="47247" vertical-scroll-proportion="-2.9568567">
+            <state line="1147" column="40" selection-start="47282" selection-end="47282" vertical-scroll-proportion="0.1637931">
               <folding>
                 <element signature="e#46741#46755#0" expanded="true" />
               </folding>
@@ -181,7 +229,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/com/baosight/spark/plugin/ContactGList.java" />
         <option value="$PROJECT_DIR$/src/com/baosight/spark/plugin/ContactGInfoWindow.java" />
         <option value="$PROJECT_DIR$/src/com/baosight/spark/plugin/ContactGGroupListener.java" />
         <option value="$PROJECT_DIR$/src/com/baosight/spark/plugin/ContactGItem.java" />
@@ -197,6 +244,7 @@
         <option value="$PROJECT_DIR$/src/java/com/baosight/spark/plugin/gui/ContactGPreferencePanel.java" />
         <option value="$PROJECT_DIR$/src/java/com/baosight/spark/plugin/ContactGList.java" />
         <option value="$PROJECT_DIR$/src/java/com/baosight/spark/plugin/ContactGPreference.java" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -204,10 +252,9 @@
     <treeState />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="187" />
-    <option name="y" value="26" />
+    <option name="x" value="63" />
     <option name="width" value="1196" />
-    <option name="height" value="847" />
+    <option name="height" value="780" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -298,7 +345,7 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -321,113 +368,33 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ContactG" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="contactg" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ContactG" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="contactg" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="i18n" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Resource Bundle 'orgcontacts_i18n'" />
-              <option name="myItemType" value="com.intellij.lang.properties.projectView.ResourceBundleNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ContactG" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="contactg" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="plugin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ContactG" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="contactg" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="build" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="GoToFile.includeJavaFiles" value="false" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="OverrideImplement.combined" value="true" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="recentsLimit" value="5" />
     <property name="MemberChooser.sorted" value="false" />
     <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../.." />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="GoToClass.includeJavaFiles" value="true" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="restartRequiresConfirmation" value="true" />
-    <property name="MemberChooser.showClasses" value="true" />
     <property name="FullScreen" value="false" />
+    <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="dynamic.classpath" value="false" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="dynamic.classpath" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -461,6 +428,19 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method />
+    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="" />
@@ -487,19 +467,6 @@
       <envs />
       <properties />
       <listeners />
-      <method />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -721,7 +688,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="187" y="26" width="1196" height="847" extended-state="0" />
+    <frame x="63" y="0" width="1196" height="780" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32656023" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -741,12 +708,12 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295053" sideWeight="0.49201742" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39929327" sideWeight="0.49201742" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26060072" sideWeight="0.75616837" order="0" side_tool="false" content_ui="combo" x="660" y="73" width="218" height="753" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26060072" sideWeight="0.75616837" order="0" side_tool="false" content_ui="combo" x="660" y="73" width="218" height="753" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3280116" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23144877" sideWeight="0.287373" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32656023" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24383163" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
@@ -904,11 +871,6 @@
         <state line="20" column="111" selection-start="737" selection-end="737" vertical-scroll-proportion="-0.1684492" />
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.7.0_17/src.zip!/java/util/List.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="234" column="12" selection-start="9674" selection-end="9674" vertical-scroll-proportion="0.33333334" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/java/com/baosight/spark/plugin/ContactGGroup.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="495" column="16" selection-start="15242" selection-end="15242" vertical-scroll-proportion="0.29313928">
@@ -949,9 +911,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="218" column="4" selection-start="2681" selection-end="2681" vertical-scroll-proportion="0.8397976">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/java/com/baosight/spark/plugin/ContactGList.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1146" column="51" selection-start="47247" selection-end="47247" vertical-scroll-proportion="-2.9568567">
+        <state line="1147" column="40" selection-start="47282" selection-end="47282" vertical-scroll-proportion="0.1637931">
           <folding>
             <element signature="e#46741#46755#0" expanded="true" />
           </folding>
@@ -999,7 +968,7 @@
       </state>
       <state key="JdkListConfigurable.UI">
         <settings>
-          <last-edited>jdk1.6.0_43</last-edited>
+          <last-edited>1.7</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
