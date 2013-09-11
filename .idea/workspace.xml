@@ -2,12 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2f7c82b2-b730-4e96-a905-3be7df872f7b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/java/com/baosight/spark/plugin/ContactGGroup.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/java/com/baosight/spark/plugin/ContactGGroupListener.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/java/com/baosight/spark/plugin/ContactGInfoWindow.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/java/com/baosight/spark/plugin/ContactGItem.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/java/com/baosight/spark/plugin/ContactGList.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/java/com/baosight/spark/plugin/ContactGListListener.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="edba8b3b-40d6-4acf-9e68-966bb70df8fb" name="Rejected commit: Default" comment="追加：右键菜单功能&#10;修复：点击选中问题&#10;BUG：send a chat不好使&#10;下一步：修复BUG，去除rename，去除remove 菜单项" />
@@ -23,7 +17,7 @@
     <file path="/plugin.xml" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1376550832405" ignored="false" />
     <file path="/ContactGroupGroup.java" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1376989201585" ignored="false" />
     <file path="/ContactGList.java" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1378460254214" ignored="false" />
-    <file path="/Dummy.txt" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1378460843639" ignored="false" />
+    <file path="/Dummy.txt" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1378775799704" ignored="false" />
     <file path="/ContactGItem.java" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1378262732212" ignored="false" />
     <file path="/ContactGGroup.java" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1378351169967" ignored="false" />
     <file path="/ContactGGroupListener.java" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1377571382869" ignored="false" />
@@ -83,6 +77,7 @@
     <disable_hints />
   </component>
   <component name="DebuggerManager">
+    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
@@ -119,7 +114,6 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </breakpoint_any>
-    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_rules />
     <ui_properties />
   </component>
@@ -129,55 +123,29 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ContactGPreference.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/java/com/baosight/spark/plugin/ContactGPreference.java">
+      <file leaf-file-name="ContactGItem.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/java/com/baosight/spark/plugin/ContactGItem.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="83" column="16" selection-start="2811" selection-end="2811" vertical-scroll-proportion="0.72267205">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PluginManager.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../java/org/jivesoftware/spark/PluginManager.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="531" column="17" selection-start="18011" selection-end="18011" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-                <element signature="e#2545#2553#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Plugin.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../java/org/jivesoftware/spark/plugin/Plugin.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="54" column="0" selection-start="2446" selection-end="2470" vertical-scroll-proportion="0.0">
+            <state line="35" column="13" selection-start="1281" selection-end="1281" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ContactGGroup.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/java/com/baosight/spark/plugin/ContactGGroup.java">
+      <file leaf-file-name="ContactGInfoWindow.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/java/com/baosight/spark/plugin/ContactGInfoWindow.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="495" column="16" selection-start="15242" selection-end="15242" vertical-scroll-proportion="0.0">
+            <state line="49" column="13" selection-start="1690" selection-end="1690" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ContactGList.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="ContactGList.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/java/com/baosight/spark/plugin/ContactGList.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1145" column="35" selection-start="47246" selection-end="47246" vertical-scroll-proportion="-6.92">
+            <state line="1146" column="51" selection-start="47247" selection-end="47247" vertical-scroll-proportion="-2.9568567">
               <folding>
-                <element signature="e#14332#14347#0" expanded="true" />
-                <element signature="e#35839#35946#0" expanded="true" />
-                <element signature="e#35935#35936#0" expanded="true" />
                 <element signature="e#46741#46755#0" expanded="true" />
               </folding>
             </state>
@@ -330,6 +298,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -428,32 +397,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="plugin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gui" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ContactG" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="contactg" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="build" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -461,7 +404,6 @@
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -751,7 +693,11 @@
       <created>1378460847900</created>
       <updated>1378460847900</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="追加：修复BUG，实现更新设置，刷新插件功能。&#10;修复：&#10;BUG：&#10;下一步：">
+      <created>1378460977299</created>
+      <updated>1378460977299</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TodoView" selected-index="1">
@@ -781,7 +727,6 @@
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32656023" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32656023" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23144877" sideWeight="0.75616837" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39912918" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -790,20 +735,21 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21908127" sideWeight="0.287373" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3280116" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24383163" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27246377" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22084805" sideWeight="0.19738752" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295053" sideWeight="0.49201742" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39929327" sideWeight="0.49201742" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22084805" sideWeight="0.75616837" order="0" side_tool="false" content_ui="combo" x="660" y="73" width="218" height="753" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26060072" sideWeight="0.75616837" order="0" side_tool="false" content_ui="combo" x="660" y="73" width="218" height="753" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3280116" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23144877" sideWeight="0.287373" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32656023" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24383163" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3280116" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -925,13 +871,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/java/com/baosight/spark/plugin/ContactGItem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="13" selection-start="1281" selection-end="1281" vertical-scroll-proportion="0.03950104">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/java/com/baosight/spark/plugin/ContactGProperties.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="72" column="30" selection-start="1723" selection-end="1723" vertical-scroll-proportion="1.0242915">
@@ -941,95 +880,80 @@
     </entry>
     <entry file="jar://$PROJECT_DIR$/../../../target/build/lib/spark.jar!/org/jivesoftware/spark/PluginManager.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="13" selection-start="165" selection-end="165" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="6" column="13" selection-start="165" selection-end="165" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/resources/i18n/orgcontacts_i18n_zh_CN.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="0" selection-start="222" selection-end="237" vertical-scroll-proportion="0.18536586">
-          <folding />
-        </state>
-      </provider>
       <provider editor-type-id="ResourceBundle">
         <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="0" selection-start="222" selection-end="237" vertical-scroll-proportion="0.18536586" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/resources/i18n/orgcontacts_i18n.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="127" selection-start="219" selection-end="219" vertical-scroll-proportion="0.18536586">
-          <folding />
-        </state>
-      </provider>
       <provider editor-type-id="ResourceBundle">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/java/com/baosight/spark/plugin/ContactGInfoWindow.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="13" selection-start="1690" selection-end="1690" vertical-scroll-proportion="-1.1684492">
-          <folding />
-        </state>
+        <state line="4" column="127" selection-start="219" selection-end="219" vertical-scroll-proportion="0.18536586" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/java/com/baosight/spark/plugin/gui/ContactGPreferencePanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="111" selection-start="737" selection-end="737" vertical-scroll-proportion="-0.1684492">
+        <state line="20" column="111" selection-start="737" selection-end="737" vertical-scroll-proportion="-0.1684492" />
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.7.0_17/src.zip!/java/util/List.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="234" column="12" selection-start="9674" selection-end="9674" vertical-scroll-proportion="0.33333334" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/java/com/baosight/spark/plugin/ContactGGroup.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="495" column="16" selection-start="15242" selection-end="15242" vertical-scroll-proportion="0.29313928">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../java/org/jivesoftware/spark/plugin/Plugin.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="54" column="0" selection-start="2446" selection-end="2470" vertical-scroll-proportion="0.2611336" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../java/org/jivesoftware/spark/PluginManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="531" column="17" selection-start="18011" selection-end="18011" vertical-scroll-proportion="0.2972973" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/java/com/baosight/spark/plugin/ContactGPreference.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="84" column="70" selection-start="2875" selection-end="2875" vertical-scroll-proportion="1.2226721">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../java/org/jivesoftware/spark/plugin/Plugin.java">
+    <entry file="file://$PROJECT_DIR$/src/java/com/baosight/spark/plugin/ContactGItem.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="54" column="0" selection-start="2446" selection-end="2470" vertical-scroll-proportion="0.0">
+        <state line="35" column="13" selection-start="1281" selection-end="1281" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/java/com/baosight/spark/plugin/ContactGInfoWindow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="49" column="13" selection-start="1690" selection-end="1690" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/java/com/baosight/spark/plugin/ContactGList.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1145" column="35" selection-start="47246" selection-end="47246" vertical-scroll-proportion="-6.92">
+        <state line="1146" column="51" selection-start="47247" selection-end="47247" vertical-scroll-proportion="-2.9568567">
           <folding>
-            <element signature="e#14332#14347#0" expanded="true" />
-            <element signature="e#35839#35946#0" expanded="true" />
-            <element signature="e#35935#35936#0" expanded="true" />
             <element signature="e#46741#46755#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/java/com/baosight/spark/plugin/ContactGGroup.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="495" column="16" selection-start="15242" selection-end="15242" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.7.0_17/src.zip!/java/util/List.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="234" column="12" selection-start="9674" selection-end="9674" vertical-scroll-proportion="0.33333334">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../java/org/jivesoftware/spark/PluginManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="531" column="17" selection-start="18011" selection-end="18011" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="e#2545#2553#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/java/com/baosight/spark/plugin/ContactGPreference.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="83" column="16" selection-start="2811" selection-end="2811" vertical-scroll-proportion="0.72267205">
-          <folding>
-            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
