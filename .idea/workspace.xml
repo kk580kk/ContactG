@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2f7c82b2-b730-4e96-a905-3be7df872f7b" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="edba8b3b-40d6-4acf-9e68-966bb70df8fb" name="Rejected commit: Default" comment="追加：右键菜单功能&#10;修复：点击选中问题&#10;BUG：send a chat不好使&#10;下一步：修复BUG，去除rename，去除remove 菜单项" />
@@ -17,7 +18,7 @@
     <file path="/plugin.xml" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1376550832405" ignored="false" />
     <file path="/ContactGroupGroup.java" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1376989201585" ignored="false" />
     <file path="/ContactGList.java" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1378460254214" ignored="false" />
-    <file path="/Dummy.txt" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1378884275700" ignored="false" />
+    <file path="/Dummy.txt" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1378975963640" ignored="false" />
     <file path="/ContactGItem.java" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1378262732212" ignored="false" />
     <file path="/ContactGGroup.java" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1378351169967" ignored="false" />
     <file path="/ContactGGroupListener.java" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1377571382869" ignored="false" />
@@ -79,7 +80,6 @@
     <disable_hints />
   </component>
   <component name="DebuggerManager">
-    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
@@ -116,6 +116,7 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </breakpoint_any>
+    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_rules />
     <ui_properties />
   </component>
@@ -143,13 +144,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ContactGList.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="ContactGList.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/java/com/baosight/spark/plugin/ContactGList.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1147" column="40" selection-start="47282" selection-end="47282" vertical-scroll-proportion="0.25333333">
+            <state line="1147" column="40" selection-start="47282" selection-end="47282" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="e#46741#46755#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="219" column="5" selection-start="2687" selection-end="2687" vertical-scroll-proportion="0.85347044">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -206,8 +216,8 @@
     <treeState />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="8" />
-    <option name="y" value="48" />
+    <option name="x" value="73" />
+    <option name="y" value="28" />
     <option name="width" value="1196" />
     <option name="height" value="780" />
   </component>
@@ -300,6 +310,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -325,7 +336,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -647,8 +657,8 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="8" y="48" width="1196" height="780" extended-state="0" />
-    <editor active="false" />
+    <frame x="73" y="28" width="1196" height="780" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32656023" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -657,18 +667,17 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23144877" sideWeight="0.75616837" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39912918" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32850242" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3279743" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21908127" sideWeight="0.287373" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3280116" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2431562" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27246377" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22084805" sideWeight="0.19738752" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295053" sideWeight="0.49201742" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39929327" sideWeight="0.49201742" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26060072" sideWeight="0.6714976" order="0" side_tool="false" content_ui="combo" x="660" y="73" width="218" height="753" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26060072" sideWeight="0.67202574" order="0" side_tool="false" content_ui="combo" x="660" y="73" width="218" height="753" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3280116" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23144877" sideWeight="0.287373" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -676,6 +685,7 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32656023" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2431562" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3280116" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -779,30 +789,22 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/build/build.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="79" column="29" selection-start="3271" selection-end="3271" vertical-scroll-proportion="0.034552846">
-          <folding />
-        </state>
+        <state line="79" column="29" selection-start="3271" selection-end="3271" vertical-scroll-proportion="0.034552846" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/java/com/baosight/spark/plugin/ContactGListListener.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="17" selection-start="989" selection-end="989" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="26" column="17" selection-start="989" selection-end="989" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/java/com/baosight/spark/plugin/ContactGResources.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="32" selection-start="492" selection-end="492" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="18" column="32" selection-start="492" selection-end="492" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/java/com/baosight/spark/plugin/ContactGProperties.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="72" column="30" selection-start="1723" selection-end="1723" vertical-scroll-proportion="1.0242915">
-          <folding />
-        </state>
+        <state line="72" column="30" selection-start="1723" selection-end="1723" vertical-scroll-proportion="1.0242915" />
       </provider>
     </entry>
     <entry file="jar://$PROJECT_DIR$/../../../target/build/lib/spark.jar!/org/jivesoftware/spark/PluginManager.class">
@@ -811,19 +813,19 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/resources/i18n/orgcontacts_i18n_zh_CN.properties">
-      <provider editor-type-id="ResourceBundle">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state line="4" column="0" selection-start="222" selection-end="237" vertical-scroll-proportion="0.18536586" />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/resources/i18n/orgcontacts_i18n.properties">
       <provider editor-type-id="ResourceBundle">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/resources/i18n/orgcontacts_i18n.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state line="4" column="127" selection-start="219" selection-end="219" vertical-scroll-proportion="0.18536586" />
+      </provider>
+      <provider editor-type-id="ResourceBundle">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/java/com/baosight/spark/plugin/gui/ContactGPreferencePanel.java">
@@ -833,9 +835,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/java/com/baosight/spark/plugin/ContactGGroup.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="495" column="16" selection-start="15242" selection-end="15242" vertical-scroll-proportion="0.29313928">
-          <folding />
-        </state>
+        <state line="495" column="16" selection-start="15242" selection-end="15242" vertical-scroll-proportion="0.29313928" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../../java/org/jivesoftware/spark/plugin/Plugin.java">
@@ -850,11 +850,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/java/com/baosight/spark/plugin/ContactGPreference.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="84" column="70" selection-start="2875" selection-end="2875" vertical-scroll-proportion="1.2226721">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
+        <state line="84" column="70" selection-start="2875" selection-end="2875" vertical-scroll-proportion="1.2226721" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/java/com/baosight/spark/plugin/ContactGItem.java">
@@ -871,19 +867,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="218" column="4" selection-start="2681" selection-end="2681" vertical-scroll-proportion="0.8397976">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/java/com/baosight/spark/plugin/ContactGList.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1147" column="40" selection-start="47282" selection-end="47282" vertical-scroll-proportion="0.25333333">
+        <state line="1147" column="40" selection-start="47282" selection-end="47282" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="e#46741#46755#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="219" column="5" selection-start="2687" selection-end="2687" vertical-scroll-proportion="0.85347044">
+          <folding />
         </state>
       </provider>
     </entry>

@@ -1,0 +1,12 @@
+<plugin>
+    <name>SSO</name>
+    <class>org.jivesoftware.spark.sso.SSOPlugin</class>
+    <author>Luye</author>
+    <version>0.1</version>
+    <homePage>http://product.baosight.com</homePage>
+    <description>deal with bussiness system</description>
+    <email>luye@baosight.com</email>
+    <minSparkVersion>2.6.0</minSparkVersion>
+    <os>Windows,Linux</os>
+    <java>1.6.0_17</java>
+</plugin>
