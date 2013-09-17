@@ -2,8 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2f7c82b2-b730-4e96-a905-3be7df872f7b" name="Default" comment="追加：重构全部代码，去除很多可能发生错误的问题，以及修改很多拼写错误&#10;修复：&#10;BUG：&#10;下一步：">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/lib/plugin-classes.jar" afterPath="$PROJECT_DIR$/target/lib/plugin-classes.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/baosight/spark/plugin/ContactGGroup.java" afterPath="$PROJECT_DIR$/src/com/baosight/spark/plugin/ContactGGroup.java" />
+      <change type="DELETED" beforePath="C:\Users\HuangJie\workspace\Spark\src\plugins\contactg\.idea\libraries\resources.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\HuangJie\workspace\Spark\src\plugins\contactg\build\lib\smack.jar" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\HuangJie\workspace\Spark\src\plugins\contactg\build\lib\smackx.jar" afterPath="" />
+      <change type="MOVED" beforePath="C:\Users\HuangJie\workspace\Spark\src\plugins\contactg\ContactG.iml" afterPath="$PROJECT_DIR$/contactg.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/build.xml" afterPath="$PROJECT_DIR$/build/build.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="edba8b3b-40d6-4acf-9e68-966bb70df8fb" name="Rejected commit: Default" comment="追加：右键菜单功能&#10;修复：点击选中问题&#10;BUG：send a chat不好使&#10;下一步：修复BUG，去除rename，去除remove 菜单项" />
@@ -11,7 +16,7 @@
     <ignored path=".idea/workspace.xml" />
     <file path="/ExamplePlugin.java" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1376549349649" ignored="false" />
     <file path="/ContactGroupList.java" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1376985865455" ignored="false" />
-    <file path="/fragment.java" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1378285257937" ignored="false" />
+    <file path="/fragment.java" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1379401169629" ignored="false" />
     <file path="/a.dummy" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1378286704945" ignored="false" />
     <file path="$PROJECT_DIR$/../../Spark/.idea/workspace.xml" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1376613149881" ignored="false" />
     <file path="/ContactsGroupList.java" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1376549041179" ignored="false" />
@@ -19,7 +24,7 @@
     <file path="/plugin.xml" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1376550832405" ignored="false" />
     <file path="/ContactGroupGroup.java" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1376989201585" ignored="false" />
     <file path="/ContactGList.java" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1378290385492" ignored="false" />
-    <file path="/Dummy.txt" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1378351235864" ignored="false" />
+    <file path="/Dummy.txt" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1379400997346" ignored="false" />
     <file path="/ContactGItem.java" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1378262732212" ignored="false" />
     <file path="/ContactGGroup.java" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1378351169967" ignored="false" />
     <file path="/ContactGGroupListener.java" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1377571382869" ignored="false" />
@@ -49,6 +54,7 @@
     <file path="$PROJECT_DIR$/target/plugin.xml" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1378297687872" ignored="false" />
     <file path="$PROJECT_DIR$/../ContactsWeb/web/sendmessage.jsp" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1378298043152" ignored="false" />
     <file path="/sendmessage.jsp" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1378298020618" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../target/plugins/orgcontacts/plugin.xml" changelist="2f7c82b2-b730-4e96-a905-3be7df872f7b" time="1379401201706" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +77,6 @@
     <disable_hints />
   </component>
   <component name="DebuggerManager">
-    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
@@ -108,6 +113,7 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </breakpoint_any>
+    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_rules />
     <ui_properties />
   </component>
@@ -117,144 +123,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ContactGList.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/baosight/spark/plugin/ContactGList.java">
+      <file leaf-file-name="build.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/build/build.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="806" column="34" selection-start="33509" selection-end="33509" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="docComment;class#ContactGList#0" expanded="false" />
-                <element signature="e#2350#2377#0" expanded="false" />
-                <element signature="e#2755#2796#0" expanded="false" />
-                <element signature="docComment;method#ContactGList#0;class#ContactGList#0" expanded="false" />
-                <element signature="method#ContactGList#0;class#ContactGList#0" expanded="false" />
-                <element signature="e#3010#3059#0" expanded="false" />
-                <element signature="e#4035#4076#0" expanded="false" />
-                <element signature="e#5105#5143#0" expanded="false" />
-                <element signature="method#addContactGItemListToGroup#0;class#ContactGList#0" expanded="false" />
-                <element signature="method#addContactGItemToGroup#0;class#ContactGList#0" expanded="false" />
-                <element signature="method#addContactGGroupToGroup#0;class#ContactGList#0" expanded="false" />
-                <element signature="method#addContactGGroupFromList#0;class#ContactGList#0" expanded="false" />
-                <element signature="e#7259#7311#0" expanded="false" />
-                <element signature="e#8620#8679#0" expanded="false" />
-                <element signature="e#9279#9326#0" expanded="false" />
-                <element signature="docComment;method#addContactGGroup#0;class#ContactGList#0" expanded="false" />
-                <element signature="method#addContactGGroup#0;class#ContactGList#0" expanded="false" />
-                <element signature="e#11498#11530#0" expanded="false" />
-                <element signature="e#11986#12000#0" expanded="false" />
-                <element signature="docComment;method#getContactGGroup#0;class#ContactGList#0" expanded="false" />
-                <element signature="method#getContactGGroup#0;class#ContactGList#0" expanded="false" />
-                <element signature="docComment;method#getSubContactGGroup#0;class#ContactGList#0" expanded="false" />
-                <element signature="method#getSubContactGGroup#0;class#ContactGList#0" expanded="false" />
-                <element signature="docComment;field#GROUP_COMPARATOR#0;class#ContactGList#0" expanded="false" />
-                <element signature="method#actionPerformed#0;class#ContactGList#0" expanded="false" />
-                <element signature="e#15349#15386#0" expanded="false" />
-                <element signature="method#connectionClosed#0;class#ContactGList#0" expanded="false" />
-                <element signature="method#connectionClosedOnError#0;class#ContactGList#0" expanded="false" />
-                <element signature="method#reconnectingIn#0;class#ContactGList#0" expanded="false" />
-                <element signature="method#reconnectionSuccessful#0;class#ContactGList#0" expanded="false" />
-                <element signature="method#reconnectionFailed#0;class#ContactGList#0" expanded="false" />
-                <element signature="e#17659#17689#0" expanded="false" />
-                <element signature="method#getGUI#0;class#ContactGList#0" expanded="false" />
-                <element signature="e#19161#19212#0" expanded="false" />
-                <element signature="docComment;method#showPopup#0;class#ContactGList#0" expanded="false" />
-                <element signature="method#showPopup#0;class#ContactGList#0" expanded="false" />
-                <element signature="e#20441#20490#0" expanded="false" />
-                <element signature="method#showPopup#1;class#ContactGList#0" expanded="false" />
-                <element signature="method#sendMessages#0;class#ContactGList#0" expanded="false" />
-                <element signature="method#fireContextMenuListenerPopup#0;class#ContactGList#0" expanded="false" />
-                <element signature="method#showPopup#2;class#ContactGList#0" expanded="false" />
-                <element signature="e#29272#29300#0" expanded="false" />
-                <element signature="e#30389#30440#0" expanded="false" />
-                <element signature="e#33270#33562#0" expanded="true" />
-                <element signature="e#33551#33552#0" expanded="true" />
-                <element signature="e#33988#34049#0" expanded="false" />
-                <element signature="docComment;method#addContactGListToWorkspace#0;class#ContactGList#0" expanded="false" />
-                <element signature="method#addContactGListToWorkspace#0;class#ContactGList#0" expanded="false" />
-                <element signature="method#loadContactList#0;class#ContactGList#0" expanded="false" />
-                <element signature="e#36166#36176#0" expanded="false" />
-                <element signature="docComment;method#buildContactList#0;class#ContactGList#0" expanded="false" />
-                <element signature="method#buildContactList#0;class#ContactGList#0" expanded="false" />
-                <element signature="e#37389#37413#0" expanded="false" />
-                <element signature="docComment;method#updateUserPresence#0;class#ContactGList#0" expanded="false" />
-                <element signature="method#updateUserPresence#0;class#ContactGList#0" expanded="false" />
-                <element signature="e#42182#42237#0" expanded="false" />
-                <element signature="docComment;method#updateContactItemsPresence#0;class#ContactGList#0" expanded="false" />
-                <element signature="method#updateContactItemsPresence#0;class#ContactGList#0" expanded="false" />
-                <element signature="method#getGroupListFromJson#0;class#ContactGList#0" expanded="false" />
-                <element signature="e#43263#43277#0" expanded="false" />
-                <element signature="e#43475#43485#0" expanded="false" />
-                <element signature="class#44695:44744" expanded="false" />
-                <element signature="method#getContactsListFromJson#0;class#ContactGList#0" expanded="false" />
-                <element signature="e#45419#45433#0" expanded="false" />
-                <element signature="e#45631#45641#0" expanded="false" />
-                <element signature="class#46174:46218" expanded="false" />
-                <element signature="method#shutdown#0;class#ContactGList#0" expanded="false" />
-                <element signature="method#canShutDown#0;class#ContactGList#0" expanded="false" />
-                <element signature="method#uninstall#0;class#ContactGList#0" expanded="false" />
-                <element signature="method#entriesAdded#0;class#ContactGList#0" expanded="false" />
-                <element signature="docComment;method#addUser#0;class#ContactGList#0" expanded="false" />
-                <element signature="method#addUser#0;class#ContactGList#0" expanded="false" />
-                <element signature="docComment;method#entriesUpdated#0;class#ContactGList#0" expanded="false" />
-                <element signature="method#entriesUpdated#0;class#ContactGList#0" expanded="false" />
-                <element signature="docComment;method#handleEntriesUpdated#0;class#ContactGList#0" expanded="false" />
-                <element signature="method#handleEntriesUpdated#0;class#ContactGList#0" expanded="false" />
-                <element signature="method#entriesDeleted#0;class#ContactGList#0" expanded="false" />
-                <element signature="method#presenceChanged#0;class#ContactGList#0" expanded="false" />
-                <element signature="e#49760#49779#0" expanded="false" />
-                <element signature="e#50369#50392#0" expanded="false" />
-                <element signature="method#getActiveGroup#0;class#ContactGList#0" expanded="false" />
-                <element signature="method#contactGItemDoubleClicked#0;class#ContactGList#0" expanded="false" />
-                <element signature="e#50908#50964#0" expanded="false" />
-                <element signature="method#contactGItemClicked#0;class#ContactGList#0" expanded="false" />
-                <element signature="method#clearSelectionList#0;class#ContactGList#0" expanded="false" />
-                <element signature="e#51688#51760#0" expanded="false" />
-                <element signature="method#getContactGGroups#0;class#ContactGList#0" expanded="false" />
-                <element signature="method#addFileDropListener#0;class#ContactGList#0" expanded="false" />
-                <element signature="method#removeFileDropListener#0;class#ContactGList#0" expanded="false" />
-                <element signature="method#fireFilesDropped#0;class#ContactGList#0" expanded="false" />
-                <element signature="method#contactGItemAdded#0;class#ContactGList#0" expanded="false" />
-                <element signature="method#contactGItemRemoved#0;class#ContactGList#0" expanded="false" />
-                <element signature="method#addContactGListListener#0;class#ContactGList#0" expanded="false" />
-                <element signature="method#removeContactGListListener#0;class#ContactGList#0" expanded="false" />
-                <element signature="method#fireContactGItemAdded#0;class#ContactGList#0" expanded="false" />
-                <element signature="method#fireContactGItemRemoved#0;class#ContactGList#0" expanded="false" />
-                <element signature="method#fireContactGGroupAdded#0;class#ContactGList#0" expanded="false" />
-                <element signature="method#fireContactGGroupRemoved#0;class#ContactGList#0" expanded="false" />
-                <element signature="method#fireContactGItemClicked#0;class#ContactGList#0" expanded="false" />
-                <element signature="method#fireContactGItemDoubleClicked#0;class#ContactGList#0" expanded="false" />
-                <element signature="method#getSelectedUsers#0;class#ContactGList#0" expanded="false" />
-                <element signature="class#ContactsGBean#0;class#ContactGList#0" expanded="false" />
-                <element signature="method#ContactsGBean#0;class#ContactsGBean#0;class#ContactGList#0" expanded="false" />
-                <element signature="method#ContactsGBean#1;class#ContactsGBean#0;class#ContactGList#0" expanded="false" />
-                <element signature="method#setAlias#0;class#ContactsGBean#0;class#ContactGList#0" expanded="false" />
-                <element signature="method#setNickname#0;class#ContactsGBean#0;class#ContactGList#0" expanded="false" />
-                <element signature="method#setFullyQualifiedJID#0;class#ContactsGBean#0;class#ContactGList#0" expanded="false" />
-                <element signature="method#setGroupName#0;class#ContactsGBean#0;class#ContactGList#0" expanded="false" />
-                <element signature="method#getAlias#0;class#ContactsGBean#0;class#ContactGList#0" expanded="false" />
-                <element signature="method#getNickname#0;class#ContactsGBean#0;class#ContactGList#0" expanded="false" />
-                <element signature="method#getFullyQualifiedJID#0;class#ContactsGBean#0;class#ContactGList#0" expanded="false" />
-                <element signature="method#getGroupName#0;class#ContactsGBean#0;class#ContactGList#0" expanded="false" />
-                <element signature="method#toContactGItem#0;class#ContactsGBean#0;class#ContactGList#0" expanded="false" />
-                <element signature="class#ContactsGGroupBean#0;class#ContactGList#0" expanded="false" />
-                <element signature="method#ContactsGGroupBean#0;class#ContactsGGroupBean#0;class#ContactGList#0" expanded="false" />
-                <element signature="method#getGroupName#0;class#ContactsGGroupBean#0;class#ContactGList#0" expanded="false" />
-                <element signature="method#getParentGroup#0;class#ContactsGGroupBean#0;class#ContactGList#0" expanded="false" />
-                <element signature="method#setGroupName#0;class#ContactsGGroupBean#0;class#ContactGList#0" expanded="false" />
-                <element signature="method#setParentGroup#0;class#ContactsGGroupBean#0;class#ContactGList#0" expanded="false" />
-                <element signature="method#toContactGGroup#0;class#ContactsGGroupBean#0;class#ContactGList#0" expanded="false" />
-                <element signature="method#toContactGGroup#1;class#ContactsGGroupBean#0;class#ContactGList#0" expanded="false" />
-              </folding>
+            <state line="89" column="49" selection-start="3512" selection-end="3519" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ContactGGroup.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/baosight/spark/plugin/ContactGGroup.java">
+      <file leaf-file-name="build.xml" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/build.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="93" column="28" selection-start="3017" selection-end="3017" vertical-scroll-proportion="0.623348">
-              <folding>
-                <element signature="e#13375#13389#0" expanded="true" />
-              </folding>
+            <state line="152" column="21" selection-start="6590" selection-end="6590" vertical-scroll-proportion="0.37529138">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -285,15 +167,9 @@
       <MyDateState />
     </option>
   </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/src/com/baosight/spark/plugin/ContactGList.java" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/src/com/baosight/spark/plugin/ContactGGroup.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/com/baosight/spark/plugin/ContactGInfoWindow.java" root0="SKIP_INSPECTION" />
-  </component>
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/ContactGGroupListener.java" />
         <option value="$PROJECT_DIR$/src/ChatGManager.java" />
         <option value="$PROJECT_DIR$/../../Spark/src/java/org/jivesoftware/spark/ui/ContactGroup.java" />
         <option value="$USER_HOME$/Desktop/New Text Document.htm" />
@@ -309,6 +185,7 @@
         <option value="$PROJECT_DIR$/src/com/baosight/spark/plugin/ContactGGroupListener.java" />
         <option value="$PROJECT_DIR$/src/com/baosight/spark/plugin/ContactGItem.java" />
         <option value="$PROJECT_DIR$/src/com/baosight/spark/plugin/ContactGGroup.java" />
+        <option value="$PROJECT_DIR$/build/build.xml" />
       </list>
     </option>
   </component>
@@ -319,7 +196,7 @@
     <option name="x" value="41" />
     <option name="y" value="30" />
     <option name="width" value="1196" />
-    <option name="height" value="847" />
+    <option name="height" value="784" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -391,6 +268,12 @@
   <component name="ProjectReloadState">
     <option name="STATE" value="0" />
   </component>
+  <component name="ProjectStructureProblems">
+    <ignored-problems>
+      <problem id="unused-library(library:project:java)" />
+      <problem id="unused-library(library:project:lib1)" />
+    </ignored-problems>
+  </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
       <flattenPackages />
@@ -404,8 +287,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -413,10 +294,6 @@
               <option name="myItemId" value="ContactG" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="External Libraries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -424,7 +301,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="ContactG" />
+              <option name="myItemId" value="contactg" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -434,20 +311,32 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="ContactG" />
+              <option name="myItemId" value="contactg" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+          </PATH>
+          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="plugin" />
+              <option name="myItemId" value="ContactG" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="contactg" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="build" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -466,12 +355,12 @@
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="restartRequiresConfirmation" value="true" />
-    <property name="FullScreen" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
+    <property name="FullScreen" value="false" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="options.searchVisible" value="true" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="dynamic.classpath" value="false" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -497,19 +386,6 @@
       <option name="SHMEM_ADDRESS" value="javadebug" />
       <option name="HOST" value="localhost" />
       <option name="PORT" value="5005" />
-      <method />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
@@ -538,6 +414,19 @@
       <envs />
       <properties />
       <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -579,7 +468,7 @@
     <configuration default="false" name="Spark" type="Application" factoryName="Application">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" value="org.jivesoftware.launcher.Startup" />
-      <option name="VM_PARAMETERS" value=" -Djava.library.path=C:\Users\SaintKnight\workspace\Spark\target\build\lib\windows64" />
+      <option name="VM_PARAMETERS" value=" -Djava.library.path=C:\Users\SaintKnight\workspace\Spark\target\build\lib\windows" />
       <option name="PROGRAM_PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -587,7 +476,7 @@
       <option name="ENABLE_SWING_INSPECTOR" value="false" />
       <option name="ENV_VARIABLES" />
       <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="ContactG" />
+      <module name="contactg" />
       <envs />
       <RunnerSettings RunnerId="Cover" />
       <RunnerSettings RunnerId="Debug">
@@ -743,33 +632,33 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="41" y="30" width="1196" height="847" extended-state="0" />
+    <frame x="41" y="30" width="1196" height="784" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32656023" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23144877" sideWeight="0.7521739" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23144877" sideWeight="0.7536" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39912918" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21908127" sideWeight="0.287373" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3280116" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24782608" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2464" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27246377" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22084805" sideWeight="0.2801161" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295053" sideWeight="0.49201742" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39929327" sideWeight="0.49201742" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22084805" sideWeight="0.7521739" order="0" side_tool="false" content_ui="combo" x="660" y="73" width="218" height="753" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19611308" sideWeight="0.7536" order="0" side_tool="false" content_ui="combo" x="660" y="73" width="218" height="753" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3280116" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23144877" sideWeight="0.287373" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32656023" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
@@ -869,249 +758,17 @@
     </buildFile>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../../smack/source/org/jivesoftware/smack/RosterListener.java">
+    <entry file="file://$PROJECT_DIR$/build/build.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="81" column="16" selection-start="3003" selection-end="3003" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../smack/source/org/jivesoftware/smack/Connection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="854" column="0" selection-start="34149" selection-end="34149" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../smack/source/org/jivesoftware/smack/PacketReader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="423" column="0" selection-start="19410" selection-end="19410" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../smack/source/org/jivesoftware/smack/Roster.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="664" column="0" selection-start="27512" selection-end="27512" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../smack/source/org/jivesoftware/smack/packet/Packet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="84" column="19" selection-start="2858" selection-end="2858" vertical-scroll-proportion="0.33150685" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../smack/source/org/jivesoftware/smack/packet/Presence.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="58" column="13" selection-start="2610" selection-end="2610" vertical-scroll-proportion="0.33150685">
+        <state line="89" column="49" selection-start="3512" selection-end="3519" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../Spark/src/java/org/jivesoftware/spark/ui/ContactGroup.java">
+    <entry file="file://$PROJECT_DIR$/build.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="74" column="18" selection-start="2786" selection-end="2786" vertical-scroll-proportion="15.88" />
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.7.0_17/src.zip!/java/awt/Component.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3353" column="16" selection-start="116462" selection-end="116462" vertical-scroll-proportion="0.33150685">
+        <state line="152" column="21" selection-start="6590" selection-end="6590" vertical-scroll-proportion="0.37529138">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../Spark/src/java/org/jivesoftware/spark/ui/ContactList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1479" column="20" selection-start="56886" selection-end="56886" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/baosight/spark/plugin/ContactGGroupListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="89" column="9" selection-start="3656" selection-end="3656" vertical-scroll-proportion="0.6415094">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/baosight/spark/plugin/ContactGListListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="6" selection-start="45" selection-end="45" vertical-scroll-proportion="-1.3913044">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/baosight/spark/plugin/ContactGInfoWindow.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="352" column="19" selection-start="12824" selection-end="12824" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="docComment;class#ContactGInfoWindow#0" expanded="false" />
-            <element signature="method#ContactGInfoWindow#0;class#ContactGInfoWindow#0" expanded="false" />
-            <element signature="method#ContactGInfoWindow#1;class#ContactGInfoWindow#0" expanded="false" />
-            <element signature="class#4552:5261" expanded="false" />
-            <element signature="method#contactGItemAdded#0;class#4552:5261" expanded="false" />
-            <element signature="method#contactGItemRemoved#0;class#4552:5261" expanded="false" />
-            <element signature="method#contactGGroupAdded#0;class#4552:5261" expanded="false" />
-            <element signature="method#contactGGroupRemoved#0;class#4552:5261" expanded="false" />
-            <element signature="method#contactGItemClicked#0;class#4552:5261" expanded="false" />
-            <element signature="method#contactGItemDoubleClicked#0;class#4552:5261" expanded="false" />
-            <element signature="method#display#0;class#ContactGInfoWindow#0" expanded="false" />
-            <element signature="e#5474#5539#0" expanded="false" />
-            <element signature="method#setWindowLocation#0;class#ContactGInfoWindow#0" expanded="false" />
-            <element signature="method#setcontactGItem#0;class#ContactGInfoWindow#0" expanded="false" />
-            <element signature="method#getcontactGItem#0;class#ContactGInfoWindow#0" expanded="false" />
-            <element signature="method#dispose#0;class#ContactGInfoWindow#0" expanded="false" />
-            <element signature="method#getPreferredSize#0;class#ContactGInfoWindow#0" expanded="false" />
-            <element signature="method#mouseExited#0;class#ContactGInfoWindow#0" expanded="false" />
-            <element signature="method#hideWindow#0;class#ContactGInfoWindow#0" expanded="false" />
-            <element signature="method#getWindow#0;class#ContactGInfoWindow#0" expanded="false" />
-            <element signature="method#getLock#0;class#ContactGInfoWindow#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/baosight/spark/plugin/ContactGItem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="381" column="20" selection-start="11804" selection-end="11804" vertical-scroll-proportion="0.04112554">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../Spark/src/java/org/jivesoftware/spark/component/panes/CollapsiblePane.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="129" column="17" selection-start="3537" selection-end="3537" vertical-scroll-proportion="0.33333334">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/baosight/spark/plugin/ContactGList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="806" column="34" selection-start="33509" selection-end="33509" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="docComment;class#ContactGList#0" expanded="false" />
-            <element signature="e#2350#2377#0" expanded="false" />
-            <element signature="e#2755#2796#0" expanded="false" />
-            <element signature="docComment;method#ContactGList#0;class#ContactGList#0" expanded="false" />
-            <element signature="method#ContactGList#0;class#ContactGList#0" expanded="false" />
-            <element signature="e#3010#3059#0" expanded="false" />
-            <element signature="e#4035#4076#0" expanded="false" />
-            <element signature="e#5105#5143#0" expanded="false" />
-            <element signature="method#addContactGItemListToGroup#0;class#ContactGList#0" expanded="false" />
-            <element signature="method#addContactGItemToGroup#0;class#ContactGList#0" expanded="false" />
-            <element signature="method#addContactGGroupToGroup#0;class#ContactGList#0" expanded="false" />
-            <element signature="method#addContactGGroupFromList#0;class#ContactGList#0" expanded="false" />
-            <element signature="e#7259#7311#0" expanded="false" />
-            <element signature="e#8620#8679#0" expanded="false" />
-            <element signature="e#9279#9326#0" expanded="false" />
-            <element signature="docComment;method#addContactGGroup#0;class#ContactGList#0" expanded="false" />
-            <element signature="method#addContactGGroup#0;class#ContactGList#0" expanded="false" />
-            <element signature="e#11498#11530#0" expanded="false" />
-            <element signature="e#11986#12000#0" expanded="false" />
-            <element signature="docComment;method#getContactGGroup#0;class#ContactGList#0" expanded="false" />
-            <element signature="method#getContactGGroup#0;class#ContactGList#0" expanded="false" />
-            <element signature="docComment;method#getSubContactGGroup#0;class#ContactGList#0" expanded="false" />
-            <element signature="method#getSubContactGGroup#0;class#ContactGList#0" expanded="false" />
-            <element signature="docComment;field#GROUP_COMPARATOR#0;class#ContactGList#0" expanded="false" />
-            <element signature="method#actionPerformed#0;class#ContactGList#0" expanded="false" />
-            <element signature="e#15349#15386#0" expanded="false" />
-            <element signature="method#connectionClosed#0;class#ContactGList#0" expanded="false" />
-            <element signature="method#connectionClosedOnError#0;class#ContactGList#0" expanded="false" />
-            <element signature="method#reconnectingIn#0;class#ContactGList#0" expanded="false" />
-            <element signature="method#reconnectionSuccessful#0;class#ContactGList#0" expanded="false" />
-            <element signature="method#reconnectionFailed#0;class#ContactGList#0" expanded="false" />
-            <element signature="e#17659#17689#0" expanded="false" />
-            <element signature="method#getGUI#0;class#ContactGList#0" expanded="false" />
-            <element signature="e#19161#19212#0" expanded="false" />
-            <element signature="docComment;method#showPopup#0;class#ContactGList#0" expanded="false" />
-            <element signature="method#showPopup#0;class#ContactGList#0" expanded="false" />
-            <element signature="e#20441#20490#0" expanded="false" />
-            <element signature="method#showPopup#1;class#ContactGList#0" expanded="false" />
-            <element signature="method#sendMessages#0;class#ContactGList#0" expanded="false" />
-            <element signature="method#fireContextMenuListenerPopup#0;class#ContactGList#0" expanded="false" />
-            <element signature="method#showPopup#2;class#ContactGList#0" expanded="false" />
-            <element signature="e#29272#29300#0" expanded="false" />
-            <element signature="e#30389#30440#0" expanded="false" />
-            <element signature="e#33270#33562#0" expanded="true" />
-            <element signature="e#33551#33552#0" expanded="true" />
-            <element signature="e#33988#34049#0" expanded="false" />
-            <element signature="docComment;method#addContactGListToWorkspace#0;class#ContactGList#0" expanded="false" />
-            <element signature="method#addContactGListToWorkspace#0;class#ContactGList#0" expanded="false" />
-            <element signature="method#loadContactList#0;class#ContactGList#0" expanded="false" />
-            <element signature="e#36166#36176#0" expanded="false" />
-            <element signature="docComment;method#buildContactList#0;class#ContactGList#0" expanded="false" />
-            <element signature="method#buildContactList#0;class#ContactGList#0" expanded="false" />
-            <element signature="e#37389#37413#0" expanded="false" />
-            <element signature="docComment;method#updateUserPresence#0;class#ContactGList#0" expanded="false" />
-            <element signature="method#updateUserPresence#0;class#ContactGList#0" expanded="false" />
-            <element signature="e#42182#42237#0" expanded="false" />
-            <element signature="docComment;method#updateContactItemsPresence#0;class#ContactGList#0" expanded="false" />
-            <element signature="method#updateContactItemsPresence#0;class#ContactGList#0" expanded="false" />
-            <element signature="method#getGroupListFromJson#0;class#ContactGList#0" expanded="false" />
-            <element signature="e#43263#43277#0" expanded="false" />
-            <element signature="e#43475#43485#0" expanded="false" />
-            <element signature="class#44695:44744" expanded="false" />
-            <element signature="method#getContactsListFromJson#0;class#ContactGList#0" expanded="false" />
-            <element signature="e#45419#45433#0" expanded="false" />
-            <element signature="e#45631#45641#0" expanded="false" />
-            <element signature="class#46174:46218" expanded="false" />
-            <element signature="method#shutdown#0;class#ContactGList#0" expanded="false" />
-            <element signature="method#canShutDown#0;class#ContactGList#0" expanded="false" />
-            <element signature="method#uninstall#0;class#ContactGList#0" expanded="false" />
-            <element signature="method#entriesAdded#0;class#ContactGList#0" expanded="false" />
-            <element signature="docComment;method#addUser#0;class#ContactGList#0" expanded="false" />
-            <element signature="method#addUser#0;class#ContactGList#0" expanded="false" />
-            <element signature="docComment;method#entriesUpdated#0;class#ContactGList#0" expanded="false" />
-            <element signature="method#entriesUpdated#0;class#ContactGList#0" expanded="false" />
-            <element signature="docComment;method#handleEntriesUpdated#0;class#ContactGList#0" expanded="false" />
-            <element signature="method#handleEntriesUpdated#0;class#ContactGList#0" expanded="false" />
-            <element signature="method#entriesDeleted#0;class#ContactGList#0" expanded="false" />
-            <element signature="method#presenceChanged#0;class#ContactGList#0" expanded="false" />
-            <element signature="e#49760#49779#0" expanded="false" />
-            <element signature="e#50369#50392#0" expanded="false" />
-            <element signature="method#getActiveGroup#0;class#ContactGList#0" expanded="false" />
-            <element signature="method#contactGItemDoubleClicked#0;class#ContactGList#0" expanded="false" />
-            <element signature="e#50908#50964#0" expanded="false" />
-            <element signature="method#contactGItemClicked#0;class#ContactGList#0" expanded="false" />
-            <element signature="method#clearSelectionList#0;class#ContactGList#0" expanded="false" />
-            <element signature="e#51688#51760#0" expanded="false" />
-            <element signature="method#getContactGGroups#0;class#ContactGList#0" expanded="false" />
-            <element signature="method#addFileDropListener#0;class#ContactGList#0" expanded="false" />
-            <element signature="method#removeFileDropListener#0;class#ContactGList#0" expanded="false" />
-            <element signature="method#fireFilesDropped#0;class#ContactGList#0" expanded="false" />
-            <element signature="method#contactGItemAdded#0;class#ContactGList#0" expanded="false" />
-            <element signature="method#contactGItemRemoved#0;class#ContactGList#0" expanded="false" />
-            <element signature="method#addContactGListListener#0;class#ContactGList#0" expanded="false" />
-            <element signature="method#removeContactGListListener#0;class#ContactGList#0" expanded="false" />
-            <element signature="method#fireContactGItemAdded#0;class#ContactGList#0" expanded="false" />
-            <element signature="method#fireContactGItemRemoved#0;class#ContactGList#0" expanded="false" />
-            <element signature="method#fireContactGGroupAdded#0;class#ContactGList#0" expanded="false" />
-            <element signature="method#fireContactGGroupRemoved#0;class#ContactGList#0" expanded="false" />
-            <element signature="method#fireContactGItemClicked#0;class#ContactGList#0" expanded="false" />
-            <element signature="method#fireContactGItemDoubleClicked#0;class#ContactGList#0" expanded="false" />
-            <element signature="method#getSelectedUsers#0;class#ContactGList#0" expanded="false" />
-            <element signature="class#ContactsGBean#0;class#ContactGList#0" expanded="false" />
-            <element signature="method#ContactsGBean#0;class#ContactsGBean#0;class#ContactGList#0" expanded="false" />
-            <element signature="method#ContactsGBean#1;class#ContactsGBean#0;class#ContactGList#0" expanded="false" />
-            <element signature="method#setAlias#0;class#ContactsGBean#0;class#ContactGList#0" expanded="false" />
-            <element signature="method#setNickname#0;class#ContactsGBean#0;class#ContactGList#0" expanded="false" />
-            <element signature="method#setFullyQualifiedJID#0;class#ContactsGBean#0;class#ContactGList#0" expanded="false" />
-            <element signature="method#setGroupName#0;class#ContactsGBean#0;class#ContactGList#0" expanded="false" />
-            <element signature="method#getAlias#0;class#ContactsGBean#0;class#ContactGList#0" expanded="false" />
-            <element signature="method#getNickname#0;class#ContactsGBean#0;class#ContactGList#0" expanded="false" />
-            <element signature="method#getFullyQualifiedJID#0;class#ContactsGBean#0;class#ContactGList#0" expanded="false" />
-            <element signature="method#getGroupName#0;class#ContactsGBean#0;class#ContactGList#0" expanded="false" />
-            <element signature="method#toContactGItem#0;class#ContactsGBean#0;class#ContactGList#0" expanded="false" />
-            <element signature="class#ContactsGGroupBean#0;class#ContactGList#0" expanded="false" />
-            <element signature="method#ContactsGGroupBean#0;class#ContactsGGroupBean#0;class#ContactGList#0" expanded="false" />
-            <element signature="method#getGroupName#0;class#ContactsGGroupBean#0;class#ContactGList#0" expanded="false" />
-            <element signature="method#getParentGroup#0;class#ContactsGGroupBean#0;class#ContactGList#0" expanded="false" />
-            <element signature="method#setGroupName#0;class#ContactsGGroupBean#0;class#ContactGList#0" expanded="false" />
-            <element signature="method#setParentGroup#0;class#ContactsGGroupBean#0;class#ContactGList#0" expanded="false" />
-            <element signature="method#toContactGGroup#0;class#ContactsGGroupBean#0;class#ContactGList#0" expanded="false" />
-            <element signature="method#toContactGGroup#1;class#ContactsGGroupBean#0;class#ContactGList#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/baosight/spark/plugin/ContactGGroup.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="93" column="28" selection-start="3017" selection-end="3017" vertical-scroll-proportion="0.623348">
-          <folding>
-            <element signature="e#13375#13389#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1156,7 +813,7 @@
       </state>
       <state key="JdkListConfigurable.UI">
         <settings>
-          <last-edited>jdk1.6.0_43</last-edited>
+          <last-edited>1.7</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -1168,7 +825,7 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>ContactG</last-edited>
+          <last-edited>contactg</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -1193,7 +850,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>lib</last-edited>
+          <last-edited>lib2</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

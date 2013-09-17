@@ -8,11 +8,11 @@
     <property name="spark.target" value="${basedir}/../../../target"/>
     <property name="spark.build" value="${basedir}/../../../target/build"/>
 
-    <property name="classes.dir" value="${spark.target}/plugins-dev/orgcontacts/classes"/>
+    <property name="classes.dir" value="${spark.target}/plugins-dev/ContactG/classes"/>
     <property name="src.dir" value="${plug.dir}/src/java"/>
     <property name="resources.dir" location="${plug.dir}/src/resources"/>
 
-    <property name="target.dir" value="${spark.target}/plugins/orgcontacts"/>
+    <property name="target.dir" value="${spark.target}/plugins/ContactG"/>
     <property name="target.lib.dir" value="${target.dir}/lib"/>
     <property name="jar.file" value="${target.dir}/lib/plugin-classes.jar"/>
 
@@ -60,10 +60,10 @@
 
         <jar basedir="${classes.dir}" file="${jar.file}" update="false"/>
 
-        <zip zipfile="${spark.build}/plugins/orgcontacts.jar" basedir="${target.dir}"/>
+        <zip zipfile="${spark.build}/plugins/ContactG.jar" basedir="${target.dir}"/>
 
         <copy todir="${spark.home}/src/commercial">
-            <fileset file="${spark.build}/plugins/orgcontacts.jar"/>
+            <fileset file="${spark.build}/plugins/ContactG.jar"/>
         </copy>
     </target>
 
@@ -87,7 +87,7 @@
         <echo message="${pluginsstuff}"/>
 
         <copy todir="${pluginsstuff}">
-            <fileset file="${spark.build}/plugins/orgcontacts.jar"/>
+            <fileset file="${spark.build}/plugins/ContactG.jar"/>
         </copy>
 
     </target>
